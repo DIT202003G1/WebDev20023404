@@ -1,0 +1,33 @@
+/* Design by Xuanao Zhao 20023404. MIT License Applied */
+
+.layoutCenter.container{
+	position: relative;
+	height: 95vh;
+}
+.layoutCenter.center{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.layoutFlex.container{
+	display:flex;
+}
+.layoutFlex.container.horizontal{
+	flex-direction: row
+}
+.layoutFlex.container.vertical{
+	flex-direction: column;
+}
+.layoutFlex.container.horizontal-reversed{
+	flex-direction: row-reverse;
+}
+.layoutFlex.container.vertical-reversed{
+	flex-direction: column-reverse;
+}
+.layoutFlex.container.wrap{
+	flex-wrap: wrap;
+}
+.layoutFlex.container.wrap_reverse{
+	flex-wrap: wrap-reverse;
+}

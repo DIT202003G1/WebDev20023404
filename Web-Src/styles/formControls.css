@@ -1,0 +1,85 @@
+/* Design by Xuanao Zhao 20023404. MIT License Applied */
+
+.inputGroup{
+	display:block;
+	margin-bottom: 10px;
+}
+
+.doubleInputGroup.inputGroup.first{
+	width: 49%;
+	padding-right: 10px;
+	display:inline-block;
+}
+.doubleInputGroup.inputGroup.second{
+	width: 50%;
+	display:inline-block;
+}
+
+/* input box */
+.inputGroup>.inputComponent.content{
+	margin:0px;
+	padding:0px;
+	background: var(--primary_dark);
+	height: 40px;
+	display:flex;
+	flex-direction: row
+}
+
+.inputGroup>.inputComponent.content>.label{
+	width: 40px;
+}
+.inputGroup>.inputComponent.content>.input{
+	width: auto;
+	flex: 1;
+}
+.inputGroup>.inputComponent.content>.input>input[type="text"], .inputGroup>.inputComponent.content>.input>input[type="password"]{
+	width: 100%;
+	height: 40px;
+	border-radius: 0px;
+	border: 0px;
+	background: var(--secondary_light);
+	padding-left:10px;
+}
+.inputGroup>.inputComponent.content>.input>input[type="text"]::placeholder, .inputGroup>.inputComponent.content>.input>input[type="password"]::placeholder{
+	color: var(--secondary);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.inputGroup>.inputComponent.content>.label>i{
+	height: 40px;
+	width: 100%;
+	margin: 8px;
+	color: white;
+	font-size: 24px;
+}
+
+/* button */
+.inputGroup>input[type="submit"], .inputGroup>input[type="button"], button{
+	height: 40px;
+}
+.inputGroup>input[type="submit"].light, .inputGroup>input[type="button"].light, button.light{
+	border: 2px solid var(--primary);
+	background: white;
+	padding: 0px 20px;
+	color: var(--primary_dark);
+}
+.inputGroup>input[type="submit"].light:hover, .inputGroup>input[type="button"].light:hover, button.light:hover{
+	border: 2px solid var(--primary_dark);
+	background: var(--primary_dark);
+	color: white;
+}
+.inputGroup>input[type="submit"].dark, .inputGroup>input[type="button"].dark, button.dark{
+	border: 2px solid white;
+	background: var(--primary);
+	padding: 0px 20px;
+	color: white;
+}
+.inputGroup>input[type="submit"].dark:hover, .inputGroup>input[type="button"].dark:hover, button.dark:hover{
+	background: white;
+	border: 2px solid white;
+	color: var(--primary);
+}

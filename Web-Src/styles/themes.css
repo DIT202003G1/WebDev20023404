@@ -1,0 +1,16 @@
+/* Design by Xuanao Zhao 20023404. MIT License Applied */
+
+:root{
+	--primary: #9966FF;
+	--primary_dark: #9933FF;
+	--primary_light: #CCCCFF;
+	--secondary: #BFBFBF;
+	--secondary_light: #F2F2F2;
+	--secondary_dark: #7F7F7F;
+	--front_error: #D24242;
+	--front_success: #548235;
+}
+
+*{
+	font-family: ubuntu, roboto, sans-serif;
+}
