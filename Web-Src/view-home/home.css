@@ -1,0 +1,124 @@
+.mostout{
+	height: 100vh;
+}
+.primaryPane{
+	background: url(/assets/backgrounds/college.jpg);
+	background-position: 80% 0%;
+	background-size: cover;
+	width: 500px;
+}
+.primaryDivision{
+	background: var(--primary);
+	width: 20px;
+	height: 100vh;
+}
+.primaryGradient{
+	height: 100vh;
+	background: rgb(153,102,255);
+	background: linear-gradient(0deg, rgba(153,102,255,1) 0%, rgba(153,102,255,1) 35%, rgba(204,204,255,0) 100%);
+}
+.secondaryPane{
+	background-color: var(--secondary_light);
+	flex:1;
+	overflow-y: auto;
+}
+
+.buttonBox.primary{
+	margin-left: 60px;
+	margin-bottom: 30px;
+}
+.button{
+	margin-right:10px;
+}
+
+.secondary.logo{
+	margin: 50px 0px 30px 50px;
+}
+
+
+/* feature box */
+.featureBox{
+	margin: 0px 100px;
+	word-wrap: break-word;
+}
+.featureBox>.featureGrid{
+	margin-bottom: 30px;
+}
+.featureBox>.featureGrid>.featureIcon{
+	width: 240px;
+}
+.featureBox>.featureGrid>.featureIcon>img{
+	width: 200px;
+	margin: 20px;
+}
+.featureBox>.featureGrid>.featureDescription{
+	width: 360px;
+	padding-left: 40px;
+}
+.featureBox>.featureGrid>.featureDescription.reversed{
+	width: 360px;
+	padding-right: 40px;
+}
+
+/* typography feature box*/
+.featureBox>.featureGrid>.featureDescription>h2{
+	font-size: 26px;
+	font-weight: normal;
+	margin-top: 20px;
+}
+.featureBox>.featureGrid>.featureDescription.reversed>h2{
+	font-size: 26px;
+	font-weight: normal;
+	margin-top: 20px;
+	text-align: right;
+}
+.featureBox>.featureGrid>.featureDescription.reversed>p{
+	text-align: right;
+}
+.featureBox>.featureGrid>.featureDescription>h2.blue{
+	color: var(--dark_blue);
+}
+.featureBox>.featureGrid>.featureDescription>h2.green{
+	color: var(--front_success);
+}
+.featureBox>.featureGrid>.featureDescription>h2.orange{
+	color: var(--dark_orange);
+}
+
+/* typography primary */
+.header.primary{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 60px;
+	margin-bottom: 30px;
+}
+
+.paragraph.primary{
+	color: white;
+	font-size: 18px;
+	margin-left: 60px;
+	margin-bottom: 30px;
+}
+
+/* typography secondary */
+.secondary.subtitle{
+	color: var(--primary);
+	font-weight: 200;
+	margin: 0px 0px 50px 50px;
+	font-size: 30px;
+}
+
+/* typography footer */
+.footer{
+	background: white;
+	margin-bottom: 20px;
+	padding: 5px 5px 5px 45px;
+}
+.footer>p, .footer>a, .footer{
+	font-weight: 200;
+	color: var(--secondary_dark);
+}
+.footer>a{
+	text-decoration: underline;
+}
