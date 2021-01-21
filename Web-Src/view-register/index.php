@@ -2,15 +2,12 @@
 
 <!-- Design by Xuanao Zhao 20023404. MIT License Applied -->
 
+<?php require "/opt/lampp/htdocs/php-includes/common-includes.inc.php" ?>
+
 <html>
 	<head>
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css" rel="stylesheet" />
+		<?php echo "$includes_head"; ?>
 		<link rel="stylesheet" type="text/css" href="/view-register/register.css">
-		<link rel="stylesheet" type="text/css" href="/styles/layouts.css">
-		<link rel="stylesheet" type="text/css" href="/styles/themes.css">
-		<link rel="stylesheet" type="text/css" href="/styles/formControls.css">
-		<link rel="stylesheet" type="text/css" href="/styles/utils.css">
 		<script type="text/javascript" src="/view-register/register.js"></script>
 		<title>Sign Up - ACMS Pro</title>
 	</head>
@@ -126,6 +123,6 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"></script>
+		<?php echo "$includes_foots"; ?>
 	</body>
 </html>
