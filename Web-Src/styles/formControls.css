@@ -67,6 +67,9 @@
 	padding: 0px 20px;
 	color: var(--primary_dark);
 }
+.inputGroup>input[type="submit"].light.noframe, .inputGroup>input[type="button"].light.noframe, button.light.noframe{
+	border: 1px solid rgba(0,0,0,0);
+}
 .inputGroup>input[type="submit"].light:hover, .inputGroup>input[type="button"].light:hover, button.light:hover{
 	border: 2px solid var(--primary_dark);
 	background: var(--primary_dark);
@@ -77,6 +80,9 @@
 	background: var(--primary);
 	padding: 0px 20px;
 	color: white;
+}
+.inputGroup>input[type="submit"].dark.noframe, .inputGroup>input[type="button"].dark.noframe, button.dark.noframe{
+	border: 1px solid rgba(0,0,0,0);
 }
 .inputGroup>input[type="submit"].dark:hover, .inputGroup>input[type="button"].dark:hover, button.dark:hover{
 	background: white;
