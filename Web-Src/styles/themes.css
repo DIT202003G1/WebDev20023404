@@ -9,6 +9,10 @@
 	--secondary_dark: #7F7F7F;
 	--front_error: #D24242;
 	--front_success: #548235;
+	--light_green: #A2CD85;
+	--light_orange: #F4B183;
+	--light_gray: #D9D9D9;
+	--dark_orange: #C55A11;
 }
 
 *{
