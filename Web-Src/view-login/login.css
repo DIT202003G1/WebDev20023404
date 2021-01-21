@@ -2,7 +2,7 @@
 
 body{
 	/*background-color: var(--secondary_light);*/
-	background: url(/assets/backgrounds/japan.jfif);
+	background: url(/assets/backgrounds/college.jpg);
 	background-size: cover;
 }
 .lightBox{
