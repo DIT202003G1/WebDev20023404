@@ -1,0 +1,5 @@
+"W3School" (2021) CSS word-wrap Property
+
+"Smashing Magazine" (AUG,2013) Absolute Horizontal And Vertical Centering In CSS
+
+Rajilesh Panoli@"Stack Overflow" (JAN,2019) Disable text selection highlighting
