@@ -12,9 +12,9 @@
 		<title>Sign In - ACMS Pro</title>
 	</head>
 	<body>
-		<div class="layoutCenter container">
+		<div class="layoutCenter container box">
 			<div class="layoutCenter center lightBox">
-				<div class="layoutFlex container horizontal lightBoxContent">
+				<div class="layoutFlex container box horizontal lightBoxContent">
 					<div class="primaryOption">
 						<div class="titleFrame primary">
 							<h1 class="formTitle primary">Sign in to your ACMS account</h1>

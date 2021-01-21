@@ -1,6 +1,6 @@
 /* Design by Xuanao Zhao 20023404. MIT License Applied */
 
-.layoutCenter.container{
+.layoutCenter.box{
 	position: relative;
 	height: 95vh;
 }
@@ -10,24 +10,24 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-.layoutFlex.container{
+.layoutFlex.box{
 	display:flex;
 }
-.layoutFlex.container.horizontal{
+.layoutFlex.box.horizontal{
 	flex-direction: row
 }
-.layoutFlex.container.vertical{
+.layoutFlex.box.vertical{
 	flex-direction: column;
 }
-.layoutFlex.container.horizontal-reversed{
+.layoutFlex.box.horizontal-reversed{
 	flex-direction: row-reverse;
 }
-.layoutFlex.container.vertical-reversed{
+.layoutFlex.box.vertical-reversed{
 	flex-direction: column-reverse;
 }
-.layoutFlex.container.wrap{
+.layoutFlex.box.wrap{
 	flex-wrap: wrap;
 }
-.layoutFlex.container.wrap_reverse{
+.layoutFlex.box.wrap_reverse{
 	flex-wrap: wrap-reverse;
 }
