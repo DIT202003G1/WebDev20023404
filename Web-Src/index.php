@@ -35,26 +35,26 @@
 			<div class="primaryDivision"></div>
 			<div class="secondaryPane">
 				<div class="logoBox">
-					<img class="secondary logo" src="http://localhost/assets/logo_large.svg" alt="logo"/>
+					<img class="secondary logo" src="/assets/logo_large.svg" alt="logo"/>
 					<h1 class="secondary subtitle">World's leading Aluumni Contacts' Management System</h1>
 				</div>
 				<div class="featureBox">
 					<div class="layoutFlex box horizontal featureGrid">
-						<div class="featureIcon"><img src="http://localhost/assets/feature_logos/friendly.svg" alt="User Friendly Icon"/></div>
+						<div class="featureIcon"><img src="/assets/feature_logos/friendly.svg" alt="User Friendly Icon"/></div>
 						<div class="featureDescription">
 							<h2 class="blue">Easy to Use</h2>
 							<p>With the specially designed user interface, You will be able to find any information with ease.</p>
 						</div>
 					</div>
 					<div class="layoutFlex box horizontal-reversed featureGrid">
-						<div class="featureIcon"><img src="http://localhost/assets/feature_logos/powerful.svg" alt="User Friendly Icon"/></div>
+						<div class="featureIcon"><img src="/assets/feature_logos/powerful.svg" alt="User Friendly Icon"/></div>
 						<div class="featureDescription reversed">
 							<h2 class="orange">Powerful</h2>
 							<p>Stores your information with a few steps allows other people to find you with a few clicks.</p>
 						</div>
 					</div>
 					<div class="layoutFlex box horizontal featureGrid">
-						<div class="featureIcon"><img src="http://localhost/assets/feature_logos/privacy.svg" alt="User Friendly Icon"/></div>
+						<div class="featureIcon"><img src="/assets/feature_logos/privacy.svg" alt="User Friendly Icon"/></div>
 						<div class="featureDescription">
 							<h2 class="green">Privacy</h2>
 							<p>Choose what to show off to the world, what to hide from other's eyes.<br/>You can change your decision anytime, anywhere.</p>
