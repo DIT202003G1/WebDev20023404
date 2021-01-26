@@ -15,7 +15,7 @@
 		<div class="layoutFlex box horizontal mostout">
 			<div class="primaryPane">
 				<div class="primaryGradient layoutFlex box vertical-reversed">
-					<div>
+					<div class="loggedOut">
 						<h1 class="header primary">
 							New to ACMS pro?
 						</h1>
@@ -29,6 +29,14 @@
 							<button class="button dark">Sign Up</button>
 							<button class="button dark noframe">Sign In</button>
 						</div>
+					</div>
+					<div class="loggedIn">
+						<h1 class="header primary">
+							You have Already Logged in
+						</h1>
+						<p class="paragraph primary">
+							<a href="application">Click here</a> to enter the application page. 
+						</p>
 					</div>
 				</div>
 			</div>
