@@ -35,7 +35,9 @@
 							You have Already Logged in
 						</h1>
 						<p class="paragraph primary">
-							<a href="application">Click here</a> to enter the application page. 
+							Logged in as {account.username}.<br>
+							<a href="application">Click here</a> to enter the application page.<br>
+							Not your account? <a href="logout.php">Logout</a>
 						</p>
 					</div>
 				</div>
