@@ -5,6 +5,12 @@ body{
 	background: url(/assets/backgrounds/college.jpg);
 	background-size: cover;
 }
+.errmsg{
+	margin-bottom: 20px;
+	background: var(--front_error);
+	color:white;
+	padding: 10px 15px;
+}
 .lightBox{
 	background: white;
 	padding: 20px;

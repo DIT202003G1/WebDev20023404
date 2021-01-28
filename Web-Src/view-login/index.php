@@ -3,6 +3,7 @@
 <!-- Design by Xuanao Zhao 20023404. MIT License Applied -->
 
 <?php require "/opt/lampp/htdocs/php-includes/common-includes.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/message.inc.php" ?>
 
 <html>
 	<head>
@@ -19,10 +20,11 @@
 						<div class="titleFrame primary">
 							<h1 class="formTitle primary">Sign in to your ACMS account</h1>
 						</div>
+						<div class="errmsg" style="display:<?= isset($_GET["ecode"]) ? "" : "none"  ?>;"><?= ($_GET["ecode"] == "-1") ? ($msg_field_empty) : ($msg_login_velidation[$_GET["efield"]][$_GET["ecode"]]) ?><?= ($_GET["etype"] == "server") ? (". ".$msg_server_admin) : ""?></div>
 						<div>
 							<form action="/php-includes/login.inc.php" method="post">
 								<div class="inputGroup">
-									<div class="inputComponent content">
+									<div class="inputComponent content <?= $_GET["efield"]=="id" ? "error" : "" ?>">
 										<div class="label">
 											<i class="fas fa-user-alt fa-2x"></i>
 										</div>
@@ -32,7 +34,7 @@
 									</div>
 								</div>
 								<div class="inputGroup">
-									<div class="inputComponent content">
+									<div class="inputComponent content <?= $_GET["efield"]=="password" ? "error" : "" ?>">
 										<div class="label">
 											<i class="fas fa-key fa-2x"></i>
 										</div>

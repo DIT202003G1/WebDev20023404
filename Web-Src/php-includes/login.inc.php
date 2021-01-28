@@ -11,7 +11,10 @@ if (!isset($_POST["submit"])){
 
 echo $redurect_template;
 
+$hasError = false;
 function sendError($ecode,$etype,$efield){
+	global $hasError;
+	$hasError = true;
 	header("Location: /view-login?ecode=$ecode&etype=$etype&efield=$efield");
 }
 
@@ -80,4 +83,6 @@ if ($test_id == -1){
 	sendError(1,"client","password");
 }
 
-header("Location: /application/");
+if (!$hasError){
+	header("Location: /application/");
+}

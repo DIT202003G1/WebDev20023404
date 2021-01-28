@@ -17,7 +17,7 @@ $msg_login_velidation = [
 		"SUCCESS",
 		"Database STMT Error"
 	]
-]
+];
 
 $msg_register_velidation = [
 	"id" => [
