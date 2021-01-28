@@ -87,5 +87,5 @@ if (!$hasError){
 	session_start();
 	$_SESSION["userid"] = trim($_POST["id"]);
 	print_r ($_SESSION);
-	// header("Location: /application/");
+	header("Location: /application/");
 }
