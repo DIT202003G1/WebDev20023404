@@ -26,8 +26,8 @@
 							Register with in a minute
 						</p>
 						<div class="layoutFlex box horizontal buttonBox primary">
-							<button class="button dark">Sign Up</button>
-							<button class="button dark noframe">Sign In</button>
+							<button class="button dark" onclick="gotoRegister()">Sign Up</button>
+							<button class="button dark noframe" onclick="gotoLogin()">Sign In</button>
 						</div>
 					</div>
 					<div class="loggedIn">

@@ -118,7 +118,7 @@
 						<p class="textContent secondary">
 							Sign in with your id and password now!
 						</p>
-						<button class="dark button secondary noselect" onclick="gotoRegister()">Sign In</button>
+						<button class="dark button secondary noselect" onclick="gotoLogin()">Sign In</button>
 					</div>
 				</div>
 			</div>
