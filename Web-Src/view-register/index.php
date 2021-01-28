@@ -20,14 +20,14 @@
 							<h1 class="formTitle primary">Sign Up</h1>
 						</div>
 						<div>
-							<form>
+							<form action="/php-includes/register.inc.php" method="post">
 								<div class="inputGroup">
 									<div class="inputComponent content">
 										<div class="label">
 											<i class="fas fa-user-alt fa-2x"></i>
 										</div>
 										<div class="input">
-											<input type="text" placeholder="Student ID" />
+											<input type="text" name="id" placeholder="Student ID" />
 										</div>
 									</div>
 								</div>
@@ -38,7 +38,7 @@
 												<i class="fas fa-bars fa-2x"></i>
 											</div>
 											<div class="input">
-												<input type="text" placeholder="First Name" />
+												<input type="text" name="fname" placeholder="First Name" />
 											</div>
 										</div>
 									</div>
@@ -48,7 +48,7 @@
 												<i class="fas fa-bars fa-2x"></i>
 											</div>
 											<div class="input">
-												<input type="text" placeholder="Last Name" />
+												<input type="text" name="lname" placeholder="Last Name" />
 											</div>
 										</div>
 									</div>
@@ -59,7 +59,7 @@
 											<i class="fas fa-bars fa-2x"></i>
 										</div>
 										<div class="input">
-											<input type="text" placeholder="Middle Name (optional)" />
+											<input type="text" name="mname" placeholder="Middle Name (optional)" />
 										</div>
 									</div>
 								</div>
@@ -70,7 +70,7 @@
 												<i class="fas fa-book-open fa-2x"></i>
 											</div>
 											<div class="input">
-												<input type="text" placeholder="Course ID" />
+												<input type="text" name="courseid" placeholder="Course ID" />
 											</div>
 										</div>
 									</div>
@@ -80,7 +80,7 @@
 												<i class="fas fa-calendar fa-2x"></i>
 											</div>
 											<div class="input">
-												<input type="text" placeholder="Intake" />
+												<input type="text" name="intake" placeholder="Intake" />
 											</div>
 										</div>
 									</div>
@@ -91,7 +91,7 @@
 											<i class="fas fa-key fa-2x"></i>
 										</div>
 										<div class="input">
-											<input type="password" placeholder="Password" />
+											<input type="password" name="password" placeholder="Password" />
 										</div>
 									</div>
 								</div>
@@ -101,12 +101,12 @@
 											<i class="fas fa-key fa-2x"></i>
 										</div>
 										<div class="input">
-											<input type="password" placeholder="Re-Enter Password" />
+											<input type="password" name="repassword" placeholder="Re-Enter Password" />
 										</div>
 									</div>
 								</div>
 								<div class="inputGroup">
-									<input type="submit" value="Sign In" class="light" />
+									<input type="submit" value="Sign In" name="submit" class="light" />
 								</div>
 							</form>
 						</div>
