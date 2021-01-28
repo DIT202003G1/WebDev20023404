@@ -24,7 +24,9 @@
 	display:flex;
 	flex-direction: row
 }
-
+.inputGroup>.inputComponent.content.error{
+	background: var(--front_error);
+}
 .inputGroup>.inputComponent.content>.label{
 	width: 40px;
 }
