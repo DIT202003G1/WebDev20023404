@@ -4,6 +4,21 @@
 $msg_server_admin = "Please report this to the website admin.";
 $msg_field_empty = "This field cannot be empty";
 
+$msg_login_velidation = [
+	"id"=>[
+		"SUCCESS",
+		"Unknown Student ID. Please enter again"
+	],
+	"password"=>[
+		"SUCCESS",
+		"Invalid Password"
+	],
+	"none"=>[
+		"SUCCESS",
+		"Database STMT Error"
+	]
+]
+
 $msg_register_velidation = [
 	"id" => [
 		"SUCCESS",

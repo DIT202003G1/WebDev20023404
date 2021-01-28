@@ -20,14 +20,14 @@
 							<h1 class="formTitle primary">Sign in to your ACMS account</h1>
 						</div>
 						<div>
-							<form action="/php-includes/login.inc.php">
+							<form action="/php-includes/login.inc.php" method="post">
 								<div class="inputGroup">
 									<div class="inputComponent content">
 										<div class="label">
 											<i class="fas fa-user-alt fa-2x"></i>
 										</div>
 										<div class="input">
-											<input type="text" placeholder="Student/Admin ID" />
+											<input type="text" placeholder="Student ID" name="id"/>
 										</div>
 									</div>
 								</div>
@@ -37,7 +37,7 @@
 											<i class="fas fa-key fa-2x"></i>
 										</div>
 										<div class="input">
-											<input type="password" placeholder="Password" />
+											<input type="password" placeholder="Password" name="password"/>
 										</div>
 									</div>
 								</div>

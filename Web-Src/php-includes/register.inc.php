@@ -161,13 +161,10 @@ function testRegistration($connection, $student_id){
 	$stmt = mysqli_stmt_init($connection);
 	$stmt2 = mysqli_stmt_init($connection);
 	if (!mysqli_stmt_prepare($stmt, $sql_test)){
-		mysqli_stmt_close($stmt);
-		mysqli_stmt_close($stmt2);
 		return 1;
 	}
 	if (!mysqli_stmt_prepare($stmt2, $sql_test2)){
 		mysqli_stmt_close($stmt);
-		mysqli_stmt_close($stmt2);
 		return 1;
 	}
 	mysqli_stmt_bind_param($stmt, "i", $student_id);

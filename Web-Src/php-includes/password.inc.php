@@ -19,3 +19,9 @@ function generateHashedPw($raw){
 	$hashed = hashPw($salt . $raw);
 	return [$salt, $hashed];
 }
+
+function testPassword($raw,$salt,$hashed){
+	$raw_hashed = hashPw($salt.$raw);
+	$result = $hashed == $raw_hashed;
+	return $result;
+}
