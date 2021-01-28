@@ -26,7 +26,7 @@
 								<p class=\"paragraph primary\">
 									Logged in as $uid.<br>
 									<a href=\"application\">Click here</a> to enter the application page.<br>
-									Not your account? <a href=\"logout.php\">Logout</a>
+									Not your account? <a href=\"\php-includes\logout.inc.php\">Logout</a>
 								</p>
 							</div>";
 						}else{
