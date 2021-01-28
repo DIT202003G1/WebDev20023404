@@ -20,7 +20,7 @@
 							<h1 class="formTitle primary">Sign in to your ACMS account</h1>
 						</div>
 						<div>
-							<form>
+							<form action="/php-includes/login.inc.php">
 								<div class="inputGroup">
 									<div class="inputComponent content">
 										<div class="label">

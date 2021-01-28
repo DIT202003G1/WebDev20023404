@@ -24,10 +24,13 @@
 require_once("database.inc.php");
 require_once("dbUtils.inc.php");
 require_once("password.inc.php");
+require_once("redirect-template.inc.php");
 
 if (!isset($_POST["submit"])){
 	header("Location: /view-register");
 }
+
+echo $redurect_template;
 
 function v_studentID($client,$id){
 	// -1: empty
@@ -276,3 +279,5 @@ $passwords = generateHashedPw($_POST["password"]);
 if (!$test_hasError){
 	registerIntoDb($sql_client,$_POST["id"],$_POST["fname"],$_POST["mname"],$_POST["lname"],$_POST["courseid"],$_POST["intake"],$passwords[1],$passwords[0]);
 }
+
+header("Location: /application/");
