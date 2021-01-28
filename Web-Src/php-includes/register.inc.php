@@ -238,38 +238,38 @@ $test_intake = v_intake($sql_client,$_POST["intake"]);
 $test_password = v_password($sql_client,$_POST["password"],$_POST["repassword"],$_POST["id"]);
 $test_reg = testRegistration($sql_client,$_POST["id"]);
 
-if($test_id !== 0){
-	error($test_id,"client","id");
-}
-if($test_fname !== 0){
-	error($test_fname,"client","fname");
-}
-if($test_lname !== 0){
-	error($test_lname,"client","lname");
-}
-if(($test_mname !== 0) && ($test_mname !== -1)){
-	error($test_mname,"client","mname");
-}
-if($test_course !== 0){
-	error($test_course,"client","course");
-}
-if($test_fname !== 0){
-	error($test_fname,"client","fname");
-}
-if($test_intake !== 0){
-	error($test_intake,"client","intake");
-}
-if(($test_password !== 0) && ($test_password !== 4)){
-	error($test_password,"client","password");
-}
-if($test_password === 4){
-	error($test_password,"client","repassword");
+if($test_reg === 1){
+	error($test_reg,"server","none");
 }
 if(($test_reg !== 0) && ($test_reg !== 1)){
 	error($test_reg,"client","none");
 }
-if($test_reg === 1){
-	error($test_reg,"server","none");
+if($test_password === 4){
+	error($test_password,"client","repassword");
+}
+if(($test_password !== 0) && ($test_password !== 4)){
+	error($test_password,"client","password");
+}
+if($test_intake !== 0){
+	error($test_intake,"client","intake");
+}
+if($test_fname !== 0){
+	error($test_fname,"client","fname");
+}
+if($test_course !== 0){
+	error($test_course,"client","course");
+}
+if(($test_mname !== 0) && ($test_mname !== -1)){
+	error($test_mname,"client","mname");
+}
+if($test_lname !== 0){
+	error($test_lname,"client","lname");
+}
+if($test_fname !== 0){
+	error($test_fname,"client","fname");
+}
+if($test_id !== 0){
+	error($test_id,"client","id");
 }
 
 $passwords = generateHashedPw($_POST["password"]);
