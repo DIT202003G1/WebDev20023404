@@ -44,7 +44,7 @@
 									</div>
 								</div>
 								<div class="inputGroup">
-									<input type="submit" value="Sign In" class="light" />
+									<input type="submit" value="Sign In" name="submit" class="light" />
 								</div>
 							</form>
 						</div>

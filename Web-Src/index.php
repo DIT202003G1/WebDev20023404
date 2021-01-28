@@ -15,31 +15,40 @@
 		<div class="layoutFlex box horizontal mostout">
 			<div class="primaryPane">
 				<div class="primaryGradient layoutFlex box vertical-reversed">
-					<div class="loggedOut">
-						<h1 class="header primary">
-							New to ACMS pro?
-						</h1>
-						<p class="paragraph primary">
-							Join now to stay in touch with <br/>
-							your friends!<br/>
-							<br/>
-							Register with in a minute
-						</p>
-						<div class="layoutFlex box horizontal buttonBox primary">
-							<button class="button dark" onclick="gotoRegister()">Sign Up</button>
-							<button class="button dark noframe" onclick="gotoLogin()">Sign In</button>
-						</div>
-					</div>
-					<div class="loggedIn">
-						<h1 class="header primary">
-							You have Already Logged in
-						</h1>
-						<p class="paragraph primary">
-							Logged in as {account.username}.<br>
-							<a href="application">Click here</a> to enter the application page.<br>
-							Not your account? <a href="logout.php">Logout</a>
-						</p>
-					</div>
+					<?php
+						if (isset($_SESSION["userid"])){
+							$uid = $_SESSION['userid'];
+							echo "
+							<div class=\"loggedIn\">
+								<h1 class=\"header primary\">
+									You have Already Logged in
+								</h1>
+								<p class=\"paragraph primary\">
+									Logged in as $uid.<br>
+									<a href=\"application\">Click here</a> to enter the application page.<br>
+									Not your account? <a href=\"logout.php\">Logout</a>
+								</p>
+							</div>";
+						}else{
+							echo"
+							<div class=\"loggedOut\">
+								<h1 class=\"header primary\">
+									New to ACMS pro?
+								</h1>
+								<p class=\"paragraph primary\">
+									Join now to stay in touch with <br/>
+									your friends!<br/>
+									<br/>
+									Register with in a minute
+								</p>
+								<div class=\"layoutFlex box horizontal buttonBox primary\">
+									<button class=\"button dark\" onclick=\"gotoRegister()\">Sign Up</button>
+									<button class=\"button dark noframe\" onclick=\"gotoLogin()\">Sign In</button>
+								</div>
+							</div>
+							";
+						}
+					?>
 				</div>
 			</div>
 			<div class="primaryDivision"></div>

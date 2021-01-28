@@ -6,7 +6,7 @@ require_once("password.inc.php");
 require_once("redirect-template.inc.php");
 
 if (!isset($_POST["submit"])){
-	header("Location: /view-register");
+	header("Location: /view-login");
 }
 
 echo $redurect_template;
@@ -86,5 +86,6 @@ if ($test_id == -1){
 if (!$hasError){
 	session_start();
 	$_SESSION["userid"] = trim($_POST["id"]);
-	header("Location: /application/");
+	print_r ($_SESSION);
+	// header("Location: /application/");
 }
