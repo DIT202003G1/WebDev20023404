@@ -34,7 +34,7 @@
 	width: auto;
 	flex: 1;
 }
-.inputGroup>.inputComponent.content>.input>input[type="text"], .inputGroup>.inputComponent.content>.input>input[type="password"]{
+.inputGroup>.inputComponent.content>.input>input[type="text"], .inputGroup>.inputComponent.content>.input>input[type="password"],.inputGroup>.inputComponent.content>.input>select{
 	width: 100%;
 	height: 40px;
 	border-radius: 0px;

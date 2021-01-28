@@ -4,6 +4,8 @@
 
 <?php require "/opt/lampp/htdocs/php-includes/common-includes.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/message.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/database.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/dbUtils.inc.php" ?>
 
 <html>
 	<head>
@@ -72,7 +74,16 @@
 												<i class="fas fa-book-open fa-2x"></i>
 											</div>
 											<div class="input">
-												<input type="text" name="courseid" placeholder="Course ID" />
+												<!-- <input type="text" name="courseid" placeholder="Course ID" /> -->
+												<select name="courseid" placeholder="Course ID">
+													<option value="">(Select..)</option>
+													<?php
+														$courses = getCourses($sql_client);
+														foreach ($courses as $i) {
+															echo "<option value=\"$i[0]\">$i[1]</option>";
+														}
+													?>
+												</select>
 											</div>
 										</div>
 									</div>

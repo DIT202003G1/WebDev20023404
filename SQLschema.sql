@@ -7,7 +7,7 @@ USE ACMSPro_Main;
 # no foreign KEY
 CREATE TABLE Course(
 	course_id varchar(16) NOT NULL PRIMARY KEY,
-	course_name varchar(64) NOT NULL	
+	course_name varchar(128) NOT NULL	
 );
 CREATE TABLE Countries(
 	country_id char(3) NOT NULL PRIMARY KEY,
@@ -337,3 +337,46 @@ insert into Countries(country_name,country_id) values
 ("Yemen","YEM"),
 ("Zambia","ZMB"),
 ("Zimbabwe","ZWE");
+
+insert into Course values
+("ACCA","ACCA Qualification"),
+("AFIA","ACCA Foundation in Accountancy"),
+("ALE","Cambridge GCE Advanced Level"),
+("ALE(HS)","Cambridge GCE Advanced Level Head Start"),
+("AUSMA","Australian Matriculation Programme"),
+("AUSMA(HS)","Australian Matriculation Programme Head Start"),
+("CAT","Certified Accounting Technician"),
+("CBS","Certificate in Business Studies"),
+("CFAB","Certificate in Finance, Accounting and Business"),
+("CIMP","Canadian International Matriculation Programme (CIMP)"),
+("CIMP(HS)","Canadian International Matriculation Programme (CIMP) Head Start"),
+("DACC","Diploma in Accounting"),
+("DBA","Diploma in Business Administration"),
+("DCOM","Diploma in Communication"),
+("DCSI","Diploma in Computer Science"),
+("DFIN","Diploma in Finance"),
+("DIIT","Diploma in Information Technology"),
+("DINM","Diploma in Interactive New Media"),
+("DPAC","Diploma in Professional Accounting"),
+("FCEO(CAT)","Future CEO Certified Accounting Technician"),
+("FCEO(CFAB)","Future CEO Certificate in Finance, Accounting and Business"),
+("FEP","Foundation English Programme "),
+("FIA","Foundation in Arts"),
+("FIA(HS)","Foundation in Arts Head Start"),
+("FIST","Foundation in Science and Technology"),
+("FIST(HS)","Foundation in Science and Technology Head Start"),
+("GIFPR","Global Issues for the Finance Professional"),
+("GL","German Language Preparatory Programm"),
+("ICAEW","Institute of Chartered Accountants in England and Wales (ICAEW)"),
+("MUFY","Monash University Foundation Year"),
+("MUFY(HS)","Monash University Foundation Year Head Start"),
+("SC-ACA","ACA USM"),
+("SFMGT","Strategic Financial Management"),
+("SFPRO","Strategic Financial Project"),
+("SPMGT","Strategic Performance Management"),
+("VUBU","Bachelor of Business 3+0 in Collaboration with Victoria University of Melbourne, Australi"),
+("VUENG","English for Business' Enrichment Programme"),
+("VUMB(ERPS)","Master of Business (Enterprise Resource Planning Systems) in Collaboration with Victoria "),
+("VUMBA","Master of Business Administration in Collaboration with Victoria University, Australia"),
+("VUSUMMER","Bachelor of Business - Summer School"),
+("WHK-ACCA","ACCA WORKSHOP");

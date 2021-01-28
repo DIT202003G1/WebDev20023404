@@ -75,11 +75,11 @@ function v_course($client,$course_id){
 	// 0 : success
 	// 1 : invalid code
 	$processed = strtoupper(trim($course_id));
-	$countries = getCourseIDs($client);
+	$courses = getCourseIDs($client);
 	if (empty($processed)){
 		return -1;
 	}
-	elseif (!in_array($processed,$countries)){
+	elseif (!in_array($processed,$courses)){
 		return 1;
 	}
 	else{
@@ -277,4 +277,4 @@ if (!$test_hasError){
 	registerIntoDb($sql_client,$_POST["id"],$_POST["fname"],$_POST["mname"],$_POST["lname"],$_POST["courseid"],$_POST["intake"],$passwords[1],$passwords[0]);
 }
 
-header("Location: /application/");
+// header("Location: /application/");
