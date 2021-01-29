@@ -17,9 +17,9 @@
 <html>
 	<head>
 		<?= $includes_head ?>
-		<link rel="stylesheet" type="text/css" href="/view-student-signin-card/student-signin-card.css">
-		<script type="text/javascript" src="/view-student-signin-card/student-signin-card.js"></script>
-		<title>Sign In - ACMS Pro</title>
+		<link rel="stylesheet" type="text/css" href="/view-multipurpose-card/multipurpose-card.css">
+		<script type="text/javascript" src="/view-multipurpose-card/multipurpose-card.js"></script>
+		<title><?= $cardObject["pageTitle"]?> - ACMS Pro</title>
 	</head>
 	<body>
 		<div class="layoutCenter box">

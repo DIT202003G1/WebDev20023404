@@ -102,13 +102,13 @@ $test_validPassword = ! testPassword($_POST["password"], $temp_usr[1]["salt"], $
 $test_state = getUserStatus($sql_client, $_POST["id"]);
 
 if($test_state === 1){
-	header("Location: /view-student-signin-card?code=waitforadmin");
+	header("Location: /view-multipurpose-card?code=waitforadmin");
 	exit();
 }elseif($test_state === 2){
-	header("Location: /view-student-signin-card?code=rejected");
+	header("Location: /view-multipurpose-card?code=rejected");
 	exit();
 }elseif($test_state === 3){
-	header("Location: /view-student-signin-card?code=blocked");
+	header("Location: /view-multipurpose-card?code=blocked");
 	exit();
 
 if ($test_id === -1){
