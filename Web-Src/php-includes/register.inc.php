@@ -278,4 +278,4 @@ if (!$test_hasError){
 	registerIntoDb($sql_client,$_POST["id"],$_POST["fname"],$_POST["mname"],$_POST["lname"],$_POST["courseid"],$_POST["intake"],$passwords[1],$passwords[0]);
 }
 
-header("Location: /application/");
+header("Location: /view-student-signin-card?code=successful");

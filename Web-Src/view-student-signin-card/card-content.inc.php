@@ -9,6 +9,14 @@ $template = [
 	]
 ];
 
+$not_found = [
+	"title" => "Lost in the maze of website.",
+	"content" => "Tap tap, click click, as the time slowly ticks... Welcome to no where.<br/><code>The page you have requested is unavailable</code>",
+	"buttons" => [
+		"Find Me the Way Back..." => "/"
+	]
+];
+
 $signed_up_successful = [
 	"title" => "Thankyou for signing up",
 	"content" => "Your registration request has been recorded. Please wait for an admin to approve your registration.",
@@ -40,4 +48,14 @@ $account_blocked = [
 	"buttons" => [
 		"Back to Home" => "/"
 	]
+];
+
+
+//Register to card content
+
+$card_contents = [
+	"successful"=>$signed_up_successful,
+	"waitforadmin"=>$wait_for_admin,
+	"rejected"=>$account_rejected,
+	"blocked"=>$account_blocked
 ];

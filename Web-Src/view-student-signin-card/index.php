@@ -6,7 +6,12 @@
 <?php require "card-content.inc.php" ?>
 
 <?php
-	$cardObject = $signed_up_successful;
+	$cardObject;
+	if (isset($_GET["code"]) && isset($card_contents[$_GET["code"]])){
+		$cardObject = $card_contents[$_GET["code"]];
+	}else{
+		$cardObject = $not_found;
+	}
 ?>
 
 <html>
