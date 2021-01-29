@@ -55,7 +55,7 @@
 			<div class="secondaryPane">
 				<div class="logoBox">
 					<img class="secondary logo" src="/assets/logo_large.svg" alt="logo"/>
-					<h1 class="secondary subtitle">World's leading Aluumni Contacts' Management System</h1>
+					<h1 class="secondary subtitle">World's leading Alumni Contacts' Management System</h1>
 				</div>
 				<div class="featureBox">
 					<div class="layoutFlex box horizontal featureGrid">
