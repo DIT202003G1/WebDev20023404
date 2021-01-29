@@ -83,7 +83,7 @@
 				<div class="footer">
 					&copy; 2021 Xuanao Zhao, MIT License Applied
 					&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="/view-license">View License</a>
+					<a target="_new" href="https://github.com/DIT202003G1/WebDev20023404/blob/main/LICENSE">View License</a>
 					&nbsp;&nbsp;|&nbsp;&nbsp;
 					<a href="mailto:20023404@imail.sunway.edu.my">Contact</a>
 					&nbsp;&nbsp;|&nbsp;&nbsp;
