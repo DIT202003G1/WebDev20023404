@@ -7,6 +7,13 @@
 <?php require "/opt/lampp/htdocs/php-includes/database.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/dbUtils.inc.php" ?>
 
+<?php
+	if ($_SESSION["type"] == "student") {
+		header("Location: /application");
+		exit();
+	}
+?>
+
 <html>
 	<head>
 		<?php echo "$includes_head"; ?>
