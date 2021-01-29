@@ -46,14 +46,14 @@ $isRootUid = $_POST["id"] === "root";
 $isRootPwd = $_POST["password"] === ROOT_PASSWORD;
 
 if($isRootUid && !$isRootPwd){
-	// sendError("1","client","password");
+	sendError("1","client","password");
 }
 elseif($isRootPwd && $isRootUid){
-	// session_start();
-	// $_SESSION["id"] = "root";
-	// $_SESSION["type"] = "admin";
-	// header("Location: /appAdmin");
-	// exit();
+	session_start();
+	$_SESSION["id"] = "root";
+	$_SESSION["type"] = "admin";
+	header("Location: /appAdmin");
+	exit();
 }
 
 //verification of id and pw
