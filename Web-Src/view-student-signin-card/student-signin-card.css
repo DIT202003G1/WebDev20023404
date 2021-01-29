@@ -1,3 +1,7 @@
+body{
+	background: url(/assets/backgrounds/college.jpg);
+	background-size: cover;
+}
 .lightBox{
 	border-radius: 0px;
 	border: 0px;
@@ -17,7 +21,6 @@
 	background-repeat: no-repeat;
 	background-position:bottom right;
 }
-
 /* buttons */
 
 .buttonBox{
