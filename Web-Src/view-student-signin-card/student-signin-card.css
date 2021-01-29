@@ -1,0 +1,50 @@
+.lightBox{
+	border-radius: 0px;
+	border: 0px;
+	background: white;
+	padding: 20px;
+	-webkit-box-shadow: 0px 0px 40px 1px rgba(153,153,153,1);
+	-moz-box-shadow: 0px 0px 40px 1px rgba(153,153,153,1);
+	box-shadow: 0px 0px 40px 1px rgba(153,153,153,1);
+	height:400px;
+	width: 700px;
+}
+.lightBoxCenter{
+	width: 660px;
+	height: 360px;
+	background: var(--primary);
+	background-image: url(/assets/backgrounds/corner_light.svg);
+	background-repeat: no-repeat;
+	background-position:bottom right;
+}
+
+/* buttons */
+
+.buttonBox{
+	margin: 10px auto;
+	max-width: 400px;
+	justify-content: center;
+}
+.buttonBox>button{
+	margin: 10px;
+	flex:1;
+}
+
+/* Typography and Boxes */
+
+.titleBox{
+	padding: 70px 0px 10px 0px;
+}
+.titleBox>h5{
+	color: white;
+	font-weight: 500;
+	font-size: 24px;
+	margin: 10px 0px;
+	text-align: center;
+}
+.contentBox>p{
+	color: white;
+	font-size: 18px;
+	margin: 10px auto;
+	max-width: 400px;
+}
