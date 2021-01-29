@@ -203,7 +203,7 @@ function getRegisterID($client, $id){
 	$stmt = mysqli_stmt_init($client);
 	if (!mysqli_stmt_prepare($stmt, $sql_test)){
 		mysqli_stmt_close($stmt);
-		error($test_reg,"server","none");
+		error(1,"server","none");
 	}
 	mysqli_stmt_bind_param($stmt, "i", $id);
 	mysqli_stmt_execute($stmt);
@@ -222,7 +222,7 @@ function registerIntoDb($client, $id, $fname, $mname, $lname, $course, $intake, 
 	$stmt = mysqli_stmt_init($client);
 	if (!mysqli_stmt_prepare($stmt, $sql)){
 		mysqli_stmt_close($stmt);
-		error($test_reg,"server","none");
+		error(1,"server","none");
 	};
 	mysqli_stmt_bind_param($stmt, "iisssssss", $id,$regid,$fname,$mname,$lname,$course,$intake,$password,$salt);
 	mysqli_stmt_execute($stmt);

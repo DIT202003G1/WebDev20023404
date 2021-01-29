@@ -43,7 +43,7 @@ $account_rejected = [
 ];
 
 $account_blocked = [
-	"title" => "Account is disabled",
+	"title" => "Account is Disabled",
 	"content" => "The account you are trying to sign in has been diabled by an admin. For more information, please contact the Website Admin.",
 	"buttons" => [
 		"Back to Home" => "/"
