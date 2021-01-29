@@ -16,6 +16,7 @@ function sendError($ecode,$etype,$efield){
 	global $hasError;
 	$hasError = true;
 	header("Location: /view-login?ecode=$ecode&etype=$etype&efield=$efield");
+	exit();
 }
 
 #velidations

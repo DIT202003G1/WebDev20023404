@@ -195,6 +195,7 @@ function error($ecode,$etype,$efield){
 	global $test_hasError;
 	$test_hasError = true;
 	header("Location: /view-register?ecode=$ecode&etype=$etype&efield=$efield");
+	exit();
 }
 
 function getRegisterID($client, $id){
@@ -277,4 +278,4 @@ if (!$test_hasError){
 	registerIntoDb($sql_client,$_POST["id"],$_POST["fname"],$_POST["mname"],$_POST["lname"],$_POST["courseid"],$_POST["intake"],$passwords[1],$passwords[0]);
 }
 
-// header("Location: /application/");
+header("Location: /application/");
