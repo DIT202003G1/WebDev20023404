@@ -87,7 +87,7 @@
 					&nbsp;&nbsp;|&nbsp;&nbsp;
 					<a href="mailto:20023404@imail.sunway.edu.my">Contact</a>
 					&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="view-admin-login">Admin Login</a>
+					<a href="appAdmin/view-login">Admin Login</a>
 					&nbsp;&nbsp;|&nbsp;&nbsp;
 					DIT202003 Web Developement
 				</div>

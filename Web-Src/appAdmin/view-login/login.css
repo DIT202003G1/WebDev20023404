@@ -1,0 +1,23 @@
+body{
+	background: var(--secondary_light);
+}
+.lightBox{
+	border-radius: 0px;
+	border: 0px;
+	background: white;
+	padding: 20px;
+	-webkit-box-shadow: 0px 0px 40px 1px rgba(153,153,153,1);
+	-moz-box-shadow: 0px 0px 40px 1px rgba(153,153,153,1);
+	box-shadow: 0px 0px 40px 1px rgba(153,153,153,1);
+	height:400px;
+	width: 700px;
+}
+.titleBox{
+	color: var(--primary_dark);
+	font-weight: 500;
+	font-size: 24px;
+	margin: 10px 0px 40px 0px;
+}
+.titleBox>h1{
+	font-size:24px;
+}
