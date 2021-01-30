@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php require "/opt/lampp/htdocs/php-includes/common-includes.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/message.inc.php" ?>
 
 <html>
 	<head>
@@ -16,31 +17,34 @@
 					<div class="titleBox">
 						<h1>Sign in as Admin</h1>
 					</div>
-					<form action="/php-includes/adminUtils/login.inc.php" method="post">
-						<div class="inputGroup">
-							<div class="inputComponent content <?= $_GET["efield"]=="id" ? "error" : "" ?>">
-								<div class="label">
-									<i class="fas fa-user-alt fa-2x"></i>
-								</div>
-								<div class="input">
-									<input type="text" placeholder="Admin ID" name="id"/>
-								</div>
-							</div>
-						</div>
-						<div class="inputGroup">
-							<div class="inputComponent content <?= $_GET["efield"]=="password" ? "error" : "" ?>">
-								<div class="label">
-									<i class="fas fa-key fa-2x"></i>
-								</div>
-								<div class="input">
-									<input type="password" placeholder="Password" name="password"/>
+					<div class="errmsg" style="display:<?= isset($_GET["ecode"]) ? "" : "none"  ?>;"><?= ($_GET["ecode"] == "-1") ? ($msg_field_empty) : ($msg_login_velidation[$_GET["efield"]][$_GET["ecode"]]) ?><?= ($_GET["etype"] == "server") ? (". ".$msg_server_admin) : ""?></div>
+					<div>
+						<form action="/php-includes/adminUtils/login.inc.php" method="post">
+							<div class="inputGroup">
+								<div class="inputComponent content <?= $_GET["efield"]=="id" ? "error" : "" ?>">
+									<div class="label">
+										<i class="fas fa-user-alt fa-2x"></i>
+									</div>
+									<div class="input">
+										<input type="text" placeholder="Admin ID" name="id"/>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="inputGroup">
-							<input type="submit" value="Sign In" name="submit" class="light" />
-						</div>
-					</form>
+							<div class="inputGroup">
+								<div class="inputComponent content <?= $_GET["efield"]=="password" ? "error" : "" ?>">
+									<div class="label">
+										<i class="fas fa-key fa-2x"></i>
+									</div>
+									<div class="input">
+										<input type="password" placeholder="Password" name="password"/>
+									</div>
+								</div>
+							</div>
+							<div class="inputGroup">
+								<input type="submit" value="Sign In" name="submit" class="light" />
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
