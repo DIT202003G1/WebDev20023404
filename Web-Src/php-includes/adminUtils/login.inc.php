@@ -50,7 +50,7 @@ if($isRootUid && !$isRootPwd){
 }
 elseif($isRootPwd && $isRootUid){
 	session_start();
-	$_SESSION["id"] = "root";
+	$_SESSION["userid"] = "root";
 	$_SESSION["type"] = "admin";
 	header("Location: /appAdmin");
 	exit();
@@ -72,7 +72,7 @@ if (!$test_password){
 }
 
 session_start();
-$_SESSION["id"] = trim($_POST["id"]);
+$_SESSION["userid"] = trim($_POST["id"]);
 $_SESSION["type"] = "admin";
 header("Location: /appAdmin");
 exit();
