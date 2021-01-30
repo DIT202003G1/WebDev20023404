@@ -4,12 +4,11 @@
 
 <?php require "/opt/lampp/htdocs/php-includes/common-includes.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/message.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/sessionUtils.inc.php" ?>
 
 <?php
-	if ($_SESSION["type"] == "student") {
-		header("Location: /application");
-		exit();
-	}
+	sessionRedirectStudnetLogin();
+	exit();
 ?>
 
 <html>
