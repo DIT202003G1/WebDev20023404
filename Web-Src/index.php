@@ -17,6 +17,9 @@
 				<div class="primaryGradient layoutFlex box vertical-reversed">
 					<?php
 						if (isset($_SESSION["userid"])){
+							$applicationName = ($_SESSION["type"] === "admin") ? "admin control panel" : "application_page";
+							$userType = ($_SESSION["type"] === "admin") ? "[ADMIN] " : "";
+							$applicationLink = ($_SESSION["type"] === "admin") ? "/appAdmin" : "/application";
 							$uid = $_SESSION['userid'];
 							echo "
 							<div class=\"loggedIn\">
@@ -24,8 +27,8 @@
 									You have Already Logged in
 								</h1>
 								<p class=\"paragraph primary\">
-									Logged in as $uid.<br>
-									<a href=\"application\">Click here</a> to enter the application page.<br>
+									Logged in as $userType$uid.<br>
+									<a href=\"$applicationLink\">Click here</a> to enter $applicationName.<br>
 									Not your account? <a href=\"\php-includes\logout.inc.php\">Logout</a>
 								</p>
 							</div>";
@@ -86,8 +89,7 @@
 					<a target="_new" href="https://github.com/DIT202003G1/WebDev20023404/blob/main/LICENSE">View License</a>
 					&nbsp;&nbsp;|&nbsp;&nbsp;
 					<a href="mailto:20023404@imail.sunway.edu.my">Contact</a>
-					&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="appAdmin/view-login">Admin Login</a>
+					<?= isset($_SESSION['userid']) ? '' : '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="appAdmin/view-login">Admin Login</a>' ?>
 					&nbsp;&nbsp;|&nbsp;&nbsp;
 					DIT202003 Web Developement
 				</div>
