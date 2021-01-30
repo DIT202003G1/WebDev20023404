@@ -8,7 +8,6 @@
 
 <?php
 	sessionRedirectStudnetLogin();
-	exit();
 ?>
 
 <html>
