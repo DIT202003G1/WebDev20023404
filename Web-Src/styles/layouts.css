@@ -4,6 +4,10 @@
 	position: relative;
 	height: 95vh;
 }
+.layoutCenter.box.heightFix{
+	position: relative;
+	height: 100vh;
+}
 .layoutCenter.center{
 	position: absolute;
 	top: 50%;

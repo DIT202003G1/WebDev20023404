@@ -1,0 +1,112 @@
+body{
+	background: var(--extra_light_gray);
+	height: 100vh;
+}
+.mainContainer{
+	padding: 25px;
+}
+.mainContainer>div{
+	height: calc(100vh - 50px);
+	width: calc(100vw - 50px);
+}
+
+
+/*
+======================== ========= ======================
+======================== LEFT PANE ======================
+======================== ========= ======================
+*/
+
+.leftPane{
+	background: white;
+	height: calc(100vh - 50px);
+	width: 300px;
+	margin-right: 25px;
+}
+.logoBox{
+	margin: 20px;
+}
+
+.listItem{
+	height: 50px;
+	color: var(--secondary_dark);
+	margin: 5px 0px;
+	font-size: 16px;
+	padding: 12px 0px 0px 60px;
+}
+.listItem.pending{
+	background-image:url(/assets/adminpanel_list_icons/pending.svg);
+	background-repeat: no-repeat;
+	background-position: 5px 0px;
+}
+.listItem.search{
+	background-image:url(/assets/adminpanel_list_icons/search.svg);
+	background-repeat: no-repeat;
+	background-position: 5px 0px;
+}
+.listItem.admin{
+	background-image:url(/assets/adminpanel_list_icons/admin.svg);
+	background-repeat: no-repeat;
+	background-position: 5px 0px;
+}
+.listItem.course{
+	background-image:url(/assets/adminpanel_list_icons/course.svg);
+	background-repeat: no-repeat;
+	background-position: 5px 0px;
+}
+.listItem.selected, .listItem:hover{
+	background-color: var(--secondary_light);
+}
+.currentAdminDetails{
+	margin: 10px;
+	color: var(--secondary_dark);
+}
+.currentAdminDetails>a{
+	color: var(--primary);
+}
+.currentAdminDetails>a:hover{
+	background-color: var(--primary);
+	color: white;
+}
+/*
+======================== ========== ======================
+======================== RIGHT PANE ======================
+======================== ========== ======================
+*/
+.rightPaneContainer{
+	flex:1;
+}
+.rightPaneContainer>.titleBox{
+	background: white;
+	margin-bottom: 5px;
+	font-size: 30px;
+	padding: 10px 30px;
+	color: var(--primary_dark);
+}
+.rightPaneContainer>.content{
+	background: white;
+	height: calc(100vh - 120px);
+}
+
+/*
+======================== ======== ======================
+======================== CONTROLS ======================
+======================== ======== ======================
+*/
+.label>.text{
+	width: 250px;
+	background: var(--primary);
+	font-size: 14px;
+	height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+	color: white;
+	padding: 4px 5px;
+}
+.label>.shape{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 15px 0 15px 15px;
+	border-color: transparent transparent transparent var(--primary);
+}

@@ -45,7 +45,7 @@ function sessionRedirectAdminLogin(){
 	}
 }
 function sessionRedirectAdminApp(){
-	if(sessionIsLoggedIn() && sessionIsAdmin()){
+	if(sessionIsLoggedIn() && sessionIsStudent()){
 		sessionRedirectByType();
 	}
 	if(!sessionIsLoggedIn()){
