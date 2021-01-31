@@ -50,9 +50,8 @@
 						Logged in as <a href="#"><?= $_SESSION["userid"] ?></a>. <a href="/php-includes/logout.inc.php">Logout</a>
 					</div>
 				</div>
-				<div class="rightPaneContainer">
-					<div class="titleBox"></div>
-					<div class="content"></div>
+				<div class="rightPaneContainer layoutCenter box">
+					<div class="layoutCenter center">Please select a page from the menu</div>
 				</div>
 			</div>
 		</div>
