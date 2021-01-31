@@ -85,8 +85,62 @@ body{
 	color: var(--primary_dark);
 }
 .rightPaneContainer>.content{
-	background: white;
 	height: calc(100vh - 120px);
+}
+
+/*content*/
+.content>.contentList{
+	height: calc(100vh - 120px);
+	background: white;
+	width: 350px;
+	margin-right: 3px;
+	overflow-y:auto;
+}
+.content>.contentList>.filter{
+	background-color: var(--secondary_light);
+}
+.content>.contentList>.list{
+	flex:1;
+}
+.content>.contentList>.list>.item{
+	height: 40px;
+	margin-top:5px;
+	padding-left: 10px;
+	display:flex;
+}
+.content>.contentList>.list>.item.selected, .content>.contentList>.list>.item:hover{
+	background-color: var(--secondary_light);
+}
+.content>.contentList>.list>.item>div>.id{
+	font-size: 14px;
+}
+.content>.contentList>.list>.item>div>.name{
+	color: var(--secondary_dark);
+	font-size: 12px;
+}
+.content>.contentList>.list>.item>.status{
+	font-size: 12px;
+	flex:1;
+	text-align: right;
+	padding-right: 10px;
+}
+.content>.contentList>.list>.item>.status.pass{
+	color: var(--front_success);
+}
+.content>.contentList>.list>.item>.status.pending{
+	color: var(--front_wait);
+}
+.content>.contentList>.list>.item>.status.rejected{
+	color: var(--front_error);
+}
+.content>.contentPanel{
+	background: white;
+	flex:1;
+}
+.content>.contentPanel>.label{
+	margin-top:30px;
+	background: white;
+	flex:1;
 }
 
 /*

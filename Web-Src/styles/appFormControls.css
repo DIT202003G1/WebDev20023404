@@ -1,0 +1,57 @@
+.appInputGroup{
+	margin: 5px 10px;
+	width: calc(100% - 10px);
+	font-size: 12px;
+}
+.appInputGroup>span{
+	color: var(--primary_dark);
+	display:inline-block;
+	vertical-align: middle;
+}
+.appInputGroup>input[type="checkbox"]{
+	display:inline-block;
+	vertical-align: middle;
+}
+.appInputGroup>input[type="text"],.appInputGroup>select{
+	width: calc(100% - 10px);
+	background:white;
+	height: 20px;
+	border: var(--primary_dark) 2px solid;
+	font-size: 12px;
+}
+.appInputGroup>select.filter{
+	padding-left: 20px;
+	background-image: url(/assets/input_icons/filter.svg);
+	background-repeat: no-repeat;
+	background-position: 4px 0px;
+}
+.appInputGroup>.link>a{
+	display:inline-block;
+	vertical-align: middle;
+	color: var(--primary_dark);
+	font-size: 12px;
+}
+.appInputGroup.super>tbody>tr>.inputLabel{
+	color: var(--secondary_dark);
+}
+.appInputGroup.super>tbody>tr>td.inputButtonContainer{
+	padding-left: 11px;
+}
+.appInputGroup.super>tbody>tr>.inputButtonContainer>input[type="submit"]{
+	background: white;
+	border: 2px var(--primary_dark) solid;
+	height: 30px;
+	color: var(--primary_dark);
+	margin-right: 10px;
+	min-width: 100px;
+}
+.appInputGroup.super>tbody>tr>.inputButtonContainer>input[type="submit"]:hover{
+	color: white;
+	background: var(--primary_dark);
+	border: 2px var(--primary_dark) solid;
+	height: 30px;
+}
+.appInputGroup.appContent>input[type="text"]{
+	margin: 25px 10px 0px 10px;
+	width: calc(100% - 350px);
+}
