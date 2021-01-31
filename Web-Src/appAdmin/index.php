@@ -14,6 +14,7 @@
 		<?= $includes_head ?>
 		<link rel="stylesheet" type="text/css" href="/appAdmin/dashboards/dashboard.css">
 		<script type="text/javascript" src="/appAdmin/dashboards/dashboard.js"></script>
+		<script type="text/javascript" src="/appAdmin/dashboards/links.js"></script>
 		<title>Admin Control Panel - ACMS Pro</title>
 	</head>
 	<body>
@@ -29,16 +30,16 @@
 							<div class="shape"></div>
 						</div>
 					</div>
-					<div class="listItem pending">Pending Applications</div>
-					<div class="listItem search">Manage Studnet's Accounts</div>
+					<div onclick="nevigate('/appAdmin/pending')" class="listItem pending noselect">Pending Applications</div>
+					<div onclick="nevigate('/appAdmin/search')" class="listItem search">Manage Studnet's Accounts</div>
 					<div>
 						<div class="layoutFlex box horizontal label">
 							<div class="text">System (Global) Configs</div>
 							<div class="shape"></div>
 						</div>
 					</div>
-					<div class="listItem admin">Manage Admin's Accounts</div>
-					<div class="listItem course">Manage Courses</div>
+					<div onclick="nevigate('/appAdmin/admin')" class="listItem admin">Manage Admin's Accounts</div>
+					<div onclick="nevigate('/appAdmin/course')" class="listItem course">Manage Courses</div>
 					<div>
 						<div class="layoutFlex box horizontal label">
 							<div class="text">Logout</div>

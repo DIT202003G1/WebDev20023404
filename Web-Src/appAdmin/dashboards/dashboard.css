@@ -28,6 +28,7 @@ body{
 }
 
 .listItem{
+	cursor: pointer;
 	height: 50px;
 	color: var(--secondary_dark);
 	margin: 5px 0px;
