@@ -78,7 +78,7 @@
 								</div>
 								<div class="appInputGroup">
 									<input type="checkbox" id="rejected" onclick="toggleRejectedApplication(pendingApplications)"/>
-									<span>Show Rejected Applications</span>
+									<span>Show Approved/Rejected Applications</span>
 								</div>
 							</div>
 							<div class="list">
@@ -87,13 +87,13 @@
 									$name = $pendingApplications[$i]["first_name"] . " " . $pendingApplications[$i]["last_name"];
 									$id = $pendingApplications[$i]["student_id"];
 									$regid = $pendingApplications[$i]["reg_id"];
-									$type = ($pendingApplications[$i]["pending"] == 1) ? "Pending" : "Rejected";
-									$class = ($pendingApplications[$i]["pending"] == 1) ? "pending" : "rejected";
+									$type = ($pendingApplications[$i]["pending"] == 1) ? "Pending" : ( ($pendingApplications[$i]["pending"] == 2) ? "Approved" : "Rejected");
+									$class = ($pendingApplications[$i]["pending"] == 1) ? "pending" : ( ($pendingApplications[$i]["pending"] == 2) ? "pass" : "rejected");
 									$selected = (($_GET["id"] === $id) && ($_GET["regid"] === $regid)) ? "selected" : "";
 									echo "
 										<div onclick=\"nevigateToID('$id', '$regid', false)\" id=\"listitem_$id"."_"."$regid\" class=\"item $selected noselect\">
 											<div>
-												<div class=\"id\">$id</div>
+												<div class=\"id\">$id #$regid</div>
 												<div class=\"name\">$name</div>
 											</div>
 											<div class=\"status $class\">$type</div>
@@ -118,8 +118,19 @@
 								<?php
 									$studentData = getPendingByID($sql_client,$_GET["id"],$_GET["regid"]);
 									$isPending = ($studentData["pending"] == 1);
-									$pendingStyle = $isPending ? "color: var(--front_wait); border: var(--front_wait) 2px solid" : "color: var(--front_error); border: var(--front_error) 2px solid" ;
-									$pendingStatus = $isPending ? "Pending" : "Rejected" ;
+									$isApproved = ($studentData["pending"] == 2);
+									$pendingRejected = "color: var(--front_error); border: var(--front_error) 2px solid";
+									$pendingApproved = "color: var(--front_success); border: var(--front_success) 2px solid";
+									$pendingWaiting = "color: var(--front_wait); border: var(--front_wait) 2px solid";
+
+									$pendingStyle = $pendingRejected;
+									if ($isPending){
+										$pendingStyle = $pendingWaiting;
+									}
+									if ($isApproved){
+										$pendingStyle = $pendingApproved;
+									}
+									$pendingStatus = $isPending ? "Pending" : ($isApproved ? "Approved" : "Rejected") ;
 								?>
 								<table class="appInputGroup super">
 									<tr>
@@ -189,8 +200,14 @@
 									<tr>
 										<td class="inputLabel"></td>
 										<td class="inputButtonContainer">
-											<input type="submit" value="Accept" name="accept" />
-											<input type="submit" value="Deny" name="deny" />
+											<?php
+											if ($isPending){
+												echo "
+													<input type=\"submit\" value=\"Accept\" name=\"accept\" />
+													<input type=\"submit\" value=\"Deny\" name=\"deny\" />
+												";
+											}
+											?>
 										</td>
 									</tr>
 								</table>

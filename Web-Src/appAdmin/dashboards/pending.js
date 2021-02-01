@@ -33,7 +33,7 @@ function showResult(id,regid){
 function hideRejectedApplication(applications){
 	applications.forEach((i,j)=>{
 		var id_name = `listitem_${i.student_id}_${i.reg_id}`;
-		if (parseInt(i["pending"]) == 0){
+		if (parseInt(i["pending"]) != 1){
 			_hide(id_name);
 		}
 		_id(id_name).addEventListener("click",()=>{nevigateToID(i.student_id, i.reg_id, false)});
@@ -42,7 +42,7 @@ function hideRejectedApplication(applications){
 function showRejectedApplication(applications){
 	applications.forEach((i,j)=>{
 		var id_name = `listitem_${i.student_id}_${i.reg_id}`;
-		if (parseInt(i["pending"]) == 0){
+		if (parseInt(i["pending"]) != 1){
 			_show(id_name);
 		}
 		_id(id_name).addEventListener("click",()=>{nevigateToID(i.student_id, i.reg_id, true)});

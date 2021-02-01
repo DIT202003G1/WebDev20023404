@@ -7,8 +7,8 @@ require("../database.inc.php");
 
 
 if (isset($_POST["accept"])){
-	approveUser($sql_client, $_POST["ad_id"], $_POST["ad_regid"]);
-	unPendingAll($sql_client, $_POST["ad_id"]);
+	echo "<br>".approveUser($sql_client, $_POST["ad_id"], $_POST["ad_regid"]);
+	echo "<br>".unPendingAll($sql_client, $_POST["ad_id"]);
 }
 
-// header("Location: /appAdmin/pending");
+header("Location: /appAdmin/pending");

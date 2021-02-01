@@ -43,7 +43,7 @@ CREATE TABLE PendingStudentUser(
 	last_name varchar(64) NOT NULL,
 	course_id varchar(16) NOT NULL,
 	intake varchar(16),
-	pending bit(1) default 1,
+	pending tinyint(1) default 1,
 	password_hash char(64) NOT NULL,
 	salt char(8) NOT NULL,
 	PRIMARY KEY(student_id, reg_id),
