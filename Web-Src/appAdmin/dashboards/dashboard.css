@@ -92,7 +92,7 @@ body{
 .content>.contentList{
 	height: calc(100vh - 120px);
 	background: white;
-	width: 350px;
+	width: 250px;
 	margin-right: 3px;
 	overflow-y:auto;
 }
@@ -103,6 +103,7 @@ body{
 	flex:1;
 }
 .content>.contentList>.list>.item{
+	cursor: pointer;
 	height: 40px;
 	margin-top:5px;
 	padding-left: 10px;
