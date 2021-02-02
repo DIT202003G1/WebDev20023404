@@ -108,7 +108,7 @@
 							$promptStyle = $hasID ? "none" : "";
 							$panelStyle = $hasID ? "" : "none";
 						?>
-						<div style="background-color: rgba(0,0,0,0);display: <?= $promptStyle ?>;" class="layoutCenter box contentPanel"><div class="layoutCenter center">Select an registration application in the list to begin.</div></div>
+						<div style="background-color: rgba(0,0,0,0);display: <?= $promptStyle ?>;" class="layoutCenter box contentPanel"><div class="layoutCenter center">Select a registration application in the list to begin.</div></div>
 						<div style="display: <?= $panelStyle ?>;" class="contentPanel">
 							<div class="layoutFlex box horizontal label">
 								<div class="text">Application Details</div>
