@@ -108,13 +108,13 @@
 							$promptStyle = $hasID ? "none" : "";
 							$panelStyle = $hasID ? "" : "none";
 						?>
-						<div style="background-color: rgba(0,0,0,0);display: <?= $promptStyle ?>;" class="layoutCenter box contentPanel"><div class="layoutCenter center">Please select an page from the menu</div></div>
+						<div style="background-color: rgba(0,0,0,0);display: <?= $promptStyle ?>;" class="layoutCenter box contentPanel"><div class="layoutCenter center">Select an registration application in the list to begin.</div></div>
 						<div style="display: <?= $panelStyle ?>;" class="contentPanel">
 							<div class="layoutFlex box horizontal label">
 								<div class="text">Application Details</div>
 								<div class="shape"></div>
 							</div>
-							<form action="/php-includes/adminUtils/pending-approve.inc.php" method="post">
+							<form name="ad" id="ad" action="/php-includes/adminUtils/pending-approve.inc.php?showReject=true" method="post">
 								<?php
 									$studentData = getPendingByID($sql_client,$_GET["id"],$_GET["regid"]);
 									$isPending = ($studentData["pending"] == 1);

@@ -6,9 +6,16 @@ require("../database.inc.php");
 // sessionRedirectAdminApp();
 
 
-if (isset($_POST["accept"])){
-	echo "<br>".approveUser($sql_client, $_POST["ad_id"], $_POST["ad_regid"]);
-	echo "<br>".unPendingAll($sql_client, $_POST["ad_id"]);
+if (!(isset($_POST["accept"]) || isset($_POST["deny"]))){
+	header("Location: /appAdmin/pending");
+	exit();
 }
 
-header("Location: /appAdmin/pending");
+if (isset($_POST["accept"])){
+	approveUser($sql_client, $_POST["ad_id"], $_POST["ad_regid"]);
+}
+unPendingAll($sql_client, $_POST["ad_id"]);
+$id = $_POST['ad_id'];
+$regid = $_POST['ad_regid'];
+$showReject = ($_GET['showReject'] === 'true') ? "&showReject=true" : "";
+header("Location: /appAdmin/pending?id=$id&regid=$regid".$showReject);

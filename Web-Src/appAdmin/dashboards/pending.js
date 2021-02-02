@@ -1,3 +1,6 @@
+const postAction = "/php-includes/adminUtils/pending-approve.inc.php";
+
+
 function init(pendingApplications,showReject){
 	if (showReject){
 		showRejectedApplication(pendingApplications);
@@ -37,6 +40,7 @@ function hideRejectedApplication(applications){
 			_hide(id_name);
 		}
 		_id(id_name).addEventListener("click",()=>{nevigateToID(i.student_id, i.reg_id, false)});
+		_id("ad").action = postAction;
 	});
 }
 function showRejectedApplication(applications){
@@ -46,6 +50,7 @@ function showRejectedApplication(applications){
 			_show(id_name);
 		}
 		_id(id_name).addEventListener("click",()=>{nevigateToID(i.student_id, i.reg_id, true)});
+		_id("ad").action = postAction + "?showReject=true";
 	});
 }
 
