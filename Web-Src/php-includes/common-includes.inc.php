@@ -7,6 +7,7 @@ $includes_head = "
 	<link href=\"https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css\" rel=\"stylesheet\" />
 	<link rel=\"stylesheet\" type=\"text/css\" href=\"/styles/layouts.css\">
 	<link rel=\"stylesheet\" type=\"text/css\" href=\"/styles/themes.css\">
+	<link rel=\"stylesheet\" type=\"text/css\" href=\"/styles/tabs.css\">
 	<link rel=\"stylesheet\" type=\"text/css\" href=\"/styles/formControls.css\">
 	<link rel=\"stylesheet\" type=\"text/css\" href=\"/styles/appFormControls.css\">
 	<link rel=\"stylesheet\" type=\"text/css\" href=\"/styles/utils.css\">

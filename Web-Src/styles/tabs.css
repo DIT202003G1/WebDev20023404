@@ -1,0 +1,24 @@
+.tabPages{
+	height: 40px;
+	display: flex;
+}
+.tabPage{
+	font-size: 14px;
+	align-self: flex-end;
+	height: 30px;
+	min-width: 100px;
+	margin-right: 2px;
+	text-align: center;
+	padding-top: 5px;
+	color: var(--secondary_dark);
+}
+.tabPage:hover{
+	color: black;
+	background: var(--secondary);
+	cursor: pointer;
+}
+.tabPage.selected, .tabPage.selected:hover{
+	cursor: alias;
+	height: 35px;
+	background: white;
+}

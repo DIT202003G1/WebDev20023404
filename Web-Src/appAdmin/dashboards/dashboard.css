@@ -143,12 +143,66 @@ body{
 	background: white;
 	flex:1;
 }
-
+.tabPages{
+	background: var(--extra_light_gray);
+}
 /*
 ======================== ======== ======================
 ======================== CONTROLS ======================
 ======================== ======== ======================
 */
+.topMargin{
+	margin-top:20px;
+}
+.leftMargin{
+	margin-left:20px;
+}
+.contactList{
+	display: flex;
+	min-height: 50px;
+	padding: 3px 70px;
+	justify-content:space-between;
+	background-repeat: no-repeat;
+	background-position: 12px 0px;
+	cursor: alias;
+	margin-top: 5px;
+}
+	.contactList:hover{
+		background-color: var(--secondary_light);
+	}
+	.contactList>.captions>h1{
+		margin-top: 5px;
+		font-size: 16px;
+		color: var(--primary_dark);
+		line-height: 16px
+	}
+	.contactList>.captions>p{
+		font-size: 14px;
+		color: var(--secondary_dark);
+		line-height: 14px;
+	}
+	.contactList.email{
+		background-image: url(/assets/admin_content_icons/mail.svg);
+	}
+	.contactList.phone{
+		background-image: url(/assets/admin_content_icons/phone.svg);
+	}
+	.contactList.address{
+		background-image: url(/assets/admin_content_icons/address.svg);
+	}
+	.contactList>.icons,.contactList>.icons>img{
+		height: 26px;
+		width: 26px;
+		margin-top: 5px;
+		cursor: pointer;
+	}
+	.contactList>.icons>img{
+		border: rgba(0,0,0,0) 2px solid;
+	}
+	.contactList>.icons>img:hover{
+		background-color: var(--primary_light);
+		border: var(--primary) 2px solid;
+	}
 .label>.text{
 	width: 250px;
 	background: var(--primary);
