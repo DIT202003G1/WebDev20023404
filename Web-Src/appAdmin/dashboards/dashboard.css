@@ -190,16 +190,19 @@ body{
 	.contactList.address{
 		background-image: url(/assets/admin_content_icons/address.svg);
 	}
-	.contactList>.icons,.contactList>.icons>img{
+	.contactList>.icons,.contactList>.icons>form>input[type="submit"]{
 		height: 26px;
 		width: 26px;
 		margin-top: 5px;
 		cursor: pointer;
+		background-color: rgba(0,0,0,0);
 	}
-	.contactList>.icons>img{
+	.contactList>.icons>form>input[type="submit"]{
 		border: rgba(0,0,0,0) 2px solid;
+		background-image : url(/assets/admin_content_icons/delete.svg);
+		background-position: center;
 	}
-	.contactList>.icons>img:hover{
+	.contactList>.icons>form>input[type="submit"]:hover{
 		background-color: var(--primary_light);
 		border: var(--primary) 2px solid;
 	}

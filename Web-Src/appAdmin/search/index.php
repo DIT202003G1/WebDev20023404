@@ -230,7 +230,14 @@
 													<h1>$emailDesc</h1>
 													<p>$emailContent</p>
 												</div>
-												<div class=\"icons\"><img src=\"/assets/admin_content_icons/delete.svg\" /></i></div>
+												<div class=\"icons\">
+													<form action=\"/php-includes/adminUtils/delete-contact.inc.php\" method=\"post\">
+														<input type=\"hidden\" value=\"$id\" name=\"student_id\" />
+														<input type=\"hidden\" value=\"email\" name=\"type\" />
+														<input type=\"hidden\" value=\"$emailIndex\" name=\"index\" />
+														<input type=\"submit\" value=\"\" name=\"delete\" class=\"delete\" value=\"\"/>
+													</form>
+												</div>
 											</div>
 										";
 									}
@@ -251,7 +258,14 @@
 												<h1>$addressDesc</h1>
 												<p>$addressDisplay</p>
 											</div>
-											<div class=\"icons\"><img src=\"/assets/admin_content_icons/delete.svg\" /></i></div>
+											<div class=\"icons\">
+												<form action=\"/php-includes/adminUtils/delete-contact.inc.php\" method=\"post\">
+													<input type=\"hidden\" value=\"$id\" name=\"student_id\" />
+														<input type=\"hidden\" value=\"address\" name=\"type\" />
+														<input type=\"hidden\" value=\"$addressIndex\" name=\"index\" />
+													<input type=\"submit\" name=\"delete\" class=\"delete\" value=\"\"/>
+												</form>
+											</div>
 										</div>
 										";
 									};
@@ -272,7 +286,14 @@
 												<h1>$phoneDesc</h1>
 												<p>$phoneNum</p>
 											</div>
-											<div class=\"icons\"><img src=\"/assets/admin_content_icons/delete.svg\" /></i></div>
+											<div class=\"icons\">
+												<form action=\"/php-includes/adminUtils/delete-contact.inc.php\" method=\"post\">
+													<input type=\"hidden\" value=\"$id\" name=\"student_id\" />
+														<input type=\"hidden\" value=\"phoneNum\" name=\"type\" />
+														<input type=\"hidden\" value=\"$phoneIndex\" name=\"index\" />
+													<input type=\"submit\" name=\"delete\" class=\"delete\" value=\"\"/>
+												</form>
+											</div>
 										</div>
 										";
 									}
