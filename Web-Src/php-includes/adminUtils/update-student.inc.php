@@ -7,6 +7,38 @@ require("../database.inc.php");
 require("../dbUtils.inc.php");
 sessionRedirectAdminApp();
 
+function blockUser($client, $id){
+	$sql = "UPDATE StudentUser SET blocked = 1 WHERE student_id = ?";
+	$stmt = mysqli_stmt_init($client);
+	if (!mysqli_stmt_prepare($stmt, $sql)){
+		return false;
+	}
+	mysqli_stmt_bind_param($stmt, "i", $id);
+	mysqli_execute($stmt);
+	mysqli_stmt_close($stmt);
+	header("Location: /appAdmin/search/?id=$id");
+	exit();
+}
+
+function unblockUser($client, $id){
+	$sql = "UPDATE StudentUser SET blocked = 0 WHERE student_id = ?";
+	$stmt = mysqli_stmt_init($client);
+	if (!mysqli_stmt_prepare($stmt, $sql)){
+		return false;
+	}
+	mysqli_stmt_bind_param($stmt, "i", $id);
+	mysqli_execute($stmt);
+	mysqli_stmt_close($stmt);
+	header("Location: /appAdmin/search/?id=$id");
+	exit();
+}
+
+if (isset($_POST["block"])){
+	blockUser($sql_client, $_POST["sd_id"]);
+}
+if (isset($_POST["unblock"])){
+	unblockUser($sql_client, $_POST["sd_id"]);
+}
 if (!isset($_POST["sd_update"])){
 	header("Location: /appAdmin/search");
 	exit();

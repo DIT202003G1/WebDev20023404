@@ -123,6 +123,8 @@
 								$intake = $studentDetails["intake"];
 								$status = ($studentDetails["blocked"] == 1) ? "Blocked" : "Active";
 								$statusStyle = ($studentDetails["blocked"] == 1) ? "color: var(--front_error);border: solid 2px var(--front_error);" : "color: var(--front_success);border: solid 2px var(--front_success);";
+								$blockButton = ($studentDetails["blocked"] == 1) ? "Unblock" : "Block";
+								$blockButtonName = ($studentDetails["blocked"] == 1) ? "unblock" : "block";
 							?>
 							<form method="post" action="/php-includes/adminUtils/update-student.inc.php">
 								<div class="topMargin" id="tab_Details">
@@ -209,7 +211,7 @@
 									</div>
 									<div class="inputGroup topMargin leftMargin">
 										<input type="submit" class="light" value="Reset Password" name="reset" />
-										<input type="submit" class="light" value="Block Account" name="block" />
+										<input type="submit" class="light" value="<?=$blockButton?> Account" name="<?=$blockButtonName?>" />
 									</div>
 								</form>
 							</div>
