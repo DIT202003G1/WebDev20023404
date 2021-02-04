@@ -19,7 +19,7 @@
 	border: var(--primary_dark) 2px solid;
 	font-size: 12px;
 }
-.appInputGroup.secondDesign>input[type="text"],.appInputGroup.secondDesign>select{
+.appInputGroup.secondDesign>input[type="text"],.appInputGroup.secondDesign>select,.appInputGroup.secondDesign>input[type="password"]{
 	width: calc(100% - 10px);
 	background:var(--secondary_light);
 	height: 30px;
@@ -59,7 +59,7 @@
 	border: 2px var(--primary_dark) solid;
 	height: 30px;
 }
-.appInputGroup.appContent>input[type="text"]{
+.appInputGroup.appContent>input[type="text"],.appInputGroup.appContent>input[type="password"]{
 	margin: 25px 10px 0px 10px;
 	width: calc(100% - 350px);
 }
