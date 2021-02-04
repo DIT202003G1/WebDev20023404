@@ -1,5 +1,7 @@
 <?php 
 
+// pending users
+
 function getAllPending($client){
 	$result = $client->query("SELECT * FROM PendingStudentUser");
 	$finalResult = [];
@@ -54,4 +56,81 @@ function unPendingAll($client,$id){
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
 	return true;
+}
+
+// search
+
+function getStudentAccountBasicInfo($client,$id){
+	$sql = "SELECT * FROM StudentUser WHERE student_id = ?";
+	$stmt = mysqli_stmt_init($client);
+	if(!mysqli_stmt_prepare($stmt, $sql)){
+		return false;
+	}
+	mysqli_stmt_bind_param($stmt, "i", $id);
+	mysqli_stmt_execute($stmt);
+	$result = mysqli_stmt_get_result($stmt);
+	if ($row = mysqli_fetch_assoc($result)){
+		return $row;
+	}
+	else{
+		return false;
+	}
+}
+
+function getStudentEmails($client,$id){
+	$sql = "SELECT Emails.student_id, email_index, email, description FROM Emails, StudentUser WHERE Emails.student_id = StudentUser.student_id and Emails.student_id = ?;";
+	$stmt = mysqli_stmt_init($client);
+	if(!mysqli_stmt_prepare($stmt,$sql)){
+		return false;
+	}
+	mysqli_stmt_bind_param($stmt, "i", $id);
+	mysqli_stmt_execute($stmt);
+	$result = mysqli_stmt_get_result($stmt);
+	$finalResult = [];
+	if($row = mysqli_fetch_assoc($result)){
+		array_push($finalResult, $row);
+	}
+	return $finalResult;
+}
+
+function getStudentPhoneNums($client,$id){
+	$sql = "SELECT PhoneNum.student_id, phoneNum_index, phoneNum, description FROM PhoneNum, StudentUser WHERE PhoneNum.student_id = StudentUser.student_id AND PhoneNum.student_id = ?;";
+	$stmt = mysqli_stmt_init($client);
+	if(!mysqli_stmt_prepare($stmt,$sql)){
+		return false;
+	}
+	mysqli_stmt_bind_param($stmt, "i", $id);
+	mysqli_stmt_execute($stmt);
+	$result = mysqli_stmt_get_result($stmt);
+	$finalResult = [];
+	if($row = mysqli_fetch_assoc($result)){
+		array_push($finalResult, $row);
+	}
+	return $finalResult;
+}
+
+function getStudentAddresses($client,$id){
+	$sql = "SELECT Address.student_id, address_index, address_line1, address_line2, city, state_province, Address.country_id, description, country_name FROM Address, StudentUser, Countries WHERE Address.student_id = StudentUser.student_id AND Address.country_id = Countries.country_id AND Address.student_id = ? ;";
+	$stmt = mysqli_stmt_init($client);
+	if(!mysqli_stmt_prepare($stmt,$sql)){
+		return false;
+	}
+	mysqli_stmt_bind_param($stmt, "i", $id);
+	mysqli_stmt_execute($stmt);
+	$result = mysqli_stmt_get_result($stmt);
+	$finalResult = [];
+	if($row = mysqli_fetch_assoc($result)){
+		array_push($finalResult, $row);
+	}
+	return $finalResult;
+}
+
+function getAllStudentAccountBasicInfo($client){
+	$sql = "SELECT * FROM StudentUser";
+	$result = $client->query($sql);
+	$finalResult = [];
+	while ($row = mysqli_fetch_assoc($result)){
+		array_push($finalResult,$row);
+	}
+	return $finalResult;
 }

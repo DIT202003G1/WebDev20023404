@@ -17,6 +17,13 @@
 		<script type="text/javascript" src="/appAdmin/dashboards/manage.js"></script>
 		<script type="text/javascript" src="/appAdmin/dashboards/links.js"></script>
 		<title>Admin Control Panel - ACMS Pro</title>
+		<?php
+			$allStudents = getAllStudentAccountBasicInfo($sql_client);
+			$allStudentsJson = json_encode($allStudents);
+		?>
+		<script type="text/javascript">
+			const allStudents = <?= $allStudentsJson ?>;
+		</script>
 	</head>
 	<body>
 		<div class="mainContainer">
@@ -71,19 +78,33 @@
 								</div>
 							</div>
 							<div class="list">
-								<!-- dummy list item -->
-								<div onclick="nevigateToID('$id', '$regid', false)" id="listitem_$id"class="item $selected noselect">
-									<div>
-										<div class="id">$id #$regid</div>
-										<div class="name">$name</div>
-									</div>
-									<div class="status $class">$type</div>
-								</div>
-								<!-- dummy list item -->
+								<?php 
+									foreach ($allStudents as $i){
+										$id = $i["student_id"];
+										$selected = ($i["student_id"] == $_GET["id"]) ? "selected" : "";
+										$name = $i["first_name"]." ".$i["last_name"];
+										$class = ($i["blocked"] == 1) ? "rejected" : "pass";
+										$type = ($i["blocked"] == 1) ? "Blocked" : "Active";
+										echo "
+											<div onclick=\"nevigateToID('$id', false)\" id=\"listitem_$id\"class=\"item $selected noselect\">
+												<div>
+													<div class=\"id\">$id</div>
+													<div class=\"name\">$name</div>
+												</div>
+												<div class=\"status $class\">$type</div>
+											</div>
+										";
+									}
+								?>
 							</div>
 						</div>
-						<div style="background-color: rgba(0,0,0,0);display: none;" class="layoutCenter box contentPanel"><div class="layoutCenter center">Select a student account in the list to begin.</div></div>
-						<div style="display: ;" class="contentPanel">
+						<?php
+							$hasID = isset($_GET["id"]);
+							$appDisplay = $hasID ? "" : "none";
+							$welcomeDisplay = $hasID ? "none" : "";
+						?>
+						<div style="background-color: rgba(0,0,0,0);display: <?=$welcomeDisplay?>;" class="layoutCenter box contentPanel"><div class="layoutCenter center">Select a student account in the list to begin.</div></div>
+						<div style="display: <?=$appDisplay?>;" class="contentPanel">
 							<div class="tabPages">
 								<div onclick="switchTab('Details');" id="tabsel_Details"  class="tabPage noselect selected"> Details</div>
 								<div onclick="switchTab('Emails');" id="tabsel_Emails"  class="tabPage noselect">Emails</div>
@@ -91,6 +112,17 @@
 								<div onclick="switchTab('PhoneNum');" id="tabsel_PhoneNum" class="tabPage noselect">Phone Num</div>
 							</div>
 							<!-- DETAILS -->
+							<?php
+								$studentDetails = getStudentAccountBasicInfo($sql_client,$_GET["id"]);
+								$id = $studentDetails["student_id"];
+								$fname = $studentDetails["first_name"];
+								$mname = $studentDetails["middle_name"];
+								$lname = $studentDetails["last_name"];
+								$course = $studentDetails["course_id"];
+								$intake = $studentDetails["intake"];
+								$status = ($studentDetails["blocked"] == 1) ? "Blocked" : "Active";
+								$statusStyle = ($studentDetails["blocked"] == 1) ? "color: var(--front_error);border: solid 2px var(--front_error);" : "color: var(--front_success);border: solid 2px var(--front_success);";
+							?>
 							<div class="topMargin" id="tab_Details">
 								<table class="appInputGroup super">
 									<div class="layoutFlex box horizontal label">
@@ -101,7 +133,7 @@
 										<td class="inputLabel">Student ID</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_id" readonly value="" />
+												<input type="text" name="sd_id" value="<?=$id?>" />
 											</div>
 										</td>
 									</tr>
@@ -109,7 +141,7 @@
 										<td class="inputLabel">First Name</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_fname" readonly value="" />
+												<input type="text" name="sd_fname" value="<?=$fname?>" />
 											</div>
 										</td>
 									</tr>
@@ -117,7 +149,7 @@
 										<td class="inputLabel">Middle Name</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_mname" readonly value="" />
+												<input type="text" name="sd_mname" value="<?=$mname?>" />
 											</div>
 										</td>
 									</tr>
@@ -125,7 +157,7 @@
 										<td class="inputLabel">Last Name</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_lname" readonly value="" />
+												<input type="text" name="sd_lname" value="<?=$lname?>" />
 											</div>
 										</td>
 									</tr>
@@ -133,7 +165,7 @@
 										<td class="inputLabel">Course ID</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_course" readonly value="" />
+												<input type="text" name="sd_course" value="<?=$course?>" />
 											</div>
 										</td>
 									</tr>
@@ -141,7 +173,7 @@
 										<td class="inputLabel">Intake</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_intake" readonly value="" />
+												<input type="text" name="sd_intake" value="<?=$intake?>" />
 											</div>
 										</td>
 									</tr>
@@ -149,10 +181,15 @@
 										<td class="inputLabel">Status</td>
 										<td>
 											<div class="appInputGroup pass secondDesign">
-												<input type="text" style="" name="ad_status" readonly value="Active" />
+												<input type="text" style="<?=$statusStyle?>" name="sd_status" value="<?=$status?>" />
 											</div>
 										</td>
 									</tr>
+									<tr>
+										<td class="inputLabel"></td>
+										<td class="inputButtonContainer">
+											<input type="submit" name="sd_update" value="Update"/>
+										</td>
 								</table>
 								<div class="layoutFlex box horizontal label">
 									<div class="text">Account Actions</div>
@@ -166,42 +203,65 @@
 							<!-- DETAILS -->
 							<!-- EMAILS -->
 							<div class="topMargin" id="tab_Emails">
-								<div class="contactList noselect email">
-									<div class="captions">
-										<h1>Main</h1>
-										<p>john_smith@example.com</p>
-									</div>
-									<div class="icons"><img src="/assets/admin_content_icons/delete.svg" /></i></div>
-								</div>
+								<?php
+									$emails = getStudentEmails($sql_client, $_GET["id"]);
+									foreach ($emails as $i){
+										$emailContent = $i["email"];
+										$emailIndex = $i["email_index"];
+										$emailDesc = $i["description"];
+										echo "
+											<div id=\"email_$emailIndex\" class=\"contactList noselect email\">
+												<div class=\"captions\">
+													<h1>$emailDesc</h1>
+													<p>$emailContent</p>
+												</div>
+												<div class=\"icons\"><img src=\"/assets/admin_content_icons/delete.svg\" /></i></div>
+											</div>
+										";
+									}
+								?>
 							</div>
 							<!-- EMAILS -->
 							<!-- Addresses -->
 							<div class="topMargin" id="tab_Addresses">
-								<div class="contactList noselect address">
-									<div class="captions">
-										<h1>Home</h1>
-										<p>No 2, Jalan Example 1/1, Example, Selangor, Malaysia</p>
-									</div>
-									<div class="icons"><img src="/assets/admin_content_icons/delete.svg" /></i></div>
-								</div>
+								<?php
+									$addresses = getStudentAddresses($sql_client, $_GET["id"]);
+									foreach ($addresses as $i){
+										$addressDisplay = $i["address_line1"] . ", " . $i["address_line2"] . ", " . $i["city"] . ", " . $i["state_province"] . " ," . $i["country_name"];
+										$addressIndex = $i["address_index"];
+										$addressDesc = $i["description"];
+										echo "
+										<div id=\"address_$addressIndex\" class=\"contactList noselect address\">
+											<div class=\"captions\">
+												<h1>$addressDesc</h1>
+												<p>$addressDisplay</p>
+											</div>
+											<div class=\"icons\"><img src=\"/assets/admin_content_icons/delete.svg\" /></i></div>
+										</div>
+										";
+									};
+									?>
 							</div>
 							<!-- Addresses -->
 							<!-- PhoneNum -->
 							<div class="topMargin" id="tab_PhoneNum">
-								<div class="contactList noselect phone">
-									<div class="captions">
-										<h1>Main</h1>
-										<p>+60123456789</p>
-									</div>
-									<div class="icons"><img src="/assets/admin_content_icons/delete.svg" /></i></div>
-								</div>
-								<div class="contactList noselect phone">
-									<div class="captions">
-										<h1>Main</h1>
-										<p>+60123456789</p>
-									</div>
-									<div class="icons"><img src="/assets/admin_content_icons/delete.svg" /></i></div>
-								</div>
+								<?php
+									$phoneNums = getStudentPhoneNums($sql_client, $_GET["id"]);
+									foreach ($phoneNums as $i){
+										$phoneNum = $i["phoneNum"];
+										$phoneIndex = $i["phoneNum_index"];
+										$phoneDesc = $i["description"];
+										echo "
+										<div id=\"phoneNum_$phoneIndex\" class=\"contactList noselect phone\">
+											<div class=\"captions\">
+												<h1>$phoneDesc</h1>
+												<p>$phoneNum</p>
+											</div>
+											<div class=\"icons\"><img src=\"/assets/admin_content_icons/delete.svg\" /></i></div>
+										</div>
+										";
+									}
+								?>
 							</div>
 							<!-- PhoneNum -->
 						</div>
