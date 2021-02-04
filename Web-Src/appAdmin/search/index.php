@@ -5,6 +5,7 @@
 <?php require "/opt/lampp/htdocs/php-includes/adminUtils/controlPanel.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/sessionUtils.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/database.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/dbUtils.inc.php" ?>
 
 <?php
 	sessionRedirectAdminApp();
@@ -166,7 +167,17 @@
 											<td class="inputLabel">Course ID</td>
 											<td>
 												<div class="appInputGroup secondDesign">
-													<input type="text" name="sd_course" value="<?=$course?>" />
+													<!-- <input type="text" name="sd_course" value="<?=$course?>" /> -->
+													<select name="sd_course" >
+														<?php 
+															$courses = getCourses($sql_client);
+															foreach ($courses as $i){
+																$selected = ($course == $i[0]) ? "selected" : "";
+																echo "<option $selected value=\"$i[0]\">$i[0]</option>";
+															}
+														?>
+
+													</select>
 												</div>
 											</td>
 										</tr>
@@ -174,7 +185,7 @@
 											<td class="inputLabel">Intake</td>
 											<td>
 												<div class="appInputGroup secondDesign">
-													<input type="text" name="sd_intake" value="<?=$intake?>" />
+													<input maxlength="6" type="text" name="sd_intake" value="<?=$intake?>" />
 												</div>
 											</td>
 										</tr>

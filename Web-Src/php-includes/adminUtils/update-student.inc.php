@@ -7,7 +7,6 @@ require("../database.inc.php");
 require("../dbUtils.inc.php");
 sessionRedirectAdminApp();
 
-
 if (!isset($_POST["sd_update"])){
 	header("Location: /appAdmin/search");
 	exit();
@@ -77,7 +76,7 @@ function v_intake($client, $intake){
 	if (empty($processed)){
 		return -1;
 	}
-	elseif (preg_match($exptest, $intake)){
+	if (preg_match($exptest, $intake)){
 		return 0;
 	}
 	else{
