@@ -1,3 +1,7 @@
+function nevigateToID(id){
+	document.location.href=`/appAdmin/search/?id=${id}`;
+}
+
 tabs = ["Details", "Emails", "Addresses", "PhoneNum"];
 function switchTab(name){
 	tabs.forEach((i,j)=>{

@@ -4,6 +4,20 @@
 $msg_server_admin = "Please report this to the website admin.";
 $msg_field_empty = "This field cannot be empty";
 
+$msg_admin_manage_student_update = [
+	"Student ID cannot be empty",
+	"First name cannot be empty",
+	"Last name cannot be empty",
+	"Course invalid",
+	"Intake invalid",
+	"Student ID too short/long",
+	"First name too long",
+	"Middle name too long",
+	"Last name too long",
+	"Student ID already submit application",
+	"Student ID already exist in database",
+	"Database STMT Error"
+];
 $msg_admin_login_velidation = [
 	"id"=>[
 		"SUCCESS",

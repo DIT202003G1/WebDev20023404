@@ -1,9 +1,9 @@
 <?php
-
+session_start();
 require("controlPanel.inc.php");
 require("../sessionUtils.inc.php");
 require("../database.inc.php");
-// sessionRedirectAdminApp();
+sessionRedirectAdminApp();
 
 
 if (!(isset($_POST["accept"]) || isset($_POST["deny"]))){

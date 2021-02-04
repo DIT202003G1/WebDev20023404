@@ -86,7 +86,7 @@
 										$class = ($i["blocked"] == 1) ? "rejected" : "pass";
 										$type = ($i["blocked"] == 1) ? "Blocked" : "Active";
 										echo "
-											<div onclick=\"nevigateToID('$id', false)\" id=\"listitem_$id\"class=\"item $selected noselect\">
+											<div onclick=\"nevigateToID('$id')\" id=\"listitem_$id\"class=\"item $selected noselect\">
 												<div>
 													<div class=\"id\">$id</div>
 													<div class=\"name\">$name</div>
@@ -123,82 +123,84 @@
 								$status = ($studentDetails["blocked"] == 1) ? "Blocked" : "Active";
 								$statusStyle = ($studentDetails["blocked"] == 1) ? "color: var(--front_error);border: solid 2px var(--front_error);" : "color: var(--front_success);border: solid 2px var(--front_success);";
 							?>
-							<div class="topMargin" id="tab_Details">
-								<table class="appInputGroup super">
+							<form method="post" action="/php-includes/adminUtils/update-student.inc.php">
+								<div class="topMargin" id="tab_Details">
+									<table class="appInputGroup super">
+										<div class="layoutFlex box horizontal label">
+											<div class="text">Student's Details</div>
+											<div class="shape"></div>
+										</div>
+										<tr>
+											<td class="inputLabel">Student ID</td>
+											<td>
+												<div class="appInputGroup secondDesign">
+													<input type="text" readonly name="sd_id" value="<?=$id?>" />
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="inputLabel">First Name</td>
+											<td>
+												<div class="appInputGroup secondDesign">
+													<input type="text" name="sd_fname" value="<?=$fname?>" />
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="inputLabel">Middle Name</td>
+											<td>
+												<div class="appInputGroup secondDesign">
+													<input type="text" name="sd_mname" value="<?=$mname?>" />
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="inputLabel">Last Name</td>
+											<td>
+												<div class="appInputGroup secondDesign">
+													<input type="text" name="sd_lname" value="<?=$lname?>" />
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="inputLabel">Course ID</td>
+											<td>
+												<div class="appInputGroup secondDesign">
+													<input type="text" name="sd_course" value="<?=$course?>" />
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="inputLabel">Intake</td>
+											<td>
+												<div class="appInputGroup secondDesign">
+													<input type="text" name="sd_intake" value="<?=$intake?>" />
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="inputLabel">Status</td>
+											<td>
+												<div class="appInputGroup pass secondDesign">
+													<input type="text" style="<?=$statusStyle?>" readonly name="sd_status" value="<?=$status?>" />
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="inputLabel"></td>
+											<td class="inputButtonContainer">
+												<input type="submit" name="sd_update" value="Update"/>
+											</td>
+									</table>
 									<div class="layoutFlex box horizontal label">
-										<div class="text">Student's Details</div>
+										<div class="text">Account Actions</div>
 										<div class="shape"></div>
 									</div>
-									<tr>
-										<td class="inputLabel">Student ID</td>
-										<td>
-											<div class="appInputGroup secondDesign">
-												<input type="text" name="sd_id" value="<?=$id?>" />
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="inputLabel">First Name</td>
-										<td>
-											<div class="appInputGroup secondDesign">
-												<input type="text" name="sd_fname" value="<?=$fname?>" />
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="inputLabel">Middle Name</td>
-										<td>
-											<div class="appInputGroup secondDesign">
-												<input type="text" name="sd_mname" value="<?=$mname?>" />
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="inputLabel">Last Name</td>
-										<td>
-											<div class="appInputGroup secondDesign">
-												<input type="text" name="sd_lname" value="<?=$lname?>" />
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="inputLabel">Course ID</td>
-										<td>
-											<div class="appInputGroup secondDesign">
-												<input type="text" name="sd_course" value="<?=$course?>" />
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="inputLabel">Intake</td>
-										<td>
-											<div class="appInputGroup secondDesign">
-												<input type="text" name="sd_intake" value="<?=$intake?>" />
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="inputLabel">Status</td>
-										<td>
-											<div class="appInputGroup pass secondDesign">
-												<input type="text" style="<?=$statusStyle?>" name="sd_status" value="<?=$status?>" />
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="inputLabel"></td>
-										<td class="inputButtonContainer">
-											<input type="submit" name="sd_update" value="Update"/>
-										</td>
-								</table>
-								<div class="layoutFlex box horizontal label">
-									<div class="text">Account Actions</div>
-									<div class="shape"></div>
-								</div>
-								<div class="inputGroup topMargin leftMargin">
-									<input type="submit" class="light" value="Reset Password" name="reset" />
-									<input type="submit" class="light" value="Block Account" name="block" />
-								</div>
+									<div class="inputGroup topMargin leftMargin">
+										<input type="submit" class="light" value="Reset Password" name="reset" />
+										<input type="submit" class="light" value="Block Account" name="block" />
+									</div>
+								</form>
 							</div>
 							<!-- DETAILS -->
 							<!-- EMAILS -->
