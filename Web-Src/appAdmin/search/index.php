@@ -65,7 +65,7 @@
 						<div class="contentList layoutFlex box vertical">
 							<div class="filter">
 								<div class="appInputGroup">
-									<select id="filterType" class="filter" onchange="filterTypeChange(pendingApplications)">
+									<select id="filterType" class="filter" onchange="filterChange()">
 										<option value="inclusive">Inclusive</option>
 										<option value="exclusive">Exclusive</option>
 										<option value="courseinclusive">Course-Inclusive</option>
@@ -75,7 +75,7 @@
 									</select>
 								</div>
 								<div class="appInputGroup">
-									<input type="text" id="filterVal" oninput="filterOnChange(pendingApplications)" onkeydown="filterOnChange(pendingApplications)" onchange="filterOnChange(pendingApplications)" placeholder="Filter Value" />
+									<input type="text" id="filterVal" oninput="filterChange()" onkeydown="filterChange()" onchange="filterChange()" placeholder="Filter Value" />
 								</div>
 							</div>
 							<div class="list">
