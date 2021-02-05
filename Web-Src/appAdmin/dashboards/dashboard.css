@@ -10,7 +10,6 @@ body{
 	width: calc(100vw - 50px);
 }
 
-
 /*
 ======================== ========= ======================
 ======================== LEFT PANE ======================
@@ -86,12 +85,12 @@ body{
 	color: var(--primary_dark);
 }
 .rightPaneContainer>.content{
-	/*height: calc(100vh - 120px);*/
+	height: calc(100vh - 120px);
 }
 
 /*content*/
 .content>.contentList{
-	/*height: calc(100vh - 120px);*/
+	height: calc(100vh - 120px);
 	background: white;
 	width: 250px;
 	margin-right: 3px;
@@ -99,6 +98,19 @@ body{
 }
 .content>.contentList>.filter{
 	background-color: var(--secondary_light);
+}
+.content>.contentList>.filter>.link{
+	display:block;
+	font-size: 14px;
+	padding: 5px 3px;
+	text-align: right;
+}
+.content>.contentList>.filter>.link>a{
+	color: var(--primary_dark);
+}
+.content>.contentList>.filter>.link>a:hover{
+	color:white;
+	background-color: var(--primary);
 }
 .content>.contentList>.list{
 	flex:1;

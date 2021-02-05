@@ -59,6 +59,9 @@
 	border: 2px var(--primary_dark) solid;
 	height: 30px;
 }
+.appInputGroup.super>tbody>tr>.inputLabel{
+	width: 300px;
+}
 .appInputGroup.appContent>input[type="text"],.appInputGroup.appContent>input[type="password"]{
 	margin: 25px 10px 0px 10px;
 	width: calc(100% - 350px);

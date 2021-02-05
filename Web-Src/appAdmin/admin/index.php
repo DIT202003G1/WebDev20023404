@@ -15,7 +15,7 @@
 	<head>
 		<?= $includes_head ?>
 		<link rel="stylesheet" type="text/css" href="/appAdmin/dashboards/dashboard.css">
-		<script type="text/javascript" src="/appAdmin/dashboards/manage.js"></script>
+		<script type="text/javascript" src="/appAdmin/dashboards/admin.js"></script>
 		<script type="text/javascript" src="/appAdmin/dashboards/links.js"></script>
 		<title>Admin Control Panel - ACMS Pro</title>
 	</head>
@@ -57,18 +57,30 @@
 					<div class="content layoutFlex box horizontal">
 						<div class="contentList layoutFlex box vertical">
 							<div class="filter">
-								<a href="#" >+ Add Account</a>
+								<div class="link">
+									<a href="#" >+ Add Account</a>
+								</div>
 							</div>
 							<div class="list">
-								<!-- dummy list item -->
-								<div onclick="" id="listitem_$id"class="item $selected noselect">
-									<div>
-										<div class="id">$id</div>
-										<div class="name">$name</div>
-									</div>
-									<div class="status $class">$type</div>
-								</div>
-								<!-- dummy list item -->
+								<?php 
+									$admins = getAllAdmins($sql_client);
+									foreach ($admins as $i){
+										$id = $i["admin_id"];
+										$selected = ($id == $_GET["id"]) ? "selected" : "";
+										$name = $i["first_name"] . " " . $i["list_name"];
+										$type = ($id == $_SESSION["userid"]) ? "Current" : "";
+										$class = ($id == $_SESSION["userid"]) ? "pass" : "";
+										echo "
+											<div onclick=\"nevigateToID($id)\" id=\"listitem_$id\"class=\"item $selected noselect\">
+												<div>
+													<div class=\"id\">$id</div>
+													<div class=\"name\">$name</div>
+												</div>
+												<div class=\"status $class\">$type</div>
+											</div>
+										";
+									}
+								?>
 							</div>
 						</div>
 						<?php
@@ -83,6 +95,14 @@
 								<div class="shape"></div>
 							</div>
 							<form>
+								<?php
+									$adminDetails = getAdminAccountBasicInfo($sql_client, $_GET["id"]);
+									$id = $adminDetails["admin_id"];
+									$fname = $adminDetails["first_name"];
+									$mname = $adminDetails["middle_name"];
+									$lname = $adminDetails["last_name"];
+									$title = $adminDetails["title"];
+								?>
 								<table class="appInputGroup super">
 									<tr>
 										<td class="inputLabel">Admin ID</td>
@@ -139,10 +159,10 @@
 							<form>
 								<table class="appInputGroup super">
 								<tr>
-									<td class="inputLabel">Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td class="inputLabel">Password</td>
 									<td>
 										<div class="appInputGroup secondDesign">
-											<input type="password" name="ad_lname" value="<?=$lname?>" />
+											<input type="password" name="ad_lname" />
 										</div>
 									</td>
 								</tr>
@@ -150,7 +170,7 @@
 									<td class="inputLabel">Re-Type</td>
 									<td>
 										<div class="appInputGroup secondDesign">
-											<input type="password" name="ad_title" value="<?=$title?>" />
+											<input type="password" name="ad_title" />
 										</div>
 									</td>
 								</tr>
@@ -169,7 +189,7 @@
 							<form>
 								<table class="appInputGroup super">
 									<tr>
-										<td class="inputLabel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+										<td class="inputLabel"></td>
 										<td class="inputButtonContainer">
 											<input type="submit" name="ad_update" value="Remove Account"/>
 										</td>
