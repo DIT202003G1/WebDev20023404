@@ -58,7 +58,7 @@
 						<div class="contentList layoutFlex box vertical">
 							<div class="filter">
 								<div class="link">
-									<a href="/appAdmin/admin-add/" >+ Add Account</a>
+									<a href="/appAdmin/admin-add/" >RESET</a>
 								</div>
 							</div>
 							<div class="list">
@@ -83,32 +83,18 @@
 								?>
 							</div>
 						</div>
-						<?php
-							$hasID = isset($_GET["id"]);
-							$appDisplay = $hasID ? "" : "none";
-							$welcomeDisplay = $hasID ? "none" : "";
-						?>
-						<div style="background-color: rgba(0,0,0,0);display: <?=$welcomeDisplay?>;" class="layoutCenter box contentPanel"><div class="layoutCenter center">Select a student account in the list to begin.</div></div>
-						<div style="display: <?=$appDisplay?>;" class="contentPanel">
+						<div class="contentPanel">
 							<div class="layoutFlex box horizontal label">
-								<div class="text">Admin's Details</div>
+								<div class="text">New Admin Account Details</div>
 								<div class="shape"></div>
 							</div>
-							<form method="post" action="/php-includes/adminUtils/update-admin.inc.php">
-								<?php
-									$adminDetails = getAdminAccountBasicInfo($sql_client, $_GET["id"]);
-									$id = $adminDetails["admin_id"];
-									$fname = $adminDetails["first_name"];
-									$mname = $adminDetails["middle_name"];
-									$lname = $adminDetails["last_name"];
-									$title = $adminDetails["title"];
-								?>
+							<form method="post" action="/php-includes/adminUtils/add-admin.inc.php">
 								<table class="appInputGroup super">
 									<tr>
 										<td class="inputLabel">Admin ID</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" readonly name="ad_id" value="<?=$id?>" />
+												<input type="text" name="ad_id"/>
 											</div>
 										</td>
 									</tr>
@@ -116,7 +102,7 @@
 										<td class="inputLabel">First Name</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_fname" value="<?=$fname?>" />
+												<input type="text" name="ad_fname" />
 											</div>
 										</td>
 									</tr>
@@ -124,7 +110,7 @@
 										<td class="inputLabel">Middle Name</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_mname" value="<?=$mname?>" />
+												<input type="text" name="ad_mname"/>
 											</div>
 										</td>
 									</tr>
@@ -132,7 +118,7 @@
 										<td class="inputLabel">Last Name</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_lname" value="<?=$lname?>" />
+												<input type="text" name="ad_lname"/>
 											</div>
 										</td>
 									</tr>
@@ -140,52 +126,22 @@
 										<td class="inputLabel">Title</td>
 										<td>
 											<div class="appInputGroup secondDesign">
-												<input type="text" name="ad_title" value="<?=$title?>" />
+												<input type="text" name="ad_title"/>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="inputLabel">Password</td>
+										<td>
+											<div class="appInputGroup secondDesign">
+												<input type="password" name="ad_password" />
 											</div>
 										</td>
 									</tr>
 									<tr>
 										<td class="inputLabel"></td>
 										<td class="inputButtonContainer">
-											<input type="submit" name="ad_update" value="Update"/>
-										</td>
-									</tr>
-								</table>
-							</form>
-							<div class="layoutFlex box horizontal label">
-								<div class="text">Reset Password</div>
-								<div class="shape"></div>
-							</div>
-							<form method="post" action="/php-includes/adminUtils/update-admin.inc.php">
-								<table class="appInputGroup super">
-								<tr>
-									<td class="inputLabel">Password</td>
-									<td>
-										<div class="appInputGroup secondDesign">
-											<input type="hidden" name="ad_id" value="<?=$id?>"/>
-											<input type="password" name="ad_password" />
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="inputLabel"></td>
-									<td class="inputButtonContainer">
-										<input type="submit" name="ad_updatePw" value="Update"/>
-									</td>
-								</tr>
-								</table>
-							</form>
-							<div class="layoutFlex box horizontal label">
-								<div class="text">Remove Account</div>
-								<div class="shape"></div>
-							</div>
-							<form method="post" action="/php-includes/adminUtils/update-admin.inc.php">
-								<table class="appInputGroup super">
-									<tr>
-										<td class="inputLabel"></td>
-										<td class="inputButtonContainer">
-											<input type="hidden" name="ad_id" value="<?=$id?>"/>
-											<input type="submit" name="ad_delete" value="Remove Account"/>
+											<input type="submit" name="ad_new" value="Add"/>
 										</td>
 									</tr>
 								</table>

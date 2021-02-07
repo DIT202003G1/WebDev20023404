@@ -4,6 +4,20 @@
 $msg_server_admin = "Please report this to the website admin.";
 $msg_field_empty = "This field cannot be empty";
 
+$msg_admin_manage_admin_add = [
+	"Admin ID cannot be empty",
+	"First name cannot be empty",
+	"Last name cannot be empty",
+	"Title cannot be empty",
+	"Admin ID too long",
+	"First name too long",
+	"Middle name too long",
+	"Last name too long",
+	"Title too long",
+	"Password cannot be empty",
+	"Admin Account with same ID already exists",
+	"Database STMT Error"
+];
 $msg_admin_manage_admin_update = [
 	"Admin ID cannot be empty",
 	"First name cannot be empty",
