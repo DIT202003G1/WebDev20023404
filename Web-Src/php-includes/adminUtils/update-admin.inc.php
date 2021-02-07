@@ -109,7 +109,7 @@ if (isset($_POST["ad_delete"])){
 		header("Location: /php-includes/logout.inc.php");
 		exit();
 	}
-	header("Location: /appAdmin/admin/?id=$id");
+	header("Location: /appAdmin/admin/");
 	exit();
 }
 
