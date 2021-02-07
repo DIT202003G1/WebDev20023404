@@ -47,7 +47,6 @@
 						</div>
 					</div>
 					<div onclick="nevigate('/appAdmin/admin')" class="listItem admin noselect">Manage Admin's Accounts</div>
-					<div onclick="nevigate('/appAdmin/course')" class="listItem course noselect">Manage Courses</div>
 					<div>
 						<div class="layoutFlex box horizontal label">
 							<div class="text">Logout</div>
