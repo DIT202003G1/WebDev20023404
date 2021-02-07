@@ -81,6 +81,17 @@ function submitPassword($client, $password, $id){
 	mysqli_stmt_close($stmt);
 }
 
+function deleteAccount($client, $id){
+	$sql = "DELETE FROM AdminUser WHERE admin_id = ?;";
+	$stmt = mysqli_stmt_init($client);
+	if (!mysqli_stmt_prepare($stmt, $sql)){
+		sendError(10,$_POST["ad_id"]);
+	}
+	mysqli_stmt_bind_param($stmt, "i", $id);
+	mysqli_stmt_execute($stmt);
+	mysqli_stmt_close($stmt);
+}
+
 if (isset($_POST["ad_updatePw"])){
 	$test_pw = v_password($sql_client, $_POST["ad_password"]);
 	if ($test_pw === -1){
@@ -88,6 +99,16 @@ if (isset($_POST["ad_updatePw"])){
 	}
 	submitPassword($sql_client, $_POST["ad_password"],$_POST["ad_id"]);
 	$id = $_POST["ad_id"];
+	header("Location: /appAdmin/admin/?id=$id");
+	exit();
+}
+if (isset($_POST["ad_delete"])){
+	$id = $_POST["ad_id"];
+	deleteAccount($sql_client, $id);
+	if ($id == $_SESSION["userid"]){
+		header("Location: /php-includes/logout.inc.php");
+		exit();
+	}
 	header("Location: /appAdmin/admin/?id=$id");
 	exit();
 }

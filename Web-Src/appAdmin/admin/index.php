@@ -162,7 +162,7 @@
 									<td class="inputLabel">Password</td>
 									<td>
 										<div class="appInputGroup secondDesign">
-											<input type="hidden" name="ad_id" value=<?=$id?>/>
+											<input type="hidden" name="ad_id" value="<?=$id?>"/>
 											<input type="password" name="ad_password" />
 										</div>
 									</td>
@@ -179,11 +179,12 @@
 								<div class="text">Remove Account</div>
 								<div class="shape"></div>
 							</div>
-							<form>
+							<form method="post" action="/php-includes/adminUtils/update-admin.inc.php">
 								<table class="appInputGroup super">
 									<tr>
 										<td class="inputLabel"></td>
 										<td class="inputButtonContainer">
+											<input type="hidden" name="ad_id" value="<?=$id?>"/>
 											<input type="submit" name="ad_delete" value="Remove Account"/>
 										</td>
 									</tr>
