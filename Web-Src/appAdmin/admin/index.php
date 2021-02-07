@@ -94,7 +94,7 @@
 								<div class="text">Admin's Details</div>
 								<div class="shape"></div>
 							</div>
-							<form>
+							<form method="post" action="/php-includes/adminUtils/update-admin.inc.php">
 								<?php
 									$adminDetails = getAdminAccountBasicInfo($sql_client, $_GET["id"]);
 									$id = $adminDetails["admin_id"];
@@ -156,28 +156,21 @@
 								<div class="text">Reset Password</div>
 								<div class="shape"></div>
 							</div>
-							<form>
+							<form method="post" action="/php-includes/adminUtils/update-admin.inc.php">
 								<table class="appInputGroup super">
 								<tr>
 									<td class="inputLabel">Password</td>
 									<td>
 										<div class="appInputGroup secondDesign">
-											<input type="password" name="ad_lname" />
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="inputLabel">Re-Type</td>
-									<td>
-										<div class="appInputGroup secondDesign">
-											<input type="password" name="ad_title" />
+											<input type="hidden" name="ad_id" value=<?=$id?>/>
+											<input type="password" name="ad_password" />
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<td class="inputLabel"></td>
 									<td class="inputButtonContainer">
-										<input type="submit" name="ad_update" value="Update"/>
+										<input type="submit" name="ad_updatePw" value="Update"/>
 									</td>
 								</tr>
 								</table>
@@ -191,7 +184,7 @@
 									<tr>
 										<td class="inputLabel"></td>
 										<td class="inputButtonContainer">
-											<input type="submit" name="ad_update" value="Remove Account"/>
+											<input type="submit" name="ad_delete" value="Remove Account"/>
 										</td>
 									</tr>
 								</table>
