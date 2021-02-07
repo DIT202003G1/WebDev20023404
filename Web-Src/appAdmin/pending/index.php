@@ -55,7 +55,7 @@
 						</div>
 					</div>
 					<div class="currentAdminDetails">
-						Logged in as <a href="#"><?= $_SESSION["userid"] ?></a>. <a href="/php-includes/logout.inc.php">Logout</a>
+						Logged in as <a href="/appAdmin/admin/?id=<?= $_SESSION['userid']?>"><?= $_SESSION["userid"] ?></a>. <a href="/php-includes/logout.inc.php">Logout</a>
 					</div>
 				</div>
 				<div class="rightPaneContainer">
