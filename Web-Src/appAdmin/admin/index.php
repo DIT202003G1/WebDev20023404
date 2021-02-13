@@ -92,7 +92,7 @@
 						<div style="display: <?=$appDisplay?>;" class="contentPanel">
 							<?php
 								$errorStyle = isset($_GET["err"]) ? "" : "none";
-								$errorMessage = $msg_admin_manage_admin_add[$_GET["err"]];
+								$errorMessage = $msg_admin_manage_admin_update[$_GET["err"]];
 							?>
 							<div class="errorNotification" style="display: <?= $errorStyle ?>"><?= $errorMessage ?></div>
 							<div class="layoutFlex box horizontal label">
