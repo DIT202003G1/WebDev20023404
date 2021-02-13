@@ -9,7 +9,7 @@ require("../password.inc.php");
 sessionRedirectAdminApp();
 
 function sendError($ecode,$id){
-	header("Location: /appAdmin/add-admin/?id=$id&err=$ecode");
+	header("Location: /appAdmin/admin-add/?err=$ecode");
 	exit();
 }
 

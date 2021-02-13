@@ -73,6 +73,13 @@ body{
 ======================== RIGHT PANE ======================
 ======================== ========== ======================
 */
+.errorNotification{
+	background: var(--front_error);
+	color: white;
+	margin: 20px 0px;
+	padding: 5px 10px;
+	font-size: 14px;
+}
 .rightPaneContainer{
 	flex:1;
 	overflow-y: auto;

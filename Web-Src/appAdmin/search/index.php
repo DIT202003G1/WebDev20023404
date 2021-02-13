@@ -5,6 +5,7 @@
 <?php require "/opt/lampp/htdocs/php-includes/adminUtils/controlPanel.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/sessionUtils.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/database.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/message.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/dbUtils.inc.php" ?>
 
 <?php
@@ -124,7 +125,11 @@
 								$statusStyle = ($studentDetails["blocked"] == 1) ? "color: var(--front_error);border: solid 2px var(--front_error);" : "color: var(--front_success);border: solid 2px var(--front_success);";
 								$blockButton = ($studentDetails["blocked"] == 1) ? "Unblock" : "Block";
 								$blockButtonName = ($studentDetails["blocked"] == 1) ? "unblock" : "block";
+
+								$errorStyle = isset($_GET["err"]) ? "" : "none";
+								$errorMessage = $msg_admin_manage_student_update[$_GET["err"]];
 							?>
+							<div class="errorNotification" style="display: <?= $errorStyle ?>;"><?= $errorMessage ?></div>
 							<form method="post" action="/php-includes/adminUtils/update-student.inc.php">
 								<div class="topMargin" id="tab_Details">
 									<table class="appInputGroup super">

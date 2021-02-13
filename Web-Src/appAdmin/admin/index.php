@@ -6,6 +6,7 @@
 <?php require "/opt/lampp/htdocs/php-includes/sessionUtils.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/database.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/dbUtils.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/message.inc.php" ?>
 
 <?php
 	sessionRedirectAdminApp();
@@ -89,6 +90,11 @@
 						?>
 						<div style="background-color: rgba(0,0,0,0);display: <?=$welcomeDisplay?>;" class="layoutCenter box contentPanel"><div class="layoutCenter center">Select a student account in the list to begin.</div></div>
 						<div style="display: <?=$appDisplay?>;" class="contentPanel">
+							<?php
+								$errorStyle = isset($_GET["err"]) ? "" : "none";
+								$errorMessage = $msg_admin_manage_admin_add[$_GET["err"]];
+							?>
+							<div class="errorNotification" style="display: <?= $errorStyle ?>"><?= $errorMessage ?></div>
 							<div class="layoutFlex box horizontal label">
 								<div class="text">Admin's Details</div>
 								<div class="shape"></div>

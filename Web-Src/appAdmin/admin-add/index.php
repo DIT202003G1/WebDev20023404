@@ -6,6 +6,7 @@
 <?php require "/opt/lampp/htdocs/php-includes/sessionUtils.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/database.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/dbUtils.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/message.inc.php" ?>
 
 <?php
 	sessionRedirectAdminApp();
@@ -83,6 +84,11 @@
 							</div>
 						</div>
 						<div class="contentPanel">
+							<?php
+								$errorStyle = isset($_GET["err"]) ? "" : "none";
+								$errorMessage = $msg_admin_manage_admin_update[$_GET["err"]];
+							?>
+							<div class="errorNotification" style="display: <?= $errorStyle ?>"><?= $errorMessage ?></div>
 							<div class="layoutFlex box horizontal label">
 								<div class="text">New Admin Account Details</div>
 								<div class="shape"></div>
