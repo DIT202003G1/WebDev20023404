@@ -24,6 +24,12 @@
 					<img src=""/>
 				</div>
 			</div>
+			<div class="instruction layoutCenter box">
+				<div class="layoutCenter center">
+					Select someone from the bookmark list,<br/>
+					or use the search to begin using.
+				</div>
+			</div>
 		</div>
 		<div class="leftpanel">
 			<div class="noselect appInfo layoutFlex box horizontal">

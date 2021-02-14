@@ -88,3 +88,10 @@
 		line-height: 18px;
 		display:block;
 	}
+
+.mainpanel>.instruction{
+	height: calc(100vh - 60px);
+}
+	.mainpanel>.instruction>div{
+		color: var(--secondary_dark);
+	}
