@@ -112,12 +112,15 @@
 		margin-bottom: 20px;
 	}
 
-.content>.row>.col-md-6>.card{
+.card{
 	box-shadow: 1px 1px 3px 0px rgba(180,180,180,0.7);
+	border: 3px solid rgba(0,0,0,0);
+}
+
+.content>.row>.col-md-6>.card{
 	height:80px;
 	padding-left: 20px;
 	min-width: 150px;
-	border: 3px solid rgba(0,0,0,0);
 	cursor: pointer;
 }
 	.content>.row>.col-md-6>.card:hover{
@@ -150,4 +153,131 @@
 		height: 20px;
 		width: 20px;
 		margin: 5px;
+	}
+
+.userinfo{
+	padding-top: 60px;
+}
+	.userinfo>.index,.userinfo>.feed,.userinfo>.info{
+		height:auto;
+	}
+	.userinfo>.index{
+		min-width: 150px;
+	}
+	.userinfo>.feed{
+		min-width: 250px;
+		flex: 1;
+	}
+	.userinfo>.info{
+		min-width: 200px;
+	}
+
+.userinfo>.index>div{
+	text-align: right;
+	margin: 20px 0px 0px 0px;
+	padding: 0px 10px 0px 35px;
+	border-right: 2px solid var(--secondary_dark);
+	line-height: 35px;
+	position: fixed;
+}
+	.userinfo>.index>div>a{
+		text-align: right;
+		display: block;
+		color: var(--secondary_dark);
+	}
+	.userinfo>.index>div>a.selected{
+		color: var(--primary);
+	}
+
+.userinfo>.feed{
+	margin: 10px 10px 0px 10px;
+}
+	.userinfo>.feed>.card{
+		margin-bottom: 10px;
+		padding: 20px;
+	}
+	.userinfo>.feed>.card>h2{
+		font-weight: normal;
+		font-size: 22px;
+		margin-bottom: 20px;
+	}
+	.userinfo>.feed>.card>table{
+		border: 1px solid var(--secondary);
+		border-collapse: collapse;
+	}
+	.userinfo>.feed>.card>table>tbody>tr>td,.userinfo>.feed>.card>table>tbody>tr>th{
+		padding: 5px 10px;
+	}
+	.userinfo>.feed>.card>table>tbody>tr.header{
+		border-bottom: 1px solid var(--secondary);
+	}
+	.userinfo>.feed>.card>table>tbody>tr>th{
+		font-weight: normal;
+	}
+	.userinfo>.feed>.card>table>tbody>tr>td{
+		font-weight: normal;
+		color: var(--secondary_dark);
+	}
+
+.userinfo>.info{
+	margin: 10px 20px 0px 10px;
+}
+	.userinfo>.info>.card>.profile{
+		margin:22px;
+	}
+	.userinfo>.info>.card>.profile>img{
+		width: 150px;
+		height: 150px;
+		border-radius: 10px;
+		background: var(--secondary_light);
+	}
+	.userinfo>.info>.card>.name{
+		font-size: 22px;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	.userinfo>.info>.card>.course,.userinfo>.info>.card>.intake{
+		font-size: 15px;
+		padding: 5px 15px 15px 40px;
+		background-repeat: no-repeat;
+		background-position: 10px 5px;
+		color: var(--secondary_dark);
+	}
+	.userinfo>.info>.card>.course{
+		background-image: url(/assets/app/course.svg);
+	}
+	.userinfo>.info>.card>.intake{
+		background-image: url(/assets/app/intake.svg);
+	}
+	.userinfo>.info>.card>.action{
+		margin: 15px;
+		text-align: right;
+	}
+	.userinfo>.info>.card>.action>.bookmark{
+		border: 2px solid var(--primary_dark);
+		background-color: rgba(0,0,0,0);
+		color: var(--primary_dark);
+		padding-left: 30px;
+		background-image: url(/assets/app/add.svg);
+		background-repeat: no-repeat;
+		background-position: 2px 50%;
+	}
+	.userinfo>.info>.card>.action>.bookmark:hover{
+		background-color: var(--primary_dark);
+		background-image: url(/assets/app/add_hover.svg);
+		color: white;
+	}
+	.userinfo>.info>.card>.action>.bookmarked{
+		border: 2px solid var(--front_success);
+		background-color: rgba(0,0,0,0);
+		color: var(--front_success);
+		padding-left: 30px;
+		background-image: url(/assets/app/tick.svg);
+		background-repeat: no-repeat;
+		background-position: 2px 50%;
+	}
+	.userinfo>.info>.card>.action>.bookmarked:hover{
+		background-color: var(--front_success);
+		background-image: url(/assets/app/tick_hover.svg);
+		color: white;
 	}
