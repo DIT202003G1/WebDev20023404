@@ -18,7 +18,7 @@
 		<div class="mainpanel">
 			<div class="appbar layoutFlex box horizontal">
 				<div class="search">
-					<input type="text" placeholder="Name / ID / Course / Intake" id="searchVal"/>
+					<input type="text" id="search" placeholder="Name / ID / Course / Intake" id="searchVal"/>
 				</div>
 				<div class="profile">
 					<img src=""/>
@@ -54,6 +54,9 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+			registerKeyPressEvent();
+		</script>
 		<?= $includes_foots ?>
 	</body>
 </html>

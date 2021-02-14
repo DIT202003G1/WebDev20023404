@@ -17,3 +17,21 @@ function parseSearch(raw){
 	}
 	return ast;
 }
+function encodeSearch(ast){
+	var urlEncodes = [];
+	for (let i in ast){
+		val = ast[i].join(",");
+		urlEncodes.push(`${i}=${val}`);
+	}
+	return urlEncodes.join("&")
+}
+function registerKeyPressEvent(){
+	_id("search").addEventListener("keydown",(e)=>{
+		if (e.key === "Enter"){
+			const parsed = parseSearch(e.target.value);
+			const urlEncoded = encodeSearch(parsed);
+			document.location.href = `/application/search?${urlEncoded}`;
+		}
+	})
+}
+
