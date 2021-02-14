@@ -25,10 +25,30 @@
 					<img src=""/>
 				</div>
 			</div>
-			<div class="instruction layoutCenter box">
-				<div class="layoutCenter center">
-					Select someone from the bookmark list,<br/>
-					or use the search to begin using.
+			<div class="content container layoutCenter box">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="card layoutFlex box horizontal">
+							<img class="profile" src="" />
+							<div class="title">
+								<h3>Lorem</h3>
+								<span>Ipsum</span>
+							</div>
+							<img class="icon" src="/assets/app/bookmark.svg" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="card layoutFlex box horizontal">
+							<img class="profile" src="" />
+							<div class="title">
+								<h3>Lorem</h3>
+								<span>Ipsum</span>
+							</div>
+							<img class="icon" src="/assets/app/bookmark.svg" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
 				</div>
 			</div>
 		</div>
@@ -39,15 +59,15 @@
 			</div>
 			<div class="bookmarkList">
 				<h2 class="noselect">Bookmarked Users</h2>
-				<div class="listItem selected layoutFlex box horizontal">
-					<img class="profile" src="http://localhost/assets/feature_logos/privacy.svg">
+				<div class="listItem layoutFlex box horizontal">
+					<img class="profile" src="">
 					<div class="title">
 						<h3>Lorem Ipsum</h3>
 						<span>Dolor Sit Amet Consectetur Adipiscing</span>
 					</div>
 				</div>
 				<div class="listItem layoutFlex box horizontal">
-					<img class="profile" src="http://localhost/assets/feature_logos/privacy.svg">
+					<img class="profile" src="">
 					<div class="title">
 						<h3>Lorem Ipsum</h3>
 						<span>Dolor Sit Amet</span>

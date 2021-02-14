@@ -5,6 +5,7 @@
 	width: 280px;
 	border-right: 2px var(--secondary) solid;
 	overflow-y: scroll;
+	z-index: 3;
 }
 .mainpanel{
 	background: var(--secondary_light);
@@ -16,6 +17,9 @@
 	height: 60px;
 	box-shadow: 0px 3px 10px 0px rgba(189,189,189,1);
 	justify-content: space-between;
+	position:fixed;
+	width: calc(100vw - 280px);
+	z-index: 2;
 }
 	.appbar>.profile{
 		margin: 10px 20px 10px 10px;
@@ -72,6 +76,7 @@
 		width: 45px;
 		margin: 10px;
 		border-radius: 50%;
+		background: var(--secondary_light);
 	}
 	.bookmarkList>.listItem>.title{
 		margin: 14px 0px;
@@ -94,4 +99,55 @@
 }
 	.mainpanel>.instruction>div{
 		color: var(--secondary_dark);
+	}
+
+.mainpanel>.content{
+	max-width: 700px;
+	margin-top: 100px;
+	margin-bottom: 20px;
+	height: auto;
+	z-index: 1;
+}
+	.mainpanel>.content>.row>.col-md-6{
+		margin-bottom: 20px;
+	}
+
+.content>.row>.col-md-6>.card{
+	box-shadow: 1px 1px 3px 0px rgba(180,180,180,0.7);
+	height:80px;
+	padding-left: 20px;
+	min-width: 150px;
+	border: 3px solid rgba(0,0,0,0);
+	cursor: pointer;
+}
+	.content>.row>.col-md-6>.card:hover{
+		border: 3px solid var(--secondary_light);
+	}
+	.content>.row>.col-md-6>.card>.profile{
+		height: 45px;
+		width: 45px;
+		margin: 16px;
+		border-radius: 50%;
+		background: var(--secondary_light);
+	}
+	.content>.row>.col-md-6>.card>.title{
+		margin: 18px 0px;
+		flex:1;
+	}
+	.content>.row>.col-md-6>.card>.title>h3{
+		font-size: 16px;
+		font-weight: normal;
+		margin: 0px;
+		line-height: 20px;
+	}
+	.content>.row>.col-md-6>.card>.title>span{
+		font-size: 14px;
+		color: var(--secondary_dark);
+		line-height: 18px;
+		display:block;
+	}
+	.content>.row>.col-md-6>.card>.icon{
+		height: 20px;
+		width: 20px;
+		margin: 5px;
 	}

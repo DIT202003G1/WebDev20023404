@@ -9,10 +9,10 @@ function parseSearch(raw){
 			}
 			ast[argKeyVals[0]].push(argKeyVals[1]);
 		}else{
-			if (!("misc" in ast)){
-				ast["misc"] = [];
+			if (!("_misc" in ast)){
+				ast["_misc"] = [];
 			}
-			ast["misc"].push(args[i].toLowerCase());
+			ast["_misc"].push(args[i].toLowerCase());
 		}
 	}
 	return ast;
