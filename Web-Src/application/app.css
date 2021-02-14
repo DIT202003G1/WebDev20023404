@@ -1,0 +1,90 @@
+.leftpanel, .mainpanel{
+	height: 100vh;
+}
+.leftpanel{
+	width: 280px;
+	border-right: 2px var(--secondary) solid;
+	overflow-y: scroll;
+}
+.mainpanel{
+	background: var(--secondary_light);
+	overflow-y: auto;
+	flex:1;
+}
+.appbar{
+	background: white;
+	height: 60px;
+	box-shadow: 0px 3px 10px 0px rgba(189,189,189,1);
+	justify-content: space-between;
+}
+	.appbar>.profile{
+		margin: 10px 20px 10px 10px;
+	}
+	.appbar>.profile>img{
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		border: 0px;
+	}
+	.appbar>.search{
+		margin: 11px 11px 11px 20px;
+	}
+
+.appInfo{
+	height: 60px;
+	border-bottom: 1px var(--secondary) solid;
+	justify-content: space-between;
+}
+	.appInfo>h1{
+		padding: 15px 0px 0px 5px;
+		font-size: 25px;
+		color: var(--secondary_dark);
+		font-weight: normal;
+	}
+	.appInfo>.version{
+		padding: 20px 5px 0px 0px;
+		font-size: 16px;
+		color: var(--secondary_dark);
+		font-weight: 200;
+	}
+
+.bookmarkList{
+	height: calc(100vh - 60px);
+	border-bottom: 1px var(--secondary) solid;
+}
+	.bookmarkList>h2{
+		padding: 20px 8px 10px 8px;
+		font-size: 18px;
+		font-weight: normal;
+		color: var(--primary_dark);
+	}
+	.bookmarkList>.listItem{
+		padding-left: 10px;
+		min-height: 65px;
+		margin-bottom: 5px;
+		cursor: pointer;
+	}
+	.bookmarkList>.listItem.selected,.bookmarkList>.listItem:hover{
+		background: var(--secondary_light);
+	}
+	.bookmarkList>.listItem>.profile{
+		height: 45px;
+		width: 45px;
+		margin: 10px;
+		border-radius: 50%;
+	}
+	.bookmarkList>.listItem>.title{
+		margin: 14px 0px;
+	}
+	.bookmarkList>.listItem>.title>h3{
+		font-size: 16px;
+		font-weight: normal;
+		margin: 0px;
+		line-height: 20px;
+	}
+	.bookmarkList>.listItem>.title>span{
+		font-size: 14px;
+		color: var(--secondary_dark);
+		line-height: 18px;
+		display:block;
+	}

@@ -1,0 +1,17 @@
+.search>input{
+	height: 38px;
+	border: 0px;
+	background-color: var(--secondary_light);
+	background-image: url(/assets/app/user-search.svg);
+	background-repeat: no-repeat;
+	background-position: 5px 50%;
+	padding-left: 40px;
+	width: 30vw;
+	min-width: 250px;
+}
+.search>input::placeholder{
+	color: var(--secondary);
+}
+.search>input[type="text"]:focus{
+	outline: none;
+}
