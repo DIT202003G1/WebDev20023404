@@ -26,6 +26,8 @@
 	}
 	.appbar>.profile>img{
 		height: 40px;
+		background: var(--secondary_light);
+		cursor: pointer;
 		width: 40px;
 		border-radius: 50%;
 		border: 0px;
@@ -33,15 +35,15 @@
 	.appbar>.search{
 		margin: 11px 11px 11px 20px;
 	}
-
-.appbar-special{
-	background: white;
-	height: 200px;
-	box-shadow: 0px 3px 10px 0px rgba(189,189,189,1);
-	position:fixed;
-	width: calc(100vw - 280px);
-	z-index: 2;
-}
+	
+	.appbar-special{
+		background: white;
+		height: 200px;
+		box-shadow: 0px 3px 10px 0px rgba(189,189,189,1);
+		position:fixed;
+		width: calc(100vw - 280px);
+		z-index: 2;
+	}
 	.appbar-special>.normalbar{
 		justify-content: space-between;
 	}
@@ -51,14 +53,16 @@
 	.appbar-special>.normalbar>.profile>img{
 		height: 40px;
 		width: 40px;
+		cursor: pointer;
+		background: var(--secondary_light);
 		border-radius: 50%;
 		border: 0px;
 	}
 	.appbar-special>.normalbar>.search{
 		margin: 11px 11px 11px 20px;
 	}
-
-.appbar-special>.greetings{
+	
+	.appbar-special>.greetings{
 	padding: 0px 40px;
 	height: 140px;
 }

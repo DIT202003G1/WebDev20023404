@@ -23,7 +23,7 @@
 					<input type="text" id="search" placeholder="Name / ID / Course / Intake" id="searchVal"/>
 				</div>
 				<div class="profile">
-					<img src=""/>
+					<img onclick="nevigateToOptions()" src=""/>
 				</div>
 			</div>
 			<div class="userinfo layoutFlex box horizontal">
@@ -179,7 +179,7 @@
 						<div class="name">Lorem Ipsum</div>
 						<div class="course">Foundation in Music</div>
 						<div class="intake">March, 2020</div>
-						<div class="action"><button class="special bookmark">Bookmark</button></div>
+						<div class="action"><button onclick="addBookmark(1)" class="special bookmark">Bookmark</button></div>
 					</div>
 				</div>
 			</div>

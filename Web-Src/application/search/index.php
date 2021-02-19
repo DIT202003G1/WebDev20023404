@@ -22,7 +22,7 @@
 					<input type="text" id="search" placeholder="Name / ID / Course / Intake" id="searchVal"/>
 				</div>
 				<div class="profile">
-					<img src=""/>
+					<img onclick="nevigateToOptions()" src=""/>
 				</div>
 			</div>
 			<div class="content container layoutCenter box">
