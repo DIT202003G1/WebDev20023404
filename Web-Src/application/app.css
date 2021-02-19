@@ -34,6 +34,71 @@
 		margin: 11px 11px 11px 20px;
 	}
 
+.appbar-special{
+	background: white;
+	height: 200px;
+	box-shadow: 0px 3px 10px 0px rgba(189,189,189,1);
+	position:fixed;
+	width: calc(100vw - 280px);
+	z-index: 2;
+}
+	.appbar-special>.normalbar{
+		justify-content: space-between;
+	}
+	.appbar-special>.normalbar>.profile{
+		margin: 10px 20px 10px 10px;
+	}
+	.appbar-special>.normalbar>.profile>img{
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		border: 0px;
+	}
+	.appbar-special>.normalbar>.search{
+		margin: 11px 11px 11px 20px;
+	}
+
+.appbar-special>.greetings{
+	padding: 0px 40px;
+	height: 140px;
+}
+	.appbar-special>.greetings>.profile{
+		padding-top: 30px;
+	}
+	.appbar-special>.greetings>.profile>img{
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		background: var(--secondary_light);
+	}
+	.appbar-special>.greetings>.title{
+		padding: 30px 0px 30px 30px;
+		flex: 1;
+	}
+	.appbar-special>.greetings>.title>h2{
+		font-size: 24px;
+		font-weight: normal;
+	}
+	.appbar-special>.greetings>.title>p{
+		color: var(--secondary_dark);
+	}
+	.appbar-special>.greetings>.logout>button{
+		height: 40px;
+		margin-top: 70%;
+		border: 2px var(--front_error) solid;
+		background-color: rgba(0,0,0,0);
+		padding-left: 40px;
+		color: var(--front_error);
+		background-image: url(/assets/app/logout.svg);
+		background-repeat: no-repeat;
+		background-position: 5px 50%;
+	}
+	.appbar-special>.greetings>.logout>button:hover{
+		background-color: var(--front_error);
+		color: white;
+		background-image: url(/assets/app/logout_hover.svg);
+	}
+
 .appInfo{
 	height: 60px;
 	border-bottom: 1px var(--secondary) solid;
@@ -280,4 +345,113 @@
 		background-color: var(--front_success);
 		background-image: url(/assets/app/tick_hover.svg);
 		color: white;
+	}
+
+.selfoptions{
+	margin-top: 220px;
+}
+	.selfoptions>.index, .selfoptions>.cards{
+		height: auto;
+	}
+	.selfoptions>.index{
+		min-width: 150px;
+	}
+	.selfoptions>.cards{
+		min-width: 250px;
+		flex: 1;
+	}
+
+.selfoptions>.index>div{
+	text-align: right;
+	margin: 20px 0px 0px 0px;
+	padding: 0px 10px 0px 35px;
+	border-right: 2px solid var(--secondary_dark);
+	line-height: 35px;
+	position: fixed;
+}
+	.selfoptions>.index>div>a{
+		text-align: right;
+		display: block;
+		color: var(--secondary_dark);
+	}
+	.selfoptions>.index>div>a.selected{
+		color: var(--primary);
+	}
+
+.selfoptions>.cards{
+	margin: 10px 20px 0px 10px;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+	.selfoptions>.cards>.row>.col-md-6>.card, .selfoptions>.cards>.row>.col-md-12>.card{
+		margin-bottom: 15px;
+		padding: 10px;
+	}
+	.selfoptions>.cards>.row>.col-md-6>.card{
+		min-height: 180px;
+	} 
+	.selfoptions>.cards>.row>.col-md-6>.card>p, .selfoptions>.cards>.row>.col-md-12>.card>p{
+		flex: 1;
+		color: var(--secondary_dark);
+	} 
+	.selfoptions>.cards>.row>.col-md-6>.card>h2, .selfoptions>.cards>.row>.col-md-12>.card>h2{
+		font-size: 24px;
+		font-weight: normal;
+	}
+	.selfoptions>.cards>.row>.col-md-6>.card>button, .selfoptions>.cards>.row>.col-md-12>.card>form>button, .selfoptions>.cards>.row>.col-md-12>.card>form>input[type="submit"]{
+		min-width: 100px;
+		height:40px;
+		margin-left: auto;
+		border: 0px;
+		background: rgba(0,0,0,0);
+		color: var(--primary_dark);
+		border-radius: 3px;
+	}
+	@keyframes onMouseIn{
+		from{background-color: rgba(0,0,0,0);}
+		to{	background-color: var(--primary_background);}
+	}
+	.selfoptions>.cards>.row>.col-md-6>.card>button:hover, .selfoptions>.cards>.row>.col-md-12>.card>form>input[type="submit"]:hover, .selfoptions>.cards>.row>.col-md-12>.card>form>button:hover{
+		animation-name: onMouseIn;
+		animation-duration: 0.1s;
+		background-color: var(--primary_background);
+	}
+	.selfoptions>.cards>.row>.col-md-6>.card>div>form>input{
+		margin-bottom: 5px;
+	}
+	.selfoptions>.cards>.row>.col-md-6>.card>div>form>input[type="text"],.selfoptions>.cards>.row>.col-md-6>.card>div>form>input[type="password"]{
+		border: 0px;
+		background: var(--secondary_light);
+		border-radius: 0px;
+	}
+	.selfoptions>.cards>.row>.col-md-6>.card>div>form>input[type="submit"]{
+		margin-left:auto;
+		background: rgba(0,0,0,0);
+	}
+
+.selfoptions>.cards>.row>.col-md-12>.card>form>table{
+	border: 1px solid var(--secondary);
+	border-collapse: collapse;
+	margin-bottom: 10px;
+	width: 100%;
+}
+	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td,.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>th{
+		padding: 5px 10px;
+	}
+	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr.header{
+		border-bottom: 1px solid var(--secondary);
+	}
+	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>th{
+		font-weight: normal;
+	}
+	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td{
+		font-weight: normal;
+		color: var(--secondary_dark);
+	}
+	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td.hidden{
+		color: var(--front_error);
+	}
+	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td.shown{
+		color: var(--front_success);
 	}
