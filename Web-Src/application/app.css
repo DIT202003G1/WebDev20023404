@@ -403,7 +403,7 @@
 		font-size: 24px;
 		font-weight: normal;
 	}
-	.selfoptions>.cards>.row>.col-md-6>.card>button, .selfoptions>.cards>.row>.col-md-12>.card>form>button, .selfoptions>.cards>.row>.col-md-12>.card>form>input[type="submit"]{
+	.selfoptions>.cards>.row>.col-md-6>.card>button, .selfoptions>.cards>.row>.col-md-12>.card>button, .selfoptions>.cards>.row>.col-md-12>.card>form>input[type="submit"]{
 		min-width: 100px;
 		height:40px;
 		margin-left: auto;
@@ -416,7 +416,7 @@
 		from{background-color: rgba(0,0,0,0);}
 		to{	background-color: var(--primary_background);}
 	}
-	.selfoptions>.cards>.row>.col-md-6>.card>button:hover, .selfoptions>.cards>.row>.col-md-12>.card>form>input[type="submit"]:hover, .selfoptions>.cards>.row>.col-md-12>.card>form>button:hover{
+	.selfoptions>.cards>.row>.col-md-6>.card>button:hover, .selfoptions>.cards>.row>.col-md-12>.card>form>input[type="submit"]:hover, .selfoptions>.cards>.row>.col-md-12>.card>button:hover{
 		animation-name: onMouseIn;
 		animation-duration: 0.1s;
 		background-color: var(--primary_background);
@@ -434,10 +434,13 @@
 		background: rgba(0,0,0,0);
 	}
 
+.selfoptions>.cards>.row>.col-md-12>.card{
+	overflow-x: auto;
+}
 .selfoptions>.cards>.row>.col-md-12>.card>form>table{
 	border: 1px solid var(--secondary);
 	border-collapse: collapse;
-	margin-bottom: 10px;
+	margin: 10px 0px;
 	width: 100%;
 }
 	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td,.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>th{
@@ -458,4 +461,12 @@
 	}
 	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td.shown{
 		color: var(--front_success);
+	}
+	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td>input{
+		border: 1px solid var(--secondary);
+		border-radius: none;
+		width: auto;
+	}
+	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td>input:focus{
+		outline: none;
 	}

@@ -13,7 +13,6 @@
 		<link rel="stylesheet" type="text/css" href="/application/app.css">
 		<link rel="stylesheet" type="text/css" href="/application/app_control.css">
 		<script type="text/javascript" src="/application/search.js"></script>
-		<script type="text/javascript" src="/application/view/view.js"></script>
 		<script type="text/javascript" src="/application/app.js"></script>
 	</head>
 	<body class="layoutFlex box horizontal-reversed">

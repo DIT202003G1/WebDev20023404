@@ -12,6 +12,7 @@
 		<?= $includes_head ?>
 		<link rel="stylesheet" type="text/css" href="/application/app.css">
 		<link rel="stylesheet" type="text/css" href="/application/app_control.css">
+		<script type="text/javascript" src="/application/options/options.js"></script>
 		<script type="text/javascript" src="/application/search.js"></script>
 		<script type="text/javascript" src="/application/app.js"></script>
 	</head>
@@ -114,30 +115,31 @@
 						<div class="col-md-12">
 							<div class="card layoutFlex box vertical">
 								<h2>Emails</h2>
+								<button onclick="addRow('email')" id="update-email-add">New Email</button>
 								<form>
 									<table>
-										<tbody>
+										<tbody id="email">
 											<tr class="header">
 												<th scope="col">Description</th>
 												<th scope="col">Email</th>
 												<th scope="col">Hidden?</th>
 											</tr>
-											<tr>
-												<td>Main</td>
-												<td>Example@example.com</td>
+											<tr id="email_0">
+												<td class="description">Main</td>
+												<td class="content">Example@example.com</td>
 												<td class="shown">Shown</td>
 											</tr>
-											<tr>
-												<td>School</td>
-												<td>Example@school.edu</td>
+											<tr id="email_1">
+												<td class="description">School</td>
+												<td class="content">Example@school.edu</td>
 												<td class="hidden">Hidden</td>
 											</tr>
 										</tbody>
 									</table>
-									<button>Update</button>
-									<input type="submit" value="Update"/>
-									<input type="submit" value="Cancel"/>
+									<input id="update-email-submit" type="submit" value="Submit"/>
+									<input onclick="reload()" id="update-email-cancel" type="submit" value="Cancel"/>
 								</form>
+								<button onclick="showEmailUpdate()" id="update-email-show">Update</button>
 							</div>
 						</div>
 					</div>
@@ -146,30 +148,31 @@
 						<div class="col-md-12">
 							<div class="card layoutFlex box vertical">
 								<h2>Phone Numbers</h2>
+								<button onclick="addRow('phone')" id="update-phone-add">New Number</button>
 								<form>
 									<table>
-										<tbody>
+										<tbody id="phone">
 											<tr class="header">
 												<th scope="col">Description</th>
 												<th scope="col">Phone Number</th>
 												<th scope="col">Hidden?</th>
 											</tr>
-											<tr>
-												<td>Main</td>
-												<td>+0123456789</td>
+											<tr id="phone_0">
+												<td class="description">Main</td>
+												<td class="content">+0123456789</td>
 												<td class="shown">Shown</td>
 											</tr>
-											<tr>
-												<td>School</td>
-												<td>+0123456789</td>
+											<tr id="phone_1">
+												<td class="description">School</td>
+												<td class="content">+0123456789</td>
 												<td class="hidden">Hidden</td>
 											</tr>
 										</tbody>
 									</table>
-									<button>Update</button>
-									<input type="submit" value="Update"/>
-									<input type="submit" value="Cancel"/>
+									<input id="update-phone-submit"type="submit" value="Submit"/>
+									<input onclick="reload()" id="update-phone-cancel"type="submit" value="Cancel"/>
 								</form>
+								<button onclick="showPhoneUpdate()" id="update-phone-show">Update</button>
 							</div>
 						</div>
 					</div>
@@ -177,9 +180,10 @@
 						<div class="col-md-12">
 							<div class="card layoutFlex box vertical">
 								<h2>Addresses</h2>
+								<button onclick="addRow('address')" id="update-address-add">New Address</button>
 								<form>
 									<table>
-										<tbody>
+										<tbody id="address">
 											<tr class="header">
 												<th scope="col">Description</th>
 												<th scope="col">Address</th>
@@ -188,36 +192,36 @@
 												<th scope="col">Country</th>
 												<th scope="col">Hidden?</th>
 											</tr>
-											<tr>
-												<td>Main</td>
-												<td>No1, Jalan Example</td>
-												<td>Example</td>
-												<td>Example</td>
-												<td>Example</td>
+											<tr id="address_0">
+												<td class="description">Main</td>
+												<td class="address">No1, Jalan Example</td>
+												<td class="city">Example</td>
+												<td class="state">Example</td>
+												<td class="country">Example</td>
 												<td class="shown">Shown</td>
 											</tr>
-											<tr>
-												<td>Main</td>
-												<td>No1, Jalan Example</td>
-												<td>Example</td>
-												<td>Example</td>
-												<td>Example</td>
+											<tr id="address_1">
+												<td class="description">Main</td>
+												<td class="address">No1, Jalan Example</td>
+												<td class="city">Example</td>
+												<td class="state">Example</td>
+												<td class="country">Example</td>
 												<td class="shown">Shown</td>
 											</tr>
-											<tr>
-												<td>Main</td>
-												<td>No1, Jalan Example</td>
-												<td>Example</td>
-												<td>Example</td>
-												<td>Example</td>
+											<tr id="address_2">
+												<td class="description">Main</td>
+												<td class="address">No1, Jalan Example</td>
+												<td class="city">Example</td>
+												<td class="state">Example</td>
+												<td class="country">Example</td>
 												<td class="shown">Shown</td>
 											</tr>
 										</tbody>
 									</table>
-									<button>Update</button>
-									<input type="submit" value="Update"/>
-									<input type="submit" value="Cancel"/>
+									<input id="update-address-submit"type="submit" value="Submit"/>
+									<input onclick="reload()" id="update-address-cancel"type="submit" value="Cancel"/>
 								</form>
+								<button onclick="showAddressUpdate()" id="update-address-show">Update</button>
 							</div>
 						</div>
 					</div>
@@ -249,6 +253,7 @@
 		</div>
 		<script type="text/javascript">
 			registerKeyPressEvent();
+			init();
 		</script>
 		<?= $includes_foots ?>
 	</body>
