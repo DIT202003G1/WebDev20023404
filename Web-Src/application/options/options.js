@@ -60,7 +60,7 @@ function rowToInput(id){
 				if (innerNode.nodeType === 1) {
 					var name = innerNode.className;
 					var value = _getTxt(innerNode);
-					if (innerNode.className === "shown"){
+					if (innerNode.classNamgite === "shown"){
 						_setNode(innerNode, _node(`<input type="checkbox" name="hidden_${index}">`));
 					}
 					else if(innerNode.className === "hidden"){
