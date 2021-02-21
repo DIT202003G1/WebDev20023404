@@ -14,9 +14,10 @@ function init(){
 function addRow(id){
 	var index = 0;
 	for(let i in _id(id).childNodes){ const node = _id(id).childNodes[i];
-		index ++;
+		if (node.nodeType === 1 && node.className !== "header"){
+			index ++;
+		}
 	}
-	index ++;
 	switch (id){
 		case "email":
 			_id(id).innerHTML +=`
