@@ -465,7 +465,7 @@
 	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td>input{
 		border: 1px solid var(--secondary);
 		border-radius: none;
-		width: auto;
+		max-width: 200px;
 	}
 	.selfoptions>.cards>.row>.col-md-12>.card>form>table>tbody>tr>td>input:focus{
 		outline: none;
