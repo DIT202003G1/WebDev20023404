@@ -101,6 +101,9 @@ $test_password = velidatePW($_POST["password"]);
 $test_validPassword = ! testPassword($_POST["password"], $temp_usr[1]["salt"], $temp_usr[1]["password_hash"]);
 $test_state = getUserStatus($sql_client, $_POST["id"]);
 
+if ($temp_usr[0] === 1){
+	sendError(1,"client","id");
+}
 if($test_state === 1){
 	header("Location: /view-multipurpose-card?code=waitforadmin");
 	exit();

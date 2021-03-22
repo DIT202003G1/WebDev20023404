@@ -35,7 +35,7 @@ function su_isRejected ($client, $id){
 		return -1; 
 	}
 	mysqli_stmt_bind_param($stmt, "i", $id);
-	mysqli_execute($stmt);
+	mysqli_stmt_execute($stmt);
 	$stmtResult = mysqli_stmt_get_result($stmt);
 	if ($row = mysqli_fetch_assoc($stmtResult)){
 		$result = 0;
