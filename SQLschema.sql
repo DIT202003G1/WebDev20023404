@@ -1,10 +1,10 @@
-# Setting up the database
+-- Setting up the database
 
 CREATE DATABASE ACMSPro_Main;
 USE ACMSPro_Main;
 
-# DDL
-# no foreign KEY
+-- DDL
+-- no foreign KEY
 CREATE TABLE Course(
 	course_id varchar(16) NOT NULL PRIMARY KEY,
 	course_name varchar(128) NOT NULL	
@@ -22,7 +22,7 @@ CREATE TABLE AdminUser(
 	password_hash char(64) NOT NULL,
 	salt char(8) NOT NULL
 );
-# refrencesed tables
+-- refrencesed tables
 CREATE TABLE StudentUser(
 	student_id int(8) NOT NULL PRIMARY KEY,
 	first_name varchar(64) NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE Address(
 	FOREIGN KEY (country_id) REFERENCES Countries(country_id)
 );
 
-# DML (Pre-set values)
+-- DML (Pre-set values)
 
 insert into Countries(country_name,country_id) values
 ("Afghanistan","AFG"),
