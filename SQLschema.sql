@@ -32,7 +32,7 @@ CREATE TABLE StudentUser(
 	intake varchar(16),
 	password_hash char(64) NOT NULL,
 	salt char(8) NOT NULL,
-	is_blocked bit(1) default 0,
+	blocked bit(1) default 0,
 	FOREIGN KEY (course_id) REFERENCES Course(course_id) 
 );
 CREATE TABLE PendingStudentUser(
