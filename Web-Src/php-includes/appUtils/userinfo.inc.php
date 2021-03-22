@@ -1,8 +1,8 @@
 <?php
 
-require_once("../database.inc.php");
-require_once("../dbUtils.inc.php");
-require_once("../password.inc.php");
+require ("/opt/lampp/htdocs/php-includes/database.inc.php");
+require ("/opt/lampp/htdocs/php-includes/dbUtils.inc.php");
+require ("/opt/lampp/htdocs/php-includes/password.inc.php");
 
 function sendError($ecode){
 	header("Location: /application/options/$ecode");
@@ -96,7 +96,7 @@ function getCourse($client, $id){
 function velidatePassword($raw, $repeat){
 	$digits = "0123456789";
 	$special = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~\""; 
-	if (strlen($password) < 8){
+	if (strlen($raw) < 8){
 		sendError(5);
 	}
 	else{
@@ -136,4 +136,9 @@ function updatePassword($client, $id, $raw){
 	mysqli_stmt_bind_param($stmt, "ssi", $hashed, $salt, $id);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
+}
+
+function getProfilePicture($id){
+	$profile_path = "/opt/lampp/htdocs/assets/profile_pictures/$id.png"; 
+	return (file_exists($profile_path)) ? "/assets/profile_pictures/$id.png" : "/assets/profile_pictures/default.png"; 
 }

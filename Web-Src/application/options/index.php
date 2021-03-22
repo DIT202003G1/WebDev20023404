@@ -18,26 +18,7 @@
 	</head>
 	<body class="layoutFlex box horizontal-reversed">
 		<div class="mainpanel">
-			<div class="appbar-special">
-				<div class="normalbar layoutFlex box horizontal">
-					<div class="search">
-						<input type="text" id="search" placeholder="Name / ID / Course / Intake" id="searchVal"/>
-					</div>
-					<div class="profile">
-						<img onclick="nevigateToOptions()" src=""/>
-					</div>
-				</div>
-				<div class="greetings layoutFlex box horizontal">
-					<div class="profile"><img src=""/></div>
-					<div class="title">
-						<h2>Welcome, {name}</h2>
-						<p>Manage your information and contacts;<br/>Stay in touch with the others.</p>
-					</div>
-					<div class="logout">
-						<button onclick="logout()">Sign Out</button>
-					</div>
-				</div>
-			</div>
+			<?php require "/opt/lampp/htdocs/php-includes/appUtils/options_header.inc.php" ?>
 			<a name="info"></a>
 			<div class="selfoptions layoutFlex box horizontal">
 				<div class="index">

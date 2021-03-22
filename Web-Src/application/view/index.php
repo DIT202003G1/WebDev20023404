@@ -17,14 +17,7 @@
 	</head>
 	<body class="layoutFlex box horizontal-reversed">
 		<div class="mainpanel">
-			<div class="appbar layoutFlex box horizontal">
-				<div class="search">
-					<input type="text" id="search" placeholder="Name / ID / Course / Intake" id="searchVal"/>
-				</div>
-				<div class="profile">
-					<img onclick="nevigateToOptions()" src=""/>
-				</div>
-			</div>
+			<?php require "/opt/lampp/htdocs/php-includes/appUtils/header.inc.php" ?>
 			<div class="userinfo layoutFlex box horizontal">
 				<div class="index">
 					<div>

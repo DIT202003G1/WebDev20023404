@@ -13,7 +13,7 @@ function su_isPending ($client, $id){
 		return -1;
 	}
 	mysqli_stmt_bind_param($stmt, "i", $id);
-	mysqli_execute($stmt);
+	mysqli_stmt_execute($stmt);
 	$stmtResult = mysqli_stmt_get_result($stmt);
 	if ($row = mysqli_fetch_assoc($stmtResult)){
 		$result = 1;
@@ -42,7 +42,7 @@ function su_isRejected ($client, $id){
 	}
 	mysqli_stmt_close($stmt);
 	mysqli_stmt_bind_param($stmt2, "i", $id);
-	mysqli_execute($stmt2);
+	mysqli_stmt_execute($stmt2);
 	$stmtResult2 = mysqli_stmt_get_result($stmt2);
 	if ($row = mysqli_fetch_assoc($stmtResult2)){
 		$result2 = 0;
@@ -58,7 +58,7 @@ function su_isBlocked ($client, $id){
 		return -1;
 	}
 	mysqli_stmt_bind_param($stmt, "i", $id);
-	mysqli_execute($stmt);
+	mysqli_stmt_execute($stmt);
 	$stmtResult = mysqli_stmt_get_result($stmt);
 	if ($row = mysqli_fetch_assoc($stmtResult)){
 		$result = 1;
@@ -74,7 +74,7 @@ function su_isActivated ($client, $id){
 		return -1;
 	}
 	mysqli_stmt_bind_param($stmt, "i", $id);
-	mysqli_execute($stmt);
+	mysqli_stmt_execute($stmt);
 	$stmtResult = mysqli_stmt_get_result($stmt);
 	if ($row = mysqli_fetch_assoc($stmtResult)){
 		$result = 1;
