@@ -2,9 +2,32 @@
 
 <?php require "/opt/lampp/htdocs/php-includes/common-includes.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/sessionUtils.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/database.inc.php" ?>
 
 <?php
 	sessionRedirectStudnetApp();
+
+	function getEmailsByID($conn, $id) {
+		$stmt = $conn->prepare("SELECT email, description FROM Emails WHERE student_id = ? AND isHidden = 0;");
+		$stmt->bind_param("i", $id);
+
+		$stmt->execute();
+
+		$result = $stmt->get_result();
+		$emails = []
+
+		$i = 0;
+		while ($row = $result->fetch_assoc()) {
+			$emails[$i]["email"] = $row["email"];
+			$emails[$i]["description"] = $row["description"];
+
+			$i++;
+		}
+
+		$stmt->close();
+
+		return $emails;
+	}
 ?>
 
 <html>
@@ -36,34 +59,15 @@
 									<th scope="col">Description</th>
 									<th scope="col">Email</th>
 								</tr>
-								<tr>
-									<td>Main</td>
-									<td>Example@example.com</td>
-								</tr>
-								<tr>
-									<td>School</td>
-									<td>Example@school.edu</td>
-								</tr>
-								<tr>
-									<td>School</td>
-									<td>Example@school.edu</td>
-								</tr>
-								<tr>
-									<td>School</td>
-									<td>Example@school.edu</td>
-								</tr>
-								<tr>
-									<td>School</td>
-									<td>Example@school.edu</td>
-								</tr>
-								<tr>
-									<td>School</td>
-									<td>Example@school.edu</td>
-								</tr>
-								<tr>
-									<td>School</td>
-									<td>Example@school.edu</td>
-								</tr>
+								<?php
+									$emails = getEmailsByID($sql_client, $_GET["id"]);
+									foreach ($emails as &$email) {
+										echo "<tr>";
+										echo "	<td>" . $email["description"] . "</td>";
+										echo "	<td>" . $email["email"] . "</td>";
+										echo "</tr>";
+									}
+								?>
 							</tbody>
 						</table>
 					</div>
