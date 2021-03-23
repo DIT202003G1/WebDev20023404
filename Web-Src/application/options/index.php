@@ -2,6 +2,7 @@
 
 <?php require "/opt/lampp/htdocs/php-includes/common-includes.inc.php" ?>
 <?php require "/opt/lampp/htdocs/php-includes/sessionUtils.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/adminUtils/controlPanel.inc.php" ?>
 
 <?php
 	sessionRedirectStudnetApp();
@@ -35,9 +36,9 @@
 							<div class="card layoutFlex box vertical">
 								<h2>Name</h2>
 								<?php
-									$username = getStudentUserName($sql_client, $_SESSION["userid"]);
+									$userinfo = getStudentUserInfo($sql_client, $_SESSION["userid"]);
 								?>
-								<p>Currently: <br/><?=$username["first_name"]?> <?=$username["middle_name"]?> <?=$username["last_name"]?></p>
+								<p>Currently: <br/><?=$userinfo["first_name"]?> <?=$userinfo["middle_name"]?> <?=$username["last_name"]?></p>
 								<button data-mdb-toggle="collapse" data-mdb-target="#name_update">Update</button>
 								<div class="collapse multi-collapse mt3" id="name_update">
 									<form>
@@ -52,12 +53,20 @@
 						<div class="col-md-6">
 							<div class="card layoutFlex box vertical">
 								<h2>Course Information</h2>
-								<p>Currently: {Course} {Intake}</p>
+								<p>Currently: <?=$userinfo["course_id"]?> <?=$userinfo["intake"]?></p>
 								<button data-mdb-toggle="collapse" data-mdb-target="#course_update">Update</button>
 								<div class="collapse multi-collapse mt3" id="course_update">
 									<form>
-										<input type="text" placeholder="Course" name="course" value="awa" />
-										<input type="text" placeholder="Intake" name="intake" value="awa" />
+										<select name="course" value="awa">
+											<?php
+												$courses = getCourses($sql_client);
+												foreach($courses as $i ){
+													$selected = ($i[0] === $userinfo["course_id"]) ? "selected" : "";
+													echo ("<option $selected value=\"$i[0]\">$i[1]</option>");
+												}
+											?>
+										</select>
+										<input type="text" placeholder="Intake" name="intake" value="<?=$userinfo["intake"]?>" />
 										<input type="submit" name="course_update"/>
 									</form>
 								</div>
@@ -108,16 +117,16 @@
 												<th scope="col">Email</th>
 												<th scope="col">Hidden?</th>
 											</tr>
-											<tr id="email_0">
-												<td class="description">Main</td>
-												<td class="content">Example@example.com</td>
-												<td class="shown">Shown</td>
-											</tr>
-											<tr id="email_1">
-												<td class="description">School</td>
-												<td class="content">Example@school.edu</td>
-												<td class="hidden">Hidden</td>
-											</tr>
+											<?php
+												$emails = getStudentEmails($sql_client,$_SESSION["userid"]);
+												for ($i = 0; $i < count($emails); $i++) {
+													echo "<tr id=\"email_$i\">";
+														echo "<td class=\"description\">".$emails[$i]["description"]."</td>";
+														echo "<td class=\"email\">".$emails[$i]["email"]."</td>";
+														echo "<td class=\"". (($emails[$i]["isHidden"]) ? "hidden" : "shown") ."\">".(($emails[$i]["isHidden"]) ? "Hidden" : "Shown")."</td>";
+													echo "</tr>";
+												}
+											?>
 										</tbody>
 									</table>
 									<input id="update-email-submit" type="submit" value="Submit"/>
@@ -141,16 +150,16 @@
 												<th scope="col">Phone Number</th>
 												<th scope="col">Hidden?</th>
 											</tr>
-											<tr id="phone_0">
-												<td class="description">Main</td>
-												<td class="content">+0123456789</td>
-												<td class="shown">Shown</td>
-											</tr>
-											<tr id="phone_1">
-												<td class="description">School</td>
-												<td class="content">+0123456789</td>
-												<td class="hidden">Hidden</td>
-											</tr>
+											<?php
+												$phoneNums = getStudentPhoneNums($sql_client,$_SESSION["userid"]);
+												for ($i = 0; $i < count($phoneNums); $i++) {
+													echo "<tr id=\"phone_$i\">";
+														echo "<td class=\"description\">".$phoneNums[$i]["description"]."</td>";
+														echo "<td class=\"content\">".$phoneNums[$i]["phoneNum"]."</td>";
+														echo "<td class=\"". (($phoneNums[$i]["isHidden"]) ? "hidden" : "shown") ."\">".(($phoneNums[$i]["isHidden"]) ? "Hidden" : "Shown")."</td>";
+													echo "</tr>";
+												}
+											?>
 										</tbody>
 									</table>
 									<input id="update-phone-submit"type="submit" value="Submit"/>
@@ -176,30 +185,20 @@
 												<th scope="col">Country</th>
 												<th scope="col">Hidden?</th>
 											</tr>
-											<tr id="address_0">
-												<td class="description">Main</td>
-												<td class="address">No1, Jalan Example</td>
-												<td class="city">Example</td>
-												<td class="state">Example</td>
-												<td class="country">Example</td>
-												<td class="shown">Shown</td>
-											</tr>
-											<tr id="address_1">
-												<td class="description">Main</td>
-												<td class="address">No1, Jalan Example</td>
-												<td class="city">Example</td>
-												<td class="state">Example</td>
-												<td class="country">Example</td>
-												<td class="shown">Shown</td>
-											</tr>
-											<tr id="address_2">
-												<td class="description">Main</td>
-												<td class="address">No1, Jalan Example</td>
-												<td class="city">Example</td>
-												<td class="state">Example</td>
-												<td class="country">Example</td>
-												<td class="shown">Shown</td>
-											</tr>
+											<?php
+												$addresses = getStudentAddresses($sql_client,$_SESSION["userid"]);
+												$countries = getCountries($sql_client);
+												for ($i = 0; $i < count($addresses); $i++) {
+													echo "<tr id=\"address_$i\">";
+														echo "<td class=\"description\">".$addresses[$i]["description"]."</td>";
+														echo "<td class=\"address\">".$addresses[$i]["address_line1"].", ".$addresses[$i]["address_line2"]."</td>";
+														echo "<td class=\"city\">".$addresses[$i]["city"]."</td>";
+														echo "<td class=\"state\">".$addresses[$i]["state_province"]."</td>";
+														echo "<td class=\"country\">".$addresses[$i]["country_id"]."</td>";
+														echo "<td class=\"". (($addresses[$i]["isHidden"]) ? "hidden" : "shown") ."\">".(($addresses[$i]["isHidden"]) ? "Hidden" : "Shown")."</td>";
+													echo "</tr>";
+												}
+											?>
 										</tbody>
 									</table>
 									<input id="update-address-submit"type="submit" value="Submit"/>

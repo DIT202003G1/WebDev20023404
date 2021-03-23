@@ -15,7 +15,7 @@
 		<div class="profile"><img src="<?= getProfilePicture($_SESSION['userid']) ?>"/></div>
 		<div class="title">
 			<?php
-				$username = getStudentUserName($sql_client, $_SESSION["userid"]);
+				$username = getStudentUserInfo($sql_client, $_SESSION["userid"]);
 			?>
 			<h2>Welcome, <?=$username["first_name"]?> <?=$username["last_name"]?></h2>
 			<p>Manage your information and contacts;<br/>Stay in touch with the others.</p>

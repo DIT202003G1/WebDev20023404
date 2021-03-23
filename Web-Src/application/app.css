@@ -424,10 +424,15 @@
 	.selfoptions>.cards>.row>.col-md-6>.card>div>form>input{
 		margin-bottom: 5px;
 	}
-	.selfoptions>.cards>.row>.col-md-6>.card>div>form>input[type="text"],.selfoptions>.cards>.row>.col-md-6>.card>div>form>input[type="password"]{
+	.selfoptions>.cards>.row>.col-md-6>.card>div>form>input[type="text"],.selfoptions>.cards>.row>.col-md-6>.card>div>form>input[type="password"],.selfoptions>.cards>.row>.col-md-6>.card>div>form>select{
 		border: 0px;
 		background: var(--secondary_light);
 		border-radius: 0px;
+	}
+	.selfoptions>.cards>.row>.col-md-6>.card>div>form>select{
+		width: 100%;
+		height: 25px;
+		margin-bottom:5px;
 	}
 	.selfoptions>.cards>.row>.col-md-6>.card>div>form>input[type="submit"]{
 		margin-left:auto;
