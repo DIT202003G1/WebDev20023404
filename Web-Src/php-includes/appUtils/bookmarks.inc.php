@@ -5,7 +5,7 @@ session_start();
 require "/opt/lampp/htdocs/php-includes/database.inc.php";
 
 function addBookmark($conn, $studentID, $targetID) {
-    $result = $conn->query("SELECT bookmark_index FROM Bookmarks DESC LIMIT 1;");
+    $result = $conn->query("SELECT bookmark_index FROM Bookmarks ORDER BY bookmark_index DESC LIMIT 1;");
     $result->fetch_assoc();
     $bookmark_index = intval($result["bookmark_index"]) + 1;
     $result->close();
