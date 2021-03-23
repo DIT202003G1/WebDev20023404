@@ -48,7 +48,7 @@
 	}
 
 	function getAddressesByID($conn, $id) {
-		$stmt = $conn->prepare("SELECT Address.address_line1, Address.address_line2, Address.city, Address.state_province, Countries.country_name FROM Address, Countries WHERE Countries.country_id = Address.country_id AND Address.student_id = ? AND Address.isHidden = 0;");
+		$stmt = $conn->prepare("SELECT Address.address_line1, Address.address_line2, Address.city, Address.state_province, Address.description, Countries.country_name FROM Address, Countries WHERE Countries.country_id = Address.country_id AND Address.student_id = ? AND Address.isHidden = 0;");
 		$stmt->bind_param("i", $id);
 
 		$stmt->execute();
