@@ -314,11 +314,11 @@
 	}
 	.userinfo>.info>.card>.course{
 		background-image: url(/assets/app/course.svg);
-		width: 139px;
+		width: 194px;
 	}
 	.userinfo>.info>.card>.intake{
 		background-image: url(/assets/app/intake.svg);
-		width: 139px;
+		width: 194px;
 	}
 	.userinfo>.info>.card>.action{
 		margin: 15px;
