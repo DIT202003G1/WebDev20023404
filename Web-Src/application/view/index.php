@@ -14,7 +14,7 @@
 		$stmt->execute();
 
 		$result = $stmt->get_result();
-		$emails = []
+		$emails = [];
 
 		$i = 0;
 		while ($row = $result->fetch_assoc()) {
