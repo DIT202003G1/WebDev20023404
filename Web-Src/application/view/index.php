@@ -158,49 +158,6 @@
 										echo "</tr>";
 									}
 								?>
-
-								<tr>
-									<td>Main</td>
-									<td>No1, Jalan Example</td>
-									<td>Example</td>
-									<td>Example</td>
-									<td>Example</td>
-								</tr>
-								<tr>
-									<td>Main</td>
-									<td>No1, Jalan Example</td>
-									<td>Example</td>
-									<td>Example</td>
-									<td>Example</td>
-								</tr>
-								<tr>
-									<td>Main</td>
-									<td>No1, Jalan Example</td>
-									<td>Example</td>
-									<td>Example</td>
-									<td>Example</td>
-								</tr>
-								<tr>
-									<td>Main</td>
-									<td>No1, Jalan Example</td>
-									<td>Example</td>
-									<td>Example</td>
-									<td>Example</td>
-								</tr>
-								<tr>
-									<td>Main</td>
-									<td>No1, Jalan Example</td>
-									<td>Example</td>
-									<td>Example</td>
-									<td>Example</td>
-								</tr>
-								<tr>
-									<td>School</td>
-									<td>No2, Jalan Example</td>
-									<td>Example</td>
-									<td>Example</td>
-									<td>Example</td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
