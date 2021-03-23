@@ -12,11 +12,10 @@
 		$stmt->bind_param("i", $id);
 
 		$stmt->execute();
-
 		$result = $stmt->get_result();
-		$emails = [];
 
 		$i = 0;
+		$emails = [];
 		while ($row = $result->fetch_assoc()) {
 			$emails[$i]["email"] = $row["email"];
 			$emails[$i]["description"] = $row["description"];
@@ -25,7 +24,26 @@
 		}
 
 		$stmt->close();
+		return $emails;
+	}
 
+	function getPhoneNumbersByID($conn, $id) {
+		$stmt = $conn->prepare("SELECT phoneNum, description FROM PhoneNum WHERE student_id = ? AND isHidden = 0;");
+		$stmt->bind_param("i", $id);
+
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		$i = 0;
+		$emails = [];
+		while ($row = $result->fetch_assoc()) {
+			$emails[$i]["phone_number"] = $row["phoneNum"];
+			$emails[$i]["description"] = $row["description"];
+
+			$i++;
+		}
+
+		$stmt->close();
 		return $emails;
 	}
 ?>
@@ -80,34 +98,15 @@
 									<th scope="col">Description</th>
 									<th scope="col">Phone Number</th>
 								</tr>
-								<tr>
-									<td>Main</td>
-									<td>123456789</td>
-								</tr>
-								<tr>
-									<td>Work</td>
-									<td>234567890</td>
-								</tr>
-								<tr>
-									<td>Work</td>
-									<td>234567890</td>
-								</tr>
-								<tr>
-									<td>Work</td>
-									<td>234567890</td>
-								</tr>
-								<tr>
-									<td>Work</td>
-									<td>234567890</td>
-								</tr>
-								<tr>
-									<td>Work</td>
-									<td>234567890</td>
-								</tr>
-								<tr>
-									<td>Work</td>
-									<td>234567890</td>
-								</tr>
+								<?php
+									$phoneNumbers = getPhoneNumbersByID($sql_client, $_GET["id"]);
+									foreach ($phoneNumbers as &$phoneNumber) {
+										echo "<tr>";
+										echo "	<td>" . $phoneNumber["description"] . "</td>";
+										echo "	<td>" . $phoneNumber["phone_number"] . "</td>";
+										echo "</tr>";
+									}
+								?>
 							</tbody>
 						</table>
 					</div>
