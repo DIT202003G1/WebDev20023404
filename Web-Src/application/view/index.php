@@ -57,10 +57,10 @@
 		$i = 0;
 		$addresses = [];
 		while ($row = $result->fetch_assoc()) {
-			$addresses[$i]["address"] = $row["Address.address_line1"] . ", " . $row["Address.address_line2"];
-			$addresses[$i]["city"] = $row["Address.city"];
-			$addresses[$i]["state"] = $row["Address.state_province"];
-			$addresses[$i]["country"] = $row["Countries.country_name"];
+			$addresses[$i]["address"] = $row["address_line1"] . ", " . $row["address_line2"];
+			$addresses[$i]["city"] = $row["city"];
+			$addresses[$i]["state"] = $row["state_province"];
+			$addresses[$i]["country"] = $row["country_name"];
 			$addresses[$i]["description"] = $row["description"];
 
 			$i++;
