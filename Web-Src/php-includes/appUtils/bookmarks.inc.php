@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require "/opt/lampp/htdocs/php-includes/database.inc.php";
 
 function addBookmark($conn, $studentID, $targetID) {
