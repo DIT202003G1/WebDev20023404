@@ -1,4 +1,6 @@
 <?php require "/opt/lampp/htdocs/php-includes/appUtils/userinfo.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/appUtils/getUserInfo.inc.php" ?>
+<?php require "/opt/lampp/htdocs/php-includes/database.inc.php" ?>
 
 <div class="appbar-special">
 	<div class="normalbar layoutFlex box horizontal">
@@ -12,7 +14,10 @@
 	<div class="greetings layoutFlex box horizontal">
 		<div class="profile"><img src="<?= getProfilePicture($_SESSION['userid']) ?>"/></div>
 		<div class="title">
-			<h2>Welcome, {name}</h2>
+			<?php
+				$username = getStudentUserName($sql_client, $_SESSION["userid"]);
+			?>
+			<h2>Welcome, <?=$username["first_name"]?> <?=$username["last_name"]?></h2>
 			<p>Manage your information and contacts;<br/>Stay in touch with the others.</p>
 		</div>
 		<div class="logout">

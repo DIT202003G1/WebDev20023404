@@ -34,13 +34,16 @@
 						<div class="col-md-6">
 							<div class="card layoutFlex box vertical">
 								<h2>Name</h2>
-								<p>Currently: {Name}</p>
+								<?php
+									$username = getStudentUserName($sql_client, $_SESSION["userid"]);
+								?>
+								<p>Currently: <br/><?=$username["first_name"]?> <?=$username["middle_name"]?> <?=$username["last_name"]?></p>
 								<button data-mdb-toggle="collapse" data-mdb-target="#name_update">Update</button>
 								<div class="collapse multi-collapse mt3" id="name_update">
 									<form>
-										<input type="text" placeholder="First Name" name="fname" value="awa" />
-										<input type="text" placeholder="Middle Name" name="fname" value="awa" />
-										<input type="text" placeholder="Last Name" name="fname" value="awa" />
+										<input type="text" placeholder="First Name" name="fname" value="<?=$username["first_name"]?>" />
+										<input type="text" placeholder="Middle Name" name="mname" value="<?=$username["middle_name"]?>" />
+										<input type="text" placeholder="Last Name" name="lname" value="<?=$username["last_name"]?>" />
 										<input type="submit" name="name_update"/>
 									</form>
 								</div>
