@@ -88,8 +88,8 @@
 			"course" => $row["course_name"],
 			"intake" => sprintf(
 				"%s/%s",
-				substr($row["intake"], 0, 4),
-				substr($row["intake"], 4, 2)
+				substr($row["intake"], 4, 2),
+				substr($row["intake"], 0, 4)
 			)
 		);
 
