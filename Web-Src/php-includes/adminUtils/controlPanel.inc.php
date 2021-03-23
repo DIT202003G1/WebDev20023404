@@ -78,7 +78,7 @@ function getStudentAccountBasicInfo($client,$id){
 }
 
 function getStudentEmails($client,$id){
-	$sql = "SELECT Emails.student_id, email_index, email, description FROM Emails, StudentUser WHERE Emails.student_id = StudentUser.student_id and Emails.student_id = ?;";
+	$sql = "SELECT Emails.student_id, email_index, email, isHidden, description FROM Emails, StudentUser WHERE Emails.student_id = StudentUser.student_id and Emails.student_id = ?;";
 	$stmt = mysqli_stmt_init($client);
 	if(!mysqli_stmt_prepare($stmt,$sql)){
 		return false;
@@ -94,7 +94,7 @@ function getStudentEmails($client,$id){
 }
 
 function getStudentPhoneNums($client,$id){
-	$sql = "SELECT PhoneNum.student_id, phoneNum_index, phoneNum, description FROM PhoneNum, StudentUser WHERE PhoneNum.student_id = StudentUser.student_id AND PhoneNum.student_id = ?;";
+	$sql = "SELECT PhoneNum.student_id, phoneNum_index, phoneNum, isHidden, description FROM PhoneNum, StudentUser WHERE PhoneNum.student_id = StudentUser.student_id AND PhoneNum.student_id = ?;";
 	$stmt = mysqli_stmt_init($client);
 	if(!mysqli_stmt_prepare($stmt,$sql)){
 		return false;
@@ -110,7 +110,7 @@ function getStudentPhoneNums($client,$id){
 }
 
 function getStudentAddresses($client,$id){
-	$sql = "SELECT Address.student_id, address_index, address_line1, address_line2, city, state_province, Address.country_id, description, country_name FROM Address, StudentUser, Countries WHERE Address.student_id = StudentUser.student_id AND Address.country_id = Countries.country_id AND Address.student_id = ? ;";
+	$sql = "SELECT Address.student_id, address_index, address_line1, address_line2, city, state_province, isHidden, Address.country_id, description, country_name FROM Address, StudentUser, Countries WHERE Address.student_id = StudentUser.student_id AND Address.country_id = Countries.country_id AND Address.student_id = ? ;";
 	$stmt = mysqli_stmt_init($client);
 	if(!mysqli_stmt_prepare($stmt,$sql)){
 		return false;
