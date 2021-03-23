@@ -69,6 +69,33 @@
 		$stmt->close();
 		return $addresses;
 	}
+
+	function getUserByID($conn, $id) {
+		$stmt = $conn->prepare("SELECT StudentUser.first_name, StudentUser.middle_name, StudentUser.last_name, StudentUser.intake, Course.course_name FROM StudentUser, Course WHERE Course.course_id = StudentUser.course_id AND StudentUser.student_id = ?;");
+		$stmt->bind_param("i", $id);
+
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+
+		$user = array(
+			"name" => sprintf(
+				"%s %s %s",
+				$row["first_name"],
+				$row["middle_name"],
+				$row["last_name"]
+			),
+			"course" => $row["course_name"],
+			"intake" => sprintf(
+				"%s/%s",
+				substr($row["intake"], 0, 4),
+				substr($row["intake"], 4, 2)
+			)
+		);
+
+		$stmt->close();
+		return $user;
+	}
 ?>
 
 <html>
@@ -165,9 +192,12 @@
 				<div class="info">
 					<div class="card">
 						<div class="profile"><img src=""></div>
-						<div class="name">Lorem Ipsum</div>
-						<div class="course">Foundation in Music</div>
-						<div class="intake">March, 2020</div>
+						<?php
+							$user = getUserByID($sql_client, $_GET["id"]);
+							echo '<div class="name">' . $user["name"] . '</div>';
+							echo '<div class="course">' . $user["course"] . '</div>';
+							echo '<div class="intake">' . $user["intake"] . '</div>';
+						?>
 						<div class="action"><button onclick="addBookmark(1)" class="special bookmark">Bookmark</button></div>
 					</div>
 				</div>
