@@ -35,16 +35,39 @@
 		$result = $stmt->get_result();
 
 		$i = 0;
-		$emails = [];
+		$phoneNumbers = [];
 		while ($row = $result->fetch_assoc()) {
-			$emails[$i]["phone_number"] = $row["phoneNum"];
-			$emails[$i]["description"] = $row["description"];
+			$phoneNumbers[$i]["phone_number"] = $row["phoneNum"];
+			$phoneNumbers[$i]["description"] = $row["description"];
 
 			$i++;
 		}
 
 		$stmt->close();
-		return $emails;
+		return $phoneNumbers;
+	}
+
+	function getAddressesByID($conn, $id) {
+		$stmt = $conn->prepare("SELECT Address.address_line1, Address.address_line2, Address.city, Address.state_province, Countries.country_name FROM Address, Countries WHERE Countries.country_id = Address.country_id AND Address.student_id = ? AND Address.isHidden = 0;");
+		$stmt->bind_param("i", $id);
+
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		$i = 0;
+		$addresses = [];
+		while ($row = $result->fetch_assoc()) {
+			$addresses[$i]["address"] = $row["Address.address_line1"] . ", " . $row["Address.address_line2"];
+			$addresses[$i]["city"] = $row["Address.city"];
+			$addresses[$i]["state"] = $row["Address.state_province"];
+			$addresses[$i]["country"] = $row["Countries.country_name"];
+			$addresses[$i]["description"] = $row["description"];
+
+			$i++;
+		}
+
+		$stmt->close();
+		return $addresses;
 	}
 ?>
 
@@ -122,6 +145,20 @@
 									<th scope="col">State</th>
 									<th scope="col">Country</th>
 								</tr>
+								
+								<?php
+									$addresses = getAddressesByID($sql_client, $_GET["id"]);
+									foreach ($addresses as &$address) {
+										echo "<tr>";
+										echo "	<td>" . $address["description"] . "</td>";
+										echo "	<td>" . $address["address"] . "</td>";
+										echo "	<td>" . $address["city"] . "</td>";
+										echo "	<td>" . $address["state"] . "</td>";
+										echo "	<td>" . $address["country"] . "</td>";
+										echo "</tr>";
+									}
+								?>
+
 								<tr>
 									<td>Main</td>
 									<td>No1, Jalan Example</td>
