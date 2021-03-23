@@ -21,7 +21,7 @@ $not_found = [
 
 $signed_up_successful = [
 	"pageTitle" => "Sign Up",
-	"title" => "Thankyou for signing up",
+	"title" => "Thank you for signing up",
 	"content" => "Your registration request has been recorded. Please wait for an admin to approve your registration.",
 	"buttons" => [
 		"Take Me Back to Home Page" => "/"
