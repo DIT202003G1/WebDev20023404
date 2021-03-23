@@ -9,7 +9,7 @@ function sendError($ecode){
 	exit();
 }
 
-function velidateName($fname,$mname,$lname){
+function validateName($fname,$mname,$lname){
 	$fname = trim($fname);
 	$mname = trim($mname);
 	$lname = trim($lname);
