@@ -62,7 +62,7 @@ CREATE TABLE Emails(
 	email_index int(8) NOT NULL,
 	email varchar(64) NOT NULL,
 	description text,
-	isHidden bit(1) default 0;
+	isHidden bit(1) default 0,
 	PRIMARY KEY (student_id,email_index),
 	FOREIGN KEY (student_id) REFERENCES StudentUser(student_id)
 );
@@ -71,7 +71,7 @@ CREATE TABLE PhoneNum(
 	phoneNum_index int(8) NOT NULL,
 	phoneNum varchar(64) NOT NULL,
 	description text,
-	isHidden bit(1) default 0;
+	isHidden bit(1) default 0,
 	PRIMARY KEY (student_id,phoneNum_index),
 	FOREIGN KEY (student_id) REFERENCES StudentUser(student_id)
 );
@@ -85,7 +85,7 @@ CREATE TABLE Address(
 	state_province  varchar(64),
 	country_id char(3) NOT NULL,
 	description text,
-	isHidden bit(1) default 0;
+	isHidden bit(1) default 0,
 	PRIMARY KEY (student_id,address_index),
 	FOREIGN KEY (student_id) REFERENCES StudentUser(student_id),
 	FOREIGN KEY (country_id) REFERENCES Countries(country_id)
