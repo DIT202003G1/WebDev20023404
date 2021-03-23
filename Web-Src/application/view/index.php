@@ -191,7 +191,7 @@
 				</div>
 				<div class="info">
 					<div class="card">
-						<div class="profile"><img src=""></div>
+						<div class="profile"><img src="<?= getProfilePicture($_GET["id"]) ?>"></div>
 						<?php
 							$user = getUserByID($sql_client, $_GET["id"]);
 							echo '<div class="name">' . $user["name"] . '</div>';
