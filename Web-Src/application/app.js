@@ -11,9 +11,9 @@ function logout(){
 }
 
 function addBookmark(id){
-	document.location.href = `/php-includes/php-includes/appUtils/bookmarks?action=add&id=${id}`;
+	document.location.href = `/php-includes/php-includes/appUtils/bookmarks.inc.php?action=add&id=${id}`;
 }
 
 function removeBookmark(id){
-	document.location.href = `/php-includes/php-includes/appUtils/bookmarks?action=remove&id=${id}`;
+	document.location.href = `/php-includes/php-includes/appUtils/bookmarks.inc.php?action=remove&id=${id}`;
 }
