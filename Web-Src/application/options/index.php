@@ -41,7 +41,7 @@
 								<p>Currently: <br/><?=$userinfo["first_name"]?> <?=$userinfo["middle_name"]?> <?=$username["last_name"]?></p>
 								<button data-mdb-toggle="collapse" data-mdb-target="#name_update">Update</button>
 								<div class="collapse multi-collapse mt3" id="name_update">
-									<form>
+									<form method="POST" action="/php-includes/appUtils/optionSubmit.inc.php">
 										<input type="text" placeholder="First Name" name="fname" value="<?=$username["first_name"]?>" />
 										<input type="text" placeholder="Middle Name" name="mname" value="<?=$username["middle_name"]?>" />
 										<input type="text" placeholder="Last Name" name="lname" value="<?=$username["last_name"]?>" />
@@ -56,7 +56,7 @@
 								<p>Currently: <?=$userinfo["course_id"]?> <?=$userinfo["intake"]?></p>
 								<button data-mdb-toggle="collapse" data-mdb-target="#course_update">Update</button>
 								<div class="collapse multi-collapse mt3" id="course_update">
-									<form>
+									<form method="POST" action="/php-includes/appUtils/optionSubmit.inc.php">
 										<select name="course" value="awa">
 											<?php
 												$courses = getCourses($sql_client);
@@ -81,7 +81,7 @@
 								<p>Press update to update your password</p>
 								<button data-mdb-toggle="collapse" data-mdb-target="#password_update">Update</button>
 								<div class="collapse multi-collapse mt3" id="password_update">
-									<form>
+									<form method="POST" action="/php-includes/appUtils/optionSubmit.inc.php">
 										<input type="password" placeholder="New Password" name="password" value="" />
 										<input type="password" placeholder="Re-Enter" name="repassword" value="" />
 										<input type="submit" name="password_update"/>
@@ -95,7 +95,7 @@
 								<p>Press update to update your profile picture</p>
 								<button data-mdb-toggle="collapse" data-mdb-target="#profile_update">Update</button>
 								<div class="collapse multi-collapse mt3" id="profile_update">
-									<form>
+									<form enctype="multipart/form-data"  method="POST" action="/php-includes/appUtils/optionSubmit.inc.php">
 										<input type="file" name="profile" />
 										<input type="submit" name="profile_update"/>
 									</form>
@@ -109,7 +109,7 @@
 							<div class="card layoutFlex box vertical">
 								<h2>Emails</h2>
 								<button onclick="addRow('email')" id="update-email-add">New Email</button>
-								<form>
+								<form method="POST" action="/php-includes/appUtils/optionSubmit.inc.php">
 									<table>
 										<tbody id="email">
 											<tr class="header">
@@ -142,7 +142,7 @@
 							<div class="card layoutFlex box vertical">
 								<h2>Phone Numbers</h2>
 								<button onclick="addRow('phone')" id="update-phone-add">New Number</button>
-								<form>
+								<form method="POST" action="/php-includes/appUtils/optionSubmit.inc.php">
 									<table>
 										<tbody id="phone">
 											<tr class="header">
@@ -163,7 +163,7 @@
 										</tbody>
 									</table>
 									<input id="update-phone-submit"type="submit" value="Submit"/>
-									<input onclick="reload()" id="update-phone-cancel"type="submit" value="Cancel"/>
+									<input onclick="reload()" id="update-phone-cancel" type="submit" value="Cancel"/>
 								</form>
 								<button onclick="showPhoneUpdate()" id="update-phone-show">Update</button>
 							</div>
@@ -174,7 +174,7 @@
 							<div class="card layoutFlex box vertical">
 								<h2>Addresses</h2>
 								<button onclick="addRow('address')" id="update-address-add">New Address</button>
-								<form>
+								<form method="POST" action="/php-includes/appUtils/optionSubmit.inc.php">
 									<table>
 										<tbody id="address">
 											<tr class="header">

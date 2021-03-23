@@ -2,3 +2,7 @@
 
 sudo rm -r "/opt/lampp/htdocs"
 sudo cp -r "./Web-Src/" "/opt/lampp/htdocs/"
+sudo chown daemon "/opt/lampp/temp/"
+sudo chown daemon "/opt/lampp/htdocs/assets/profile_pictures/"
+sudo chmod -R 0755 "/opt/lampp/temp/"
+sudo chmod -R 0755 "/opt/lampp/htdocs/assets/profile_pictures/"

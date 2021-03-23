@@ -5,7 +5,7 @@ require ("/opt/lampp/htdocs/php-includes/dbUtils.inc.php");
 require ("/opt/lampp/htdocs/php-includes/password.inc.php");
 
 function sendError($ecode){
-	header("Location: /application/options/$ecode");
+	header("Location: /application/options?err=$ecode");
 	exit();
 }
 
@@ -23,7 +23,7 @@ function validateName($fname,$mname,$lname){
 }
 
 function setName($client,$id,$fname,$mname,$lname){
-	$sql = "UPDATE StudentUser SET first_name = ?, middle_name = ?, last_name = ? WHERE student_id = ?;";
+	$sql = "UPDATE StudentUser SET first_name = ?, middle_name = ?, last_name = ? WHERE student_id = ?";
 	$stmt = mysqli_stmt_init($client);
 	if (mysqli_stmt_prepare($stmt,$sql)){
 		sendError(100);
@@ -52,16 +52,33 @@ function getName($client, $id){
 	return $final;
 }
 
-function velidateCourse($client,$courseid, $intake){
+/*
+
+	$processed = strtoupper(trim($intake));
+	$exptest = "/20\d{2}0[1|3|9]/i";
+	if (empty($processed)){
+		return -1;
+	}
+	elseif (preg_match($exptest, $intake)){
+		return 0;
+	}
+	else{
+		return 1;
+	}
+
+*/
+
+function velidateCourse($client, $courseid, $intake){
 	$courses = getCourseIDs($client);
 	$intake = trim($intake);
 	$exptest = "/20\d{2}0[1|3|9]/i";
 	if (! in_array($courseid, $courses)){
 		sendError(3);
 	}
-	if (preg_match($exptest, $intake)){
-		sendError(4);
+	elseif (preg_match($exptest, $intake)){
+		return;
 	}
+	sendError(4);
 }
 
 function updateCourse($client, $id ,$courseid,$intake){
