@@ -1,6 +1,6 @@
 <?php
 
-require "/opt/lampp/htdocs/php-includes/database.inc.php"
+require "/opt/lampp/htdocs/php-includes/database.inc.php";
 
 function addBookmark($conn, $studentID, $targetID) {
     $result = $conn->query("SELECT bookmark_index FROM Bookmarks DESC LIMIT 1;");
