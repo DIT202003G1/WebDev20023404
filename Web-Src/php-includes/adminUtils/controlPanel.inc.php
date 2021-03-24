@@ -87,7 +87,7 @@ function getStudentEmails($client,$id){
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	$finalResult = [];
-	if($row = mysqli_fetch_assoc($result)){
+	while($row = mysqli_fetch_assoc($result)){
 		array_push($finalResult, $row);
 	}
 	return $finalResult;
@@ -103,7 +103,7 @@ function getStudentPhoneNums($client,$id){
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	$finalResult = [];
-	if($row = mysqli_fetch_assoc($result)){
+	while($row = mysqli_fetch_assoc($result)){
 		array_push($finalResult, $row);
 	}
 	return $finalResult;
@@ -119,7 +119,7 @@ function getStudentAddresses($client,$id){
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	$finalResult = [];
-	if($row = mysqli_fetch_assoc($result)){
+	while($row = mysqli_fetch_assoc($result)){
 		array_push($finalResult, $row);
 	}
 	return $finalResult;
