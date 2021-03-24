@@ -39,5 +39,16 @@ if (isset($_POST["profile_update"])){
 	}
 	move_uploaded_file($_FILES["profile"]["tmp_name"], "/opt/lampp/htdocs/assets/profile_pictures/".$_SESSION["userid"].".png");
 }
-header("Location: /application/options");
+if (isset($_POST["email_update"])){
+	$result = $sql_client->query("DELETE FROM Emails WHERE student_id = ".$_SESSION["userid"]);
+	for ($i = 0; true; $i ++){
+		if (!isset($_POST["email_$i"])) break;
+		$stmt = $sql_client->prepare("INSERT INTO Emails VALUES (?,?,?,?,?);");
+		$isHidden = (isset($_POST["hidden_$i"])) ? "1" : "0";
+		$stmt->bind_param("iissi", $_SESSION["userid"], $i, $_POST["email_$i"], $_POST["description_$i"], $isHidden);
+		$stmt->execute();
+		$stmt->close();
+	}
+}
+// header("Location: /application/options");
 exit();

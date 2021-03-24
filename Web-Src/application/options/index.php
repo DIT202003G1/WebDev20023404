@@ -129,7 +129,7 @@
 											?>
 										</tbody>
 									</table>
-									<input id="update-email-submit" type="submit" value="Submit"/>
+									<input id="update-email-submit" name="email_update" type="submit" value="Submit"/>
 									<input onclick="reload()" id="update-email-cancel" type="submit" value="Cancel"/>
 								</form>
 								<button onclick="showEmailUpdate()" id="update-email-show">Update</button>
@@ -162,7 +162,7 @@
 											?>
 										</tbody>
 									</table>
-									<input id="update-phone-submit"type="submit" value="Submit"/>
+									<input id="update-phone-submit" name="phone_update" type="submit" value="Submit"/>
 									<input onclick="reload()" id="update-phone-cancel" type="submit" value="Cancel"/>
 								</form>
 								<button onclick="showPhoneUpdate()" id="update-phone-show">Update</button>
@@ -201,7 +201,7 @@
 											?>
 										</tbody>
 									</table>
-									<input id="update-address-submit"type="submit" value="Submit"/>
+									<input id="update-address-submit" name="address_update" type="submit" value="Submit"/>
 									<input onclick="reload()" id="update-address-cancel"type="submit" value="Cancel"/>
 								</form>
 								<button onclick="showAddressUpdate()" id="update-address-show">Update</button>
