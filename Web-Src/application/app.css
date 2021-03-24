@@ -21,10 +21,16 @@
 	width: calc(100vw - 280px);
 	z-index: 2;
 }
-	.appbar>.profile{
+	.appbar .profile{
 		margin: 10px 20px 10px 10px;
 	}
-	.appbar>.profile>img{
+	.appbar>.right .icon{
+		width: 40px;
+		height: 40px;
+		margin-top:10px;
+		margin-left: 10px;
+	}
+	.appbar .profile>img{
 		height: 40px;
 		background: var(--secondary_light);
 		cursor: pointer;
@@ -47,16 +53,22 @@
 	.appbar-special>.normalbar{
 		justify-content: space-between;
 	}
-	.appbar-special>.normalbar>.profile{
+	.appbar-special>.normalbar .profile{
 		margin: 10px 20px 10px 10px;
 	}
-	.appbar-special>.normalbar>.profile>img{
+	.appbar-special>.normalbar .profile>img{
 		height: 40px;
 		width: 40px;
 		cursor: pointer;
 		background: var(--secondary_light);
 		border-radius: 50%;
 		border: 0px;
+	}
+	.appbar-special>.normalbar>.right .icon{
+		width: 40px;
+		height: 40px;
+		margin-top:10px;
+		margin-left: 10px;
 	}
 	.appbar-special>.normalbar>.search{
 		margin: 11px 11px 11px 20px;
@@ -350,6 +362,15 @@
 	.userinfo>.info>.card>.action>.bookmarked:hover{
 		background-color: var(--front_success);
 		background-image: url(/assets/app/tick_hover.svg);
+		color: white;
+	}
+	.userinfo>.info>.card>.action>.message{
+		border: 2px solid var(--primary_dark);
+		background-color: rgba(0,0,0,0);
+		color: var(--primary_dark);
+	}
+	.userinfo>.info>.card>.action>.message:hover{
+		background: var(--primary_dark);
 		color: white;
 	}
 

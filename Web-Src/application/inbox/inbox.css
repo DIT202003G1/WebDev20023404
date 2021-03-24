@@ -80,3 +80,8 @@ form input, form textarea{
 form textarea{
 	height: 50%;
 }
+.success-notification{
+	background: var(--front_success);
+	color: white;
+	padding: 3px 15px;
+}
