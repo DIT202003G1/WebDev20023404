@@ -95,7 +95,7 @@ CREATE TABLE PasswordToken(
 	token varchar(64),
 	student_id int(8),
 	PRIMARY KEY (token),
-	FOREIGN KEY (token) REFERENCES StudentUser(student_id)
+	FOREIGN KEY (student_id) REFERENCES StudentUser(student_id)
 );
 
 -- DML (Pre-set values)
