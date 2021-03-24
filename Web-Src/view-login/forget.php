@@ -27,14 +27,14 @@
 						</div>
 						<div class="errmsg" style="display:<?= isset($_GET["ecode"]) ? "" : "none"  ?>;"><?= ($_GET["ecode"] == "-1") ? ($msg_field_empty) : ($msg_login_velidation[$_GET["efield"]][$_GET["ecode"]]) ?><?= ($_GET["etype"] == "server") ? (". ".$msg_server_admin) : ""?></div>
 						<div>
-							<form action="/php-includes/login.inc.php" method="post">
+							<form action="/php-includes/token_reset.inc.php" method="post">
 								<div class="inputGroup">
 									<div class="inputComponent content <?= $_GET["efield"]=="id" ? "error" : "" ?>">
 										<div class="label">
-											<i class="fas fa-user-alt fa-2x"></i>
+											<i class="fas fa-key fa-2x"></i>
 										</div>
 										<div class="input">
-											<input type="text" placeholder="Student ID" name="id"/>
+											<input type="text" placeholder="Reset Token" name="id"/>
 										</div>
 									</div>
 								</div>
@@ -44,15 +44,26 @@
 											<i class="fas fa-key fa-2x"></i>
 										</div>
 										<div class="input">
-											<input type="password" placeholder="Password" name="password"/>
+											<input type="password" placeholder="New Password" name="password"/>
 										</div>
 									</div>
 								</div>
 								<div class="inputGroup">
-									<input type="submit" value="Sign In" name="submit" class="light" />
+									<div class="inputComponent content <?= $_GET["efield"]=="password" ? "error" : "" ?>">
+										<div class="label">
+											<i class="fas fa-key fa-2x"></i>
+										</div>
+										<div class="input">
+											<input type="password" placeholder="Re-Enter Password" name="repassword"/>
+										</div>
+									</div>
+								</div>
+								<div class="inputGroup">
+									<input type="submit" value="Reset Password" name="submit" class="light" />
 								</div>
 							</form>
-							<a class="light" href="/view-login/forget.php">Password Recovery</a>
+							<a class="light" href="/view-login">Back to Sign In</a>
+							<p>Please request a <strong>password reset token</strong> from the website admin.</p>
 						</div>
 					</div>
 					<div class="secondaryOption">

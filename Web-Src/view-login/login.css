@@ -5,6 +5,14 @@ body{
 	background: url(/assets/backgrounds/college.jpg);
 	background-size: cover;
 }
+a{
+	text-decoration: underline;
+	color:var(--primary_dark);
+}
+a:hover{
+	background: var(--primary_dark);
+	color:white;
+}
 .errmsg{
 	margin-bottom: 20px;
 	background: var(--front_error);
