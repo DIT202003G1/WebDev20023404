@@ -98,6 +98,16 @@ CREATE TABLE PasswordToken(
 	FOREIGN KEY (student_id) REFERENCES StudentUser(student_id)
 );
 
+CREATE TABLE Messages(
+	sender_id int(8) NOT NULL,
+	target_id int(8) NOT NULL,
+	msg_index int(8) NOT NULL,
+	content longtext,
+	send_date date NOT NULL,
+	is_read bit(0) NOT NULL DEFAULT 0,
+	PRIMARY KEY (sender_id, target_id, msg_index)
+);
+
 -- DML (Pre-set values)
 
 insert into Countries(country_name,country_id) values
