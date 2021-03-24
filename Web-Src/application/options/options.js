@@ -32,7 +32,7 @@ function addRow(id){
 			_id(id).innerHTML +=`
 				<tr id="phone_${index}">
 					<td class="description"><input text="text" name="description_${index}"/></td>
-					<td class="content"><input type="text" name="email_${index}"/></td>
+					<td class="content"><input type="text" name="content_${index}"/></td>
 					<td class="shown"><input type="checkbox" name="hidden_${index}"/></td>
 				</tr>
 			`;

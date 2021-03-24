@@ -43,6 +43,7 @@ if (isset($_POST["email_update"])){
 	$result = $sql_client->query("DELETE FROM Emails WHERE student_id = ".$_SESSION["userid"]);
 	for ($i = 0; true; $i ++){
 		if (!isset($_POST["email_$i"])) break;
+		if (empty($_POST["email_$i"])) continue;
 		$stmt = $sql_client->prepare("INSERT INTO Emails VALUES (?,?,?,?,?);");
 		$isHidden = (isset($_POST["hidden_$i"])) ? "1" : "0";
 		$stmt->bind_param("iissi", $_SESSION["userid"], $i, $_POST["email_$i"], $_POST["description_$i"], $isHidden);
@@ -50,5 +51,30 @@ if (isset($_POST["email_update"])){
 		$stmt->close();
 	}
 }
-// header("Location: /application/options");
+if (isset($_POST["phone_update"])){
+	$result = $sql_client->query("DELETE FROM PhoneNum WHERE student_id = ".$_SESSION["userid"]);
+	for ($i = 0; true; $i ++){
+		if (!isset($_POST["content_$i"])) break;
+		if (empty($_POST["content_$i"])) continue;
+		$stmt = $sql_client->prepare("INSERT INTO PhoneNum VALUES (?,?,?,?,?);");
+		$isHidden = (isset($_POST["hidden_$i"])) ? "1" : "0";
+		$stmt->bind_param("iissi", $_SESSION["userid"], $i, $_POST["content_$i"], $_POST["description_$i"], $isHidden);
+		$stmt->execute();
+		$stmt->close();
+	}
+}
+if (isset($_POST["address_update"])){
+	$result = $sql_client->query("DELETE FROM Address WHERE student_id = ".$_SESSION["userid"]);
+	for ($i = 0; true; $i ++){
+		if (!isset($_POST["address_$i"])) break;
+		if (empty($_POST["address_$i"])) continue;
+		$stmt = $sql_client->prepare("INSERT INTO Address VALUES (?,?,?,?,?,?,?,?,?);");
+		$isHidden = (isset($_POST["hidden_$i"])) ? "1" : "0";
+		$address_lines = explode(", ",$_POST["address_$i"]);
+		$stmt->bind_param("iissssssi", $_SESSION["userid"], $i, trim($address_lines[0]), trim($address_lines[1]), $_POST["city_$i"], $_POST["state_$i"], $_POST["country_$i"], $_POST["description_$i"] ,$isHidden);
+		$stmt->execute();
+		$stmt->close();
+	}
+}
+header("Location: /application/options");
 exit();
