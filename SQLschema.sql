@@ -102,6 +102,7 @@ CREATE TABLE Messages(
 	sender_id int(8) NOT NULL,
 	target_id int(8) NOT NULL,
 	msg_index int(8) NOT NULL,
+	title varchar(256),
 	content longtext,
 	send_date date NOT NULL,
 	is_read bit(0) NOT NULL DEFAULT 0,
