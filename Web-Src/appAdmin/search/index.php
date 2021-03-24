@@ -197,7 +197,7 @@
 										</tr>
 										<tr>
 											<td class="inputLabel">Status</td>
-											<td>i
+											<td>
 												<div class="appInputGroup pass secondDesign">
 													<input type="text" style="<?=$statusStyle?>" readonly name="sd_status" value="<?=$status?>" />
 												</div>
