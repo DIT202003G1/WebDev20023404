@@ -11,7 +11,7 @@ function addBookmark($conn, $studentID, $targetID) {
     $result->close();
 
     $stmt = $conn->prepare("INSERT INTO Bookmarks VALUES (?, ?, ?);");
-    $stmt->bind_param("iii", $studentID, intval($bookmark_index), intval($targetID));
+    $stmt->bind_param("iii", $studentID, $bookmark_index, $targetID);
     $stmt->execute();
     $stmt->close();
 }
