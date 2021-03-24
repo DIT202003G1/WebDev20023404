@@ -198,7 +198,8 @@
 							echo '<div class="course">' . $user["course"] . '</div>';
 							echo '<div class="intake">' . $user["intake"] . '</div>';
 						?>
-						<div class="action"><button onclick="<?= 'addBookmark(' . $_GET["id"] . ', "/application/view/")' ?>" class="special bookmark">Bookmark</button></div>
+						<div class="action"><button onclick="addBookmark('<?=$_GET['id'] ?>', '/application/view/')" class="special bookmark">Bookmark</button></div>
+						<!--'addBookmark(' . $_GET["id"] . ', "/application/view/")' -->
 					</div>
 				</div>
 			</div>
