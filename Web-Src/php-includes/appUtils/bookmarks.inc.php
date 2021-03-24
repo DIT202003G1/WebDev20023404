@@ -22,29 +22,21 @@ function removeBookmark($conn, $studentID, $targetID) {
     $stmt->close();
 }
 
+$studentID = $_SESSION["userid"];
+$targetID = $_GET["id"];
+
 switch ($_GET["action"]) {
     case "add":
-        $studentID = $_SESSION["userid"];
-        $targetID = $_GET["id"];
-        $returnURI = isset($_GET["return_uri"]) ? $_GET["return_uri"] : "/application/view/?id=$targetID";
-
         addBookmark($sql_client, $studentID, $targetID);
-
-        header("Location: " . $returnURI);
-        
         break;
 
     case "remove":
-        $studentID = $_SESSION["userid"];
-        $targetID = $_GET["id"];
-        $returnURI = isset($_GET["return_uri"]) ? $_GET["return_uri"] : "/application/view/?id=$targetID";
-
         removeBookmark($sql_client, $studentID, $targetID);
-
-        header("Location: " . $returnURI);
-        
         break;
     
     default:
         break;
 }
+
+$returnURI = isset($_GET["return_uri"]) ? $_GET["return_uri"] : "/application/view/?id=$targetID";
+header("Location: " . $returnURI);
