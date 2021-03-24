@@ -96,6 +96,11 @@
 		$stmt->close();
 		return $user;
 	}
+	$bookmarked_query_result = [];
+	$result = $sql_client->query("SELECT * FROM Bookmarks WHERE student_id = ".$_SESSION["userid"].";");
+	while ($row = $result->fetch_assoc()){
+	array_push($bookmarked_query_result, $row["target_id"]);
+}
 ?>
 
 <html>
@@ -197,8 +202,11 @@
 							echo '<div class="name">' . $user["name"] . '</div>';
 							echo '<div class="course">' . $user["course"] . '</div>';
 							echo '<div class="intake">' . $user["intake"] . '</div>';
+							$bookmarked = (in_array($_GET["id"], $bookmarked_query_result)) ? "bookmarked" : "bookmark";
+							$bookmarked_text = (in_array($_GET["id"], $bookmarked_query_result)) ? "Bookmarkded" : "Bookmark";
+							$bookmarked_function = (in_array($_GET["id"], $bookmarked_query_result)) ? "removeBookmark" : "addBookmark";
 						?>
-						<div class="action"><button onclick="addBookmark('<?=$_GET['id'] ?>', '/application/view/')" class="special bookmark">Bookmark</button></div>
+						<div class="action"><button onclick="<?=$bookmarked_function?>('<?=$_GET['id'] ?>', '/application/view/')" class="special <?=$bookmarked?>"><?=$bookmarked_text?></button></div>
 						<!--'addBookmark(' . $_GET["id"] . ', "/application/view/")' -->
 					</div>
 				</div>
