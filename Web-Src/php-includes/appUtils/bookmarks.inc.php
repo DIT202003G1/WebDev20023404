@@ -20,7 +20,13 @@ switch ($_GET["action"]) {
     case "add":
         $studentID = $_SESSION["userid"];
         $targetID = $_GET["id"];
+        $returnURI = isset($_GET["return_uri"]) ? $_GET["return_uri"] : "/application/";
+
         addBookmark($sql_client, $studentID, $targetID);
+
+        header("Location: " . $returnURI);
+        
+        break;
     
     default:
         break;
