@@ -206,7 +206,7 @@
 							$bookmarked_text = (in_array($_GET["id"], $bookmarked_query_result)) ? "Bookmarkded" : "Bookmark";
 							$bookmarked_function = (in_array($_GET["id"], $bookmarked_query_result)) ? "removeBookmark" : "addBookmark";
 						?>
-						<div class="action"><button onclick="<?=$bookmarked_function?>('<?=$_GET['id'] ?>', '/application/view/')" class="special <?=$bookmarked?>"><?=$bookmarked_text?></button></div>
+						<div class="action"><button onclick="<?=$bookmarked_function?>('<?=$_GET['id'] ?>', '/application/view/?id=<?=$_GET['id'] ?>')" class="special <?=$bookmarked?>"><?=$bookmarked_text?></button></div>
 						<!--'addBookmark(' . $_GET["id"] . ', "/application/view/")' -->
 					</div>
 				</div>

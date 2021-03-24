@@ -15,14 +15,31 @@ function addBookmark($conn, $studentID, $targetID) {
     $stmt->execute();
     $stmt->close();
 }
+function removeBookmark($conn, $studentID, $targetID) {
+    $stmt = $conn->prepare("DELETE FROM Bookmarks WHERE student_id = ? AND target_id = ?");
+    $stmt->bind_param("ii", $studentID, $targetID);
+    $stmt->execute();
+    $stmt->close();
+}
 
 switch ($_GET["action"]) {
     case "add":
         $studentID = $_SESSION["userid"];
         $targetID = $_GET["id"];
-        $returnURI = isset($_GET["return_uri"]) ? $_GET["return_uri"] : "/application/";
+        $returnURI = isset($_GET["return_uri"]) ? $_GET["return_uri"] : "/application/view/?id=$targetID";
 
         addBookmark($sql_client, $studentID, $targetID);
+
+        header("Location: " . $returnURI);
+        
+        break;
+
+    case "remove":
+        $studentID = $_SESSION["userid"];
+        $targetID = $_GET["id"];
+        $returnURI = isset($_GET["return_uri"]) ? $_GET["return_uri"] : "/application/view/?id=$targetID";
+
+        removeBookmark($sql_client, $studentID, $targetID);
 
         header("Location: " . $returnURI);
         
