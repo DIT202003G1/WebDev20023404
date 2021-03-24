@@ -197,7 +197,7 @@
 										</tr>
 										<tr>
 											<td class="inputLabel">Status</td>
-											<td>
+											<td>i
 												<div class="appInputGroup pass secondDesign">
 													<input type="text" style="<?=$statusStyle?>" readonly name="sd_status" value="<?=$status?>" />
 												</div>
@@ -217,6 +217,16 @@
 										<input type="submit" class="light" value="Reset Password" name="reset" />
 										<input type="submit" class="light" value="<?=$blockButton?> Account" name="<?=$blockButtonName?>" />
 									</div>
+									<?php
+										if (isset($_GET["token"])){
+											$token = $_GET["token"];
+											echo"
+												<div class=\"inputGroup topMargin leftMargin\">
+													The reset token is: <br/> <code>$token</code>
+												</div>
+											";
+										}
+										?>
 								</form>
 							</div>
 							<!-- DETAILS -->

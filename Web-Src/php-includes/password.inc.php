@@ -25,3 +25,7 @@ function testPassword($raw,$salt,$hashed){
 	$result = $hashed == $raw_hashed;
 	return $result;
 }
+
+function generatePasswordToken(){
+	return hashPw(generateSalt());
+}

@@ -5,6 +5,7 @@ require("controlPanel.inc.php");
 require("../sessionUtils.inc.php");
 require("../database.inc.php");
 require("../dbUtils.inc.php");
+require("../password.inc.php");
 sessionRedirectAdminApp();
 
 function blockUser($client, $id){
@@ -38,6 +39,15 @@ if (isset($_POST["block"])){
 }
 if (isset($_POST["unblock"])){
 	unblockUser($sql_client, $_POST["sd_id"]);
+}
+if (isset($_POST["reset"])){
+	$token = generatePasswordToken();
+	$stmt = $sql_client->prepare("INSERT INTO PasswordToken VALUE (?,?);");
+	$stmt->bind_param("si",$token, $_POST["sd_id"]);
+	$stmt->execute();
+	$stmt->close();
+	header("Location: /appAdmin/search/?token=$token&id=". $_POST["sd_id"]);
+	exit();
 }
 if (!isset($_POST["sd_update"])){
 	header("Location: /appAdmin/search");
