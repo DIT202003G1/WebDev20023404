@@ -69,3 +69,14 @@ button:hover{
 	border: 2px solid var(--primary_dark);
 	padding: 2px 20px;
 }
+form{
+	height: 100%;
+}
+form input, form textarea{
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+form textarea{
+	height: 50%;
+}
