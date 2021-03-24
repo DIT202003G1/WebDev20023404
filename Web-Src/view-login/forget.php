@@ -25,7 +25,21 @@
 						<div class="titleFrame primary">
 							<h1 class="formTitle primary">Sign in to your ACMS account</h1>
 						</div>
-						<div class="errmsg" style="display:<?= isset($_GET["ecode"]) ? "" : "none"  ?>;"><?= ($_GET["ecode"] == "-1") ? ($msg_field_empty) : ($msg_login_velidation[$_GET["efield"]][$_GET["ecode"]]) ?><?= ($_GET["etype"] == "server") ? (". ".$msg_server_admin) : ""?></div>
+						<div class="errmsg" style="display:<?= isset($_GET["ecode"]) ? "" : "none"  ?>;">
+							<?php
+								// echo $msg_login_velidation;
+								if ($_GET["ecode"] === "-1"){
+									echo "Field cannot be empty";
+								}
+								else{
+									$errmsg = $msg_reset_velidation[$_GET["efield"]][$_GET["ecode"]];
+									echo $errmsg;
+								}
+								if ($_GET["etype"] === "server"){
+									echo " $msg_server_admin";
+								}
+							?>
+						</div>
 						<div>
 							<form action="/php-includes/token_reset.inc.php" method="post">
 								<div class="inputGroup">

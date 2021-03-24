@@ -25,6 +25,9 @@
 						<div class="titleFrame primary">
 							<h1 class="formTitle primary">Sign in to your ACMS account</h1>
 						</div>
+						<div class="errmsg" style="background-color:var(--front_success); display:<?= isset($_GET["reset"]) ? "" : "none"  ?>;">
+							Password has successfuly reset. Please use your new password to sign in.
+						</div>
 						<div class="errmsg" style="display:<?= isset($_GET["ecode"]) ? "" : "none"  ?>;"><?= ($_GET["ecode"] == "-1") ? ($msg_field_empty) : ($msg_login_velidation[$_GET["efield"]][$_GET["ecode"]]) ?><?= ($_GET["etype"] == "server") ? (". ".$msg_server_admin) : ""?></div>
 						<div>
 							<form action="/php-includes/login.inc.php" method="post">

@@ -73,7 +73,25 @@ $msg_login_velidation = [
 		"Database STMT Error"
 	]
 ];
-
+$msg_reset_velidation = [
+	"id"=>[
+		"SUCCESS",
+		"Unknown Token. Please request a new token from the website admin."
+	],
+	"password" => [
+		"SUCCESS",
+		"Password cannot contain your student ID",
+		"Password length has to be atleast 8",
+		"Password should contain atleast 1 Uppercase, Lowercase <strong>AND</strong> Special Characters each",
+	],
+	"repassword" =>[
+		"SUCCESS",
+		"",
+		"",
+		"",
+		"Password does not match"
+	]
+];
 $msg_register_velidation = [
 	"id" => [
 		"SUCCESS",
